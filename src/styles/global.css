@@ -1,3 +1,0 @@
-@import "tailwindcss/preflight"; /* базові стилі */
-@import "tailwindcss/tokens"; /* CSS-змінні */
-@tailwind utilities; /* утиліти */
