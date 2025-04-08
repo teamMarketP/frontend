@@ -3,6 +3,7 @@ import { lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout";
 import NotFoundPage from "../../pages/NotFound/NotFoundPage";
+import Footer from "@/components/Footer/Footer";
 
 const HomePage = lazy(() => import("../../pages/Home/HomePage"));
 const CatalogPage = lazy(() => import("../../pages/Catalog/CatalogPage"));
