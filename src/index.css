@@ -1,1 +1,51 @@
 @import "tailwindcss";
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+
+:root {
+  --color-fire: #aa4700;
+  --color-tenn: #cf5600;
+  --color-mineShaft: #2f2f2f;
+  --color-alabaster: #f9f9f9;
+  --color-wildSand: #f5f5f5;
+  --color-woodsmoke: #191919;
+  --color-shark: #272727;
+}
+
+@layer utilities {
+  .text-fire {
+    color: var(--color-tenn);
+  }
+
+  .bg-fire {
+    background-color: var(--color-tenn);
+  }
+
+  .border-fire {
+    border-color: var(--color-fire);
+  }
+
+  .text-mineShaft {
+    color: var(--color-mineShaft);
+  }
+
+  .text-alabaster {
+    color: var(--color-alabaster);
+  }
+
+  .bg-alabaster {
+    background-color: var(--color-alabaster);
+  }
+
+  .text-woodsmoke {
+    color: var(--color-woodsmoke);
+  }
+
+  .text-shark {
+    color: var(--color-shark);
+  }
+
+  .text-wildSand {
+    color: var(--color-wildSand);
+  }
+}
