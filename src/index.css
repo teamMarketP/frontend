@@ -1,6 +1,4 @@
 @import "tailwindcss";
-@import "tailwindcss/preflight";
-@import "tailwindcss/utilities";
 
 /* :root {
   --color-fire: #aa4700;
@@ -10,42 +8,40 @@
   --color-wildSand: #f5f5f5;
   --color-woodsmoke: #191919;
   --color-shark: #272727;
-}
+}*/
 
 @layer utilities {
-  .text-fire {
-    color: var(--color-tenn);
+  .t-brand {
+    @apply text-[#aa4700];
+  }
+  .t-orange {
+    @apply text-[#cf5600];
+  }
+  .t-light {
+    @apply text-[#f9f9f9];
+  }
+  .t-concrete {
+    @apply text-[#f5f5f5];
+  }
+  .t-blackish {
+    @apply text-[#191919];
+  }
+  .t-blacker {
+    @apply text-[#272727];
+  }
+  .t-graylight {
+    @apply text-[#2f2f2f];
   }
 
-  .bg-fire {
-    background-color: var(--color-tenn);
+  .bg-brand {
+    @apply bg-[#aa4700];
   }
 
-  .border-fire {
-    border-color: var(--color-fire);
+  .bg-white {
+    @apply bg-[#fff];
   }
 
-  .text-mineShaft {
-    color: var(--color-mineShaft);
+  .bg-light {
+    @apply bg-[#f9f9f9];
   }
-
-  .text-alabaster {
-    color: var(--color-alabaster);
-  }
-
-  .bg-alabaster {
-    background-color: var(--color-alabaster);
-  }
-
-  .text-woodsmoke {
-    color: var(--color-woodsmoke);
-  }
-
-  .text-shark {
-    color: var(--color-shark);
-  }
-
-  .text-wildSand {
-    color: var(--color-wildSand);
-  }
-} */
+}
