@@ -42,13 +42,13 @@
   --font-second: "Inter", "sans-serif";
   --font-third: "Aclonica", "sans-serif";
 
-  --color-brand: "#aa4700";
-  --color-orange: "#cf5600";
-  --color-graylight: "#2f2f2f";
-  --color-light: "#f9f9f9";
-  --color-concrete: "#f5f5f5";
-  --color-blackish: "#191919";
-  --color-blacker: "#272727";
+  --color-fire: #aa4700;
+  --color-tenn: #cf5600;
+  --color-mineShaft: #2f2f2f;
+  --color-alabaster: #f9f9f9;
+  --color-wildSand: #f5f5f5;
+  --color-woodsmoke: #191919;
+  --color-shark: #272727;
 }
 
 body {
