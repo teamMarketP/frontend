@@ -1,11 +1,11 @@
-import "./App.css";
-import { lazy } from "react";
-import { Routes, Route } from "react-router-dom";
-import MainLayout from "../Layout/MainLayout";
-import NotFoundPage from "../../pages/NotFound/NotFoundPage";
+import '@/App.css';
+import { lazy } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import NotFoundPage from '@/pages/NotFound/NotFoundPage';
+import MainLayout from '@/components/Layout/MainLayout';
 
-const HomePage = lazy(() => import("../../pages/Home/HomePage"));
-const CatalogPage = lazy(() => import("../../pages/Catalog/CatalogPage"));
+const HomePage = lazy(() => import('@/pages/Home/HomePage'));
+const CatalogPage = lazy(() => import('@/pages/Catalog/CatalogPage'));
 
 function App() {
   return (
