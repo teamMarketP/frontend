@@ -2,7 +2,7 @@
 @import "tailwindcss/preflight";
 @import "tailwindcss/utilities";
 
-:root {
+/* :root {
   --color-fire: #aa4700;
   --color-tenn: #cf5600;
   --color-mineShaft: #2f2f2f;
@@ -48,4 +48,4 @@
   .text-wildSand {
     color: var(--color-wildSand);
   }
-}
+} */
