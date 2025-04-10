@@ -1,1 +1,68 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/src/assets/fonts/Open_Sans/OpenSans-Regular.woff2') format('woff2'),
+    url("/src/assets/fonts/Open_Sans/OpenSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/src/assets/fonts/Open_Sans/OpenSans-SemiBold.woff2') format('woff2'),
+    url("/src/assets/fonts/Open_Sans/OpenSans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/src/assets/fonts/Open_Sans/OpenSans-Bold.woff2') format('woff2'),
+    url("/src/assets/fonts/Open_Sans/OpenSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/src/assets/fonts/Inter/Inter_24pt-SemiBold.woff2') format('woff2'),
+    url("/src/assets/fonts/Inter/Inter_24pt-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aclonica";
+  src: url('/src/assets/fonts/Aclonica/Aclonica-Regular.woff2') format('woff2'),
+    url("/src/assets/fonts/Aclonica-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-primary: "Open Sans", "sans-serif";
+  --font-second: "Inter", "sans-serif";
+  --font-third: "Aclonica", "sans-serif";
+
+  --color-fire: #aa4700;
+  --color-tenn: #cf5600;
+  --color-mineShaft: #2f2f2f;
+  --color-alabaster: #f9f9f9;
+  --color-wildSand: #f5f5f5;
+  --color-woodsmoke: #191919;
+  --color-shark: #272727;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  background-color: var(--color-light);
+  color: var(--color-graylight);
+}
