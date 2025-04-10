@@ -1,153 +1,121 @@
+import sprite from "../../../assets/sprite.svg";
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-t from-[#6d2e01] to-[#ce5601] text-white rounded-t-[60px] w-full py-[43px] pb-[20px]">
-      <div className="max-w-[1281px] mx-auto flex flex-wrap justify-between items-start pl-[121px] pr-[119px]">
+    <footer className="bg-gradient-to-t from-[#6d2e01] to-[#ce5601] text-white rounded-t-[60px] w-full  pl-[121px] pr-[119px]">
+      <div className="flex flex-nowrap items-start mb-[50px] pl-[121px] pr-[119px]">
         {/* Column 1 */}
-        <div className="w-[90px] h-[146px] mr-[112px]">
-          <h3 className="font-semibold mb-4 text-[18px]">Про нас</h3>
-          <ul className="space-y-2 text-sm">
+        <div className="w-[90px] pt-[61px] mr-[112px]">
+          <h3 className="font-semibold mb-[15px] text-xl">Про нас</h3>
+          <ul className="leading-[2.5] text-base font-normal text-[#f9f9f9] font-primary">
             <li>
-              <a href="#" className="hover:underline">
-                Про проєкт
-              </a>
+              <a href="#">Про проєкт</a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
-                Контакти
-              </a>
+              <a href="#">Контакти</a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
-                Щоденник
-              </a>
+              <a href="#">Щоденник</a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
-                PetsHelp
-              </a>
+              <a href="#">PetsHelp</a>
             </li>
           </ul>
         </div>
 
         {/* Column 2 */}
-        <div className="w-[183px] h-[146px] mr-[62px]">
-          <h3 className="font-semibold mb-4 text-[18px]">Як це працює</h3>
-          <ul className="space-y-2 text-sm">
+        <div className="w-[183px] pt-[61px] mr-[62px]">
+          <h3 className="font-semibold mb-[15px] text-xl">Як це працює</h3>
+          <ul className="leading-[2.5] text-base font-normal text-[#f9f9f9] font-primary">
             <li>
-              <a href="#" className="hover:underline">
-                Як замовити послугу
-              </a>
+              <a href="#">Як замовити послугу</a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
-                Переваги для компаній
-              </a>
+              <a href="#">Переваги для компаній</a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
-                Гарантії та безпека
-              </a>
+              <a href="#">Гарантії та безпека</a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
-                Останні відгуки
-              </a>
+              <a href="#">Останні відгуки</a>
             </li>
           </ul>
         </div>
 
-        {/* Center Block: Logo, Icons, Text */}
-        <div className="flex flex-col items-center justify-start space-y-4 mr-[62px]">
-          <div className="flex items-center gap-2">
-            <p className="text-[18px] font-normal text-[#f9f9f9]">PETS</p>
-            <svg className="w-[61px] h-[39px]" aria-hidden="true">
-              <use href="#icon-logo" />
+        {/* Column 3: Лого + соцмережі + текст */}
+        <div className="flex flex-col items-center  pt-[43px] mr-[52px]">
+          {/* Логотип */}
+          <div className="flex items-center w-[164px] mb-[73px]">
+            <p className="text-lg font-normal text-[#f9f9f9] font-third">
+              PETS
+            </p>
+            <svg className="w-[25px] h-[25px] fill-[#f9f9f9] ">
+              <use xlinkHref={`${sprite}#icon-logo`} />
+              <use xlinkHref={`${sprite}#icon-logo`} />
             </svg>
-            <p className="text-[18px] font-normal text-[#f9f9f9]">HELP</p>
+            <p className="text-lg font-normal text-[#f9f9f9] font-third">
+              HELP
+            </p>
           </div>
-          <div className="flex gap-4">
-            <a
-              href="#"
-              aria-label="Viber"
-              className="hover:opacity-80 transition"
-            >
-              <svg className="w-6 h-6 fill-white">
-                <use href="#icon-viber" />
+
+          {/* Соцмережі */}
+          <div className="flex gap-[29px] flex-row justify-start items-center w-[164px]">
+            <a href="#" aria-label="Viber">
+              <svg className="w-[27px] h-[27px] fill-white">
+                <use xlinkHref={`${sprite}#icon-viber`} />
               </svg>
             </a>
-            <a
-              href="#"
-              aria-label="Instagram"
-              className="hover:opacity-80 transition"
-            >
-              <svg className="w-6 h-6 fill-white">
-                <use href="#icon-instagram" />
+            <a href="#" aria-label="Instagram">
+              <svg className="w-[27px] h-[26px] fill-white">
+                <use xlinkHref={`${sprite}#icon-instagram`} />
               </svg>
             </a>
-            <a
-              href="#"
-              aria-label="Facebook"
-              className="hover:opacity-80 transition"
-            >
-              <svg className="w-6 h-6 fill-white">
-                <use href="#icon-facebook" />
+            <a href="#" aria-label="Facebook">
+              <svg className="w-[26px] h-[25px] fill-white">
+                <use xlinkHref={`${sprite}#icon-facebook`} />
               </svg>
             </a>
-          </div>
-          <div className="text-xs text-white mt-2">
-            &copy; 2025 PetsHelp marketplace
           </div>
         </div>
 
         {/* Column 4 */}
-        <div className="w-[208px] h-[146px] mr-[23px]">
-          <h3 className="font-semibold mb-4 text-[18px]">Допомога</h3>
-          <ul className="space-y-2 text-sm">
+        <div className="w-[208px] pt-[61px] mr-[23px]">
+          <h3 className="font-semibold mb-[15px] text-xl">Допомога</h3>
+          <ul className="leading-[2.5] text-base font-normal text-[#f9f9f9] font-primary">
             <li>
-              <a href="#" className="hover:underline">
-                Питання та відповіді
-              </a>
+              <a href="#">Питання та відповіді</a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
-                Правила конфіденційності
-              </a>
+              <a href="#">Правила конфіденційності</a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
-                Служба підтримки
-              </a>
+              <a href="#">Служба підтримки</a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
-                Публічна оферта
-              </a>
+              <a href="#">Публічна оферта</a>
             </li>
           </ul>
         </div>
 
         {/* Column 5 */}
-        <div className="w-[152px] h-[111px]">
-          <h3 className="font-semibold mb-4 text-[18px]">Посилання</h3>
-          <ul className="space-y-2 text-sm">
+        <div className="w-[152px] pt-[61px]">
+          <h3 className="font-semibold mb-[15px] text-xl">Посилання</h3>
+          <ul className="leading-[2.5] text-base font-normal text-[#f9f9f9] font-primary">
             <li>
-              <a href="#" className="hover:underline">
-                Всі категорії послуг
-              </a>
+              <a href="#">Всі категорії послуг</a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
-                Популярні послуги
-              </a>
+              <a href="#">Популярні послуги</a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
-                Топ спеціалістів
-              </a>
+              <a href="#">Топ спеціалістів</a>
             </li>
           </ul>
         </div>
       </div>
+      {/* Текст */}
+      <p className="text-xs text-white pb-5 text-center text-primary">
+        &copy; 2025 PetsHelp marketplace
+      </p>
     </footer>
   );
 };
