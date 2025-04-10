@@ -1,40 +1,48 @@
 @import "tailwindcss";
-/* @import "tailwindcss/preflight"; */
-@import "tailwindcss/utilities";
 
 @font-face {
   font-family: 'Open Sans';
-  src: url('/src/assets/fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype');
+  src: url('/src/assets/fonts/Open_Sans/OpenSans-Regular.woff2') format('woff2'),
+    url("/src/assets/fonts/Open_Sans/OpenSans-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Open Sans';
-  src: url('/src/assets/fonts/Open_Sans/OpenSans-SemiBold.ttf') format('truetype');
+  src: url('/src/assets/fonts/Open_Sans/OpenSans-SemiBold.woff2') format('woff2'),
+    url("/src/assets/fonts/Open_Sans/OpenSans-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Open Sans';
-  src: url('/src/assets/fonts/Open_Sans/OpenSans-Bold.ttf') format('truetype');
+  src: url('/src/assets/fonts/Open_Sans/OpenSans-Bold.woff2') format('woff2'),
+    url("/src/assets/fonts/Open_Sans/OpenSans-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Inter';
-  src: url('/src/assets/fonts/Inter/Inter_24pt-SemiBold.ttf') format('truetype');
+  src: url('/src/assets/fonts/Inter/Inter_24pt-SemiBold.woff2') format('woff2'),
+    url("/src/assets/fonts/Inter/Inter_24pt-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Aclonica";
-  src: url("/src/assets/fonts/Aclonica-Regular.ttf") format("truetype");
+  src: url('/src/assets/fonts/Aclonica/Aclonica-Regular.woff2') format('woff2'),
+    url("/src/assets/fonts/Aclonica-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @theme {
@@ -59,41 +67,6 @@ body {
   color: var(--color-graylight);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-}
-
-p:last-child {
-  margin-bottom: 0;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-a {
-  color: currentColor;
-  text-decoration: none;
-}
-
 button {
   cursor: pointer;
-  border: none;
-  background: none;
-  font-family: inherit;
-  outline: none;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
 }
