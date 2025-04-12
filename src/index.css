@@ -67,6 +67,6 @@ body {
   color: var(--color-graylight);
 }
 
-button {
+button:not(:disabled) {
   cursor: pointer;
 }
