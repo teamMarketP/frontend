@@ -6,7 +6,7 @@ import { UserActions } from './UserActions';
 
 const Header: React.FC = () => {
   return (
-    <header className="bg-alabaster py-2 shadow-sm font-primary">
+    <header className="bg-alabaster py-2 shadow-sm font-primary rounded-md">
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Left block: Language, Nav, Mobile toggle */}
         <div className="flex items-center gap-4">
