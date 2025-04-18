@@ -4,7 +4,7 @@ import clsx from 'clsx';
 type ButtonProps = {
   label: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
-  type?: 'button' | 'submit' | 'reset';
+  type: 'button' | 'submit' | 'reset';
   disabled?: boolean;
   className?: string; // Проп для передачі кастомних класів
 };
@@ -14,12 +14,12 @@ const Button: FC<ButtonProps> = ({
   onClick,
   type = 'button',
   disabled = false,
-  className = '',
+  className,
 }) => {
   const buttonClass = clsx(
-    'bg-tenn text-alabaster rounded-[10px] hover:bg-tenn/80 transition ease-in-out duration-300', // Загальні стилі для всіх кнопок
+    'btn', // Загальні стилі для всіх кнопок
     {
-      'cursor-not-allowed opacity-50': disabled,
+      'btn-disabled': disabled,
     },
     className
   );
