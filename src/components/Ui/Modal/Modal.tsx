@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { FC, useEffect } from 'react';
-// import sprite from '../../../assets/sprite.svg';
 
 type ModalProps = {
   isOpen: boolean;
@@ -27,29 +26,32 @@ const Modal: FC<ModalProps> = ({
     return () => document.removeEventListener('keydown', handleEsc);
   }, [isOpen, onClose]);
 
-  if (isOpen) return null;
+  if (!isOpen) return null;
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50  "
+      className={clsx(
+        'fixed inset-0 z-50 flex justify-center items-start bg-gray-400/20 transition-opacity duration-800 ease-in-out',
+        isOpen
+          ? 'opacity-100 pointer-events-auto'
+          : 'opacity-0 pointer-events-none'
+      )}
       onClick={onClose}
     >
       <div
         className={clsx(
-          'modal-box relative bg-white rounded-2xl w-[496px] py-[40px] px-[96px]',
+          'absolute top-[91px] bg-alabaster rounded-2xl w-[496px] py-[40px] px-[96px] transition-all duration-800 ease-in-out transform',
+          isOpen
+            ? 'opacity-100 scale-100 translate-y-0'
+            : 'opacity-0 scale-95 -translate-y-4',
           className
         )}
         onClick={e => e.stopPropagation()} // Щоб клік по модалці не закривав
       >
         <button
-          className=" absolute right-[29px] top-[26px] text-fiery-orange hover:text-gray-800"
+          className="icon-close absolute right-[29px] top-[26px] text-fiery-orange hover:text-gray-800"
           onClick={onClose}
-        >
-          Х
-          {/* <svg className="w-[12px] h-[12px] fill-[#b74c00] stroke-amber-400">
-            <use xlinkHref={`${sprite}#icon-vector`} />
-          </svg> */}
-        </button>
+        ></button>
         <div>{children}</div>
       </div>
     </div>

@@ -3,16 +3,26 @@ import { Link } from 'react-router-dom';
 
 const RegisterForm = () => {
   return (
-    <div className="flex flex-col gap-3 text-center">
+    <div className="flex flex-col gap-[16px] text-center">
       <h3 className="text-fire capitalize">РЕЄСТРАЦІЯ</h3>
-      <Button label="Увійти з Google" type="submit" disabled />
+
+      <Button
+        label="Увійти з Google"
+        type="submit"
+        disabled
+        className="btn-icon"
+        icon={
+          <svg className="w-[21px] h-[21px] fill-gray-400 ">
+            <use href="/icons.svg#icon-google2" />
+          </svg>
+        }
+      />
       <p className="text-[11px] text-mineShaft">або заповніть форму</p>
 
-      <form className="flex flex-col gap-3 text-center">
+      <form className="flex flex-col gap-[16px] text-center">
         <input
           type="text"
           placeholder="Прізвище та ім'я"
-          // className="input input-bordered w-full"
           className=" input-base"
           required
         />
