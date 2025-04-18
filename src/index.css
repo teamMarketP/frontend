@@ -44,6 +44,7 @@
 
   --color-fire: #aa4700;
   --color-tenn: #cf5600;
+  --color-fiery-orange: #b74c00;
   --color-mineShaft: #2f2f2f;
   --color-alabaster: #f9f9f9;
   --color-wildSand: #f5f5f5;
@@ -59,40 +60,10 @@ body {
   color: var(--color-mineShaft);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-}
 
-p:last-child {
-  margin-bottom: 0;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-a {
-  color: currentColor;
-  text-decoration: none;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  font-family: inherit;
-  outline: none;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+@layer components {
+  .input-base {
+    /* @apply w-full p-2 border rounded-md text-sm text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500; */
+    @apply w-full border-2 border-fire rounded-2xl h-[40px] px-[20px]
+  }
 }
