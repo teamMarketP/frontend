@@ -81,7 +81,7 @@ export const UserActions = () => {
         Увійти як фахівець
       </button>
       <Modal isOpen={openLoginModal} onClose={() => setOpenLoginModal(false)}>
-        <RegisterForm />
+        <LoginForm />
       </Modal>
 
       <button
@@ -95,7 +95,7 @@ export const UserActions = () => {
         isOpen={openRegisterModal}
         onClose={() => setOpenRegisterModal(false)}
       >
-        <LoginForm />
+        <RegisterForm />
       </Modal>
     </div>
   );
