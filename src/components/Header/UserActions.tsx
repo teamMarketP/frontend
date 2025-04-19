@@ -76,27 +76,24 @@ export const UserActions = () => {
       <button
         className="hover:text-mineShaft transition-colors"
         type="button"
-        onClick={() => setOpenRegisterModal(true)}
+        onClick={() => setOpenLoginModal(true)}
       >
         Увійти як фахівець
       </button>
-      <Modal
-        isOpen={openLoginModal}
-        onClose={() => setOpenRegisterModal(false)}
-      >
+      <Modal isOpen={openLoginModal} onClose={() => setOpenLoginModal(false)}>
         <RegisterForm />
       </Modal>
 
       <button
         className="hover:text-mineShaft transition-colors"
         type="button"
-        onClick={() => setOpenLoginModal(true)}
+        onClick={() => setOpenRegisterModal(true)}
       >
         Стати фахівцем
       </button>
       <Modal
         isOpen={openRegisterModal}
-        onClose={() => setOpenLoginModal(false)}
+        onClose={() => setOpenRegisterModal(false)}
       >
         <LoginForm />
       </Modal>
