@@ -6,7 +6,7 @@ import { Suspense } from 'react';
 const MainLayout = () => {
   return (
     <>
-      <div className="px-4 my-2">
+      <div className="px-6 my-2">
         <Header />
       </div>
       <main>
