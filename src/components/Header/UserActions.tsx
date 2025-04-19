@@ -1,6 +1,6 @@
 export const UserActions = () => {
   return (
-    <div className="flex gap-4 text-sm text-fire">
+    <div className="flex gap-6 text-sm text-fire">
       <a href="/login" className="hover:text-mineShaft transition-colors">
         Увійти як фахівець
       </a>

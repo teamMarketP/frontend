@@ -3,7 +3,7 @@ export const Navigation = () => {
     <nav>
       <a
         href="/services"
-        className="text-fire text-sm hover:text-mineShaft transition-colors"
+        className="flex text-fire text-sm hover:text-mineShaft transition-colors"
       >
         Сервіси
       </a>
