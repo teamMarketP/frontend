@@ -2,9 +2,12 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-t from-red-beech to-fiery-tenn text-alabaster  rounded-t-[60px] w-full pt-[29px] pr-[121px] pb-[25px] pl-[119px] flex flex-col items-center max-w-[1280px] mx-auto">
+    <footer className="bg-gradient-to-t from-red-beech to-fiery-tenn text-alabaster  rounded-t-[60px] w-full pt-[29px] px-[120px] pb-[25px]  flex flex-col items-center max-w-[1280px] mx-auto">
       {/* Логотип */}
-      <Link to="/" className="flex items-baseline justify-center  mb-[39px]">
+      <Link
+        to="/"
+        className="flex items-baseline justify-center gap-1 mb-[39px]"
+      >
         <span className="text-lg text-alabaster font-third">PETS</span>
         <svg className="w-[61px] h-[39px] fill-alabaster">
           <use href="/icons.svg#icon-logo" />
@@ -16,7 +19,7 @@ const Footer = () => {
       <div className="flex gap-[138px] mb-[31px]">
         <div>
           <h3 className="font-semibold text-[20px] mb-[10px]">Про нас</h3>
-          <ul>
+          <ul className="leading-[2.5]">
             <li>
               <Link to="#">Про проєкт</Link>
             </li>
@@ -28,7 +31,7 @@ const Footer = () => {
 
         <div>
           <h3 className="font-semibold text-[20px] mb-[10px]">Допомога</h3>
-          <ul>
+          <ul className="leading-[2.5]">
             <li>
               <Link to="#">Питання та відповіді</Link>
             </li>
@@ -46,7 +49,7 @@ const Footer = () => {
 
         <div>
           <h3 className="font-semibold text-[20px] mb-[10px]">Як це працює</h3>
-          <ul>
+          <ul className="leading-[2.5]">
             <li>
               <Link to="#">Як замовити послугу?</Link>
             </li>
@@ -55,7 +58,7 @@ const Footer = () => {
 
         <div>
           <h3 className="font-semibold text-[20px] mb-[10px]">Посилання</h3>
-          <ul>
+          <ul className="leading-[2.5]">
             <li>
               <Link to="#">Вигул</Link>
             </li>
@@ -70,7 +73,10 @@ const Footer = () => {
       </div>
 
       {/* Копірайт */}
-      <p className="text-xs text-center">&copy; 2025 PetsHelp marketplace</p>
+      <p className="text-xs text-center text-alabaster">
+        <span className="mr-[9px]">&copy;</span>
+        2025 PetsHelp marketplace
+      </p>
     </footer>
   );
 };
