@@ -2,7 +2,7 @@ export const Navigation = () => {
   return (
     <nav>
       <a
-        href="/services"
+        href="#"
         className="flex text-fire text-sm hover:text-mineShaft transition-colors"
       >
         Сервіси
