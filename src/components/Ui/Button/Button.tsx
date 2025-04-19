@@ -1,8 +1,9 @@
-import { FC, MouseEventHandler } from 'react';
+import { FC, MouseEventHandler, ReactNode } from 'react';
 import clsx from 'clsx';
 
 type ButtonProps = {
   label: string;
+  icon?: ReactNode;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   type: 'button' | 'submit' | 'reset';
   disabled?: boolean;
@@ -11,6 +12,7 @@ type ButtonProps = {
 
 const Button: FC<ButtonProps> = ({
   label,
+  icon,
   onClick,
   type = 'button',
   disabled = false,
@@ -31,7 +33,10 @@ const Button: FC<ButtonProps> = ({
       type={type}
       disabled={disabled}
     >
-      {label}
+      {icon && (
+        <span className="absolute left-[20px] flex items-center">{icon}</span>
+      )}
+      <span>{label}</span>
     </button>
   );
 };
