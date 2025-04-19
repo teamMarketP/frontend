@@ -1,9 +1,9 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @font-face {
   font-family: 'Open Sans';
   src: url('/src/assets/fonts/Open_Sans/OpenSans-Regular.woff2') format('woff2'),
-    url("/src/assets/fonts/Open_Sans/OpenSans-Regular.ttf") format("truetype");
+    url('/src/assets/fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -11,8 +11,9 @@
 
 @font-face {
   font-family: 'Open Sans';
-  src: url('/src/assets/fonts/Open_Sans/OpenSans-SemiBold.woff2') format('woff2'),
-    url("/src/assets/fonts/Open_Sans/OpenSans-SemiBold.ttf") format("truetype");
+  src: url('/src/assets/fonts/Open_Sans/OpenSans-SemiBold.woff2')
+      format('woff2'),
+    url('/src/assets/fonts/Open_Sans/OpenSans-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -21,7 +22,7 @@
 @font-face {
   font-family: 'Open Sans';
   src: url('/src/assets/fonts/Open_Sans/OpenSans-Bold.woff2') format('woff2'),
-    url("/src/assets/fonts/Open_Sans/OpenSans-Bold.ttf") format("truetype");
+    url('/src/assets/fonts/Open_Sans/OpenSans-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -30,25 +31,25 @@
 @font-face {
   font-family: 'Inter';
   src: url('/src/assets/fonts/Inter/Inter_24pt-SemiBold.woff2') format('woff2'),
-    url("/src/assets/fonts/Inter/Inter_24pt-SemiBold.ttf") format("truetype");
+    url('/src/assets/fonts/Inter/Inter_24pt-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Aclonica";
+  font-family: 'Aclonica';
   src: url('/src/assets/fonts/Aclonica/Aclonica-Regular.woff2') format('woff2'),
-    url("/src/assets/fonts/Aclonica-Regular.ttf") format("truetype");
+    url('/src/assets/fonts/Aclonica-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @theme {
-  --font-primary: "Open Sans", "sans-serif";
-  --font-second: "Inter", "sans-serif";
-  --font-third: "Aclonica", "sans-serif";
+  --font-primary: 'Open Sans', 'sans-serif';
+  --font-second: 'Inter', 'sans-serif';
+  --font-third: 'Aclonica', 'sans-serif';
 
   --color-fire: #aa4700;
   --color-tenn: #cf5600;
@@ -79,7 +80,7 @@ button:not(:disabled) {
 
 @layer components {
   .btn {
-    @apply bg-tenn text-alabaster rounded-2xl px-5 min-w-[200px] h-[40px] transition-shadow duration-300 ease-in-out;
+    @apply bg-tenn text-alabaster rounded-2xl px-5 min-w-full h-[40px] transition-shadow duration-300 ease-in-out;
   }
 
   .btn:hover {
