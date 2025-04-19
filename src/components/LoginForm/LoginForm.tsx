@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const LoginForm = () => {
   return (
     <div className="flex flex-col gap-[16px] text-center">
-      <h3 className="text-fire capitalize">УВІЙТИ</h3>
+      <h3 className="text-fire uppercase">УВІЙТИ</h3>
 
       <Button
         label="Увійти з Google"
@@ -12,8 +12,8 @@ const LoginForm = () => {
         disabled
         className="btn-icon"
         icon={
-          <svg className="w-[21px] h-[21px] fill-gray-400 ">
-            <use href="/icons.svg#icon-google2" />
+          <svg className="w-[28px] h-[28px] fill-gray-400 ">
+            <use href="/icons.svg#icon-google" />
           </svg>
         }
       />
