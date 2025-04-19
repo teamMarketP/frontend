@@ -8,11 +8,11 @@ const Footer = () => {
         to="/"
         className="flex items-baseline justify-center gap-1 mb-[39px]"
       >
-        <span className="text-lg text-alabaster font-third">PETS</span>
+        <span className="text-lg  font-third">PETS</span>
         <svg className="w-[61px] h-[39px] fill-alabaster">
           <use href="/icons.svg#icon-logo" />
         </svg>
-        <span className="text-lg text-alabaster font-third">HELP</span>
+        <span className="text-lg font-third">HELP</span>
       </Link>
 
       {/* 4 колонки */}
