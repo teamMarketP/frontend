@@ -73,7 +73,7 @@ const Footer = () => {
       </div>
 
       {/* Копірайт */}
-      <p className="text-xs text-center text-alabaster">
+      <p className="text-xs text-center">
         <span className="mr-[9px]">&copy;</span>
         2025 PetsHelp marketplace
       </p>
