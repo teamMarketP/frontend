@@ -1,77 +1,76 @@
-import sprite from '@/assets/sprite.svg';
+import { Link } from 'react-router-dom';
+
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-t from-[#6d2e01] to-[#ce5601] text-white rounded-t-[60px] w-full  pt-[29px] pr-[121px] pb-[25px] pl-[119px] flex flex-col items-center  max-w-[1280px] mx-auto ">
+    <footer className="bg-gradient-to-t from-red-beech to-fiery-tenn text-alabaster  rounded-t-[60px] w-full pt-[29px] pr-[121px] pb-[25px] pl-[119px] flex flex-col items-center max-w-[1280px] mx-auto">
       {/* Логотип */}
-      <div className="flex items-end justify-center h-[38px] mb-[39px]">
-        <p className="text-base font-third text-alabaster leading-none">PETS</p>
-        <svg className="w-[61px] h-[39px] fill-[#f9f9f9] mx-[4px]">
-          <use xlinkHref={`${sprite}#icon-logo`} />
+      <Link to="/" className="flex items-baseline justify-center  mb-[39px]">
+        <span className="text-lg text-alabaster font-third">PETS</span>
+        <svg className="w-[61px] h-[39px] fill-alabaster">
+          <use href="/icons.svg#icon-logo" />
         </svg>
-        <p className="text-base font-third text-alabaster leading-none">HELP</p>
-      </div>
+        <span className="text-lg text-alabaster font-third">HELP</span>
+      </Link>
 
       {/* 4 колонки */}
       <div className="flex gap-[138px] mb-[31px]">
-        <ul>
-          <li className="font-semibold text-[20px] mb-[10px] text-alabaster font-primary">
-            Про нас
-          </li>
-          <li className="font-normal text-[16px] leading-[2.5] text-alabaster font-primary">
-            <a href="#">Про проєкт</a>
-          </li>
-          <li className="font-normal text-[16px] leading-[2.5] text-alabaster font-primary">
-            <a href="#">Контакти</a>
-          </li>
-        </ul>
+        <div>
+          <h3 className="font-semibold text-[20px] mb-[10px]">Про нас</h3>
+          <ul>
+            <li>
+              <Link to="#">Про проєкт</Link>
+            </li>
+            <li>
+              <Link to="#">Контакти</Link>
+            </li>
+          </ul>
+        </div>
 
-        <ul>
-          <li className="font-semibold text-[20px] mb-[10px] text-alabaster font-primary">
-            Допомога
-          </li>
-          <li className="font-normal text-[16px] leading-[2.5] text-alabaster font-primary">
-            <a href="#">Питання та відповіді</a>
-          </li>
-          <li className="font-normal text-[16px] leading-[2.5] text-alabaster font-primary">
-            <a href="#">Правила конфіденційності</a>
-          </li>
-          <li className="font-normal text-[16px] leading-[2.5] text-alabaster font-primary">
-            <a href="#">Служба підтримки</a>
-          </li>
-          <li className="font-normal text-[16px] leading-[2.5] text-alabaster font-primary">
-            <a href="#">Публічна оферта</a>
-          </li>
-        </ul>
+        <div>
+          <h3 className="font-semibold text-[20px] mb-[10px]">Допомога</h3>
+          <ul>
+            <li>
+              <Link to="#">Питання та відповіді</Link>
+            </li>
+            <li>
+              <Link to="#">Правила конфіденційності</Link>
+            </li>
+            <li>
+              <Link to="#">Служба підтримки</Link>
+            </li>
+            <li>
+              <Link to="#">Публічна оферта</Link>
+            </li>
+          </ul>
+        </div>
 
-        <ul>
-          <li className="font-semibold text-[20px] mb-[10px] text-alabaster font-primary">
-            Як це працює
-          </li>
-          <li className="font-normal text-[16px] leading-[2.5] text-alabaster font-primary">
-            <a href="#">Як замовити послугу?</a>
-          </li>
-        </ul>
+        <div>
+          <h3 className="font-semibold text-[20px] mb-[10px]">Як це працює</h3>
+          <ul>
+            <li>
+              <Link to="#">Як замовити послугу?</Link>
+            </li>
+          </ul>
+        </div>
 
-        <ul>
-          <li className="font-semibold text-[20px] mb-[10px] text-alabaster font-primary">
-            Посилання
-          </li>
-          <li className="font-normal text-[16px] leading-[2.5] text-alabaster font-primary">
-            <a href="#">Вигул</a>
-          </li>
-          <li className="font-normal text-[16px] leading-[2.5] text-alabaster font-primary">
-            <a href="#">Підтримка</a>
-          </li>
-          <li className="font-normal text-[16px] leading-[2.5] text-alabaster font-primary">
-            <a href="#">Грумінг</a>
-          </li>
-        </ul>
+        <div>
+          <h3 className="font-semibold text-[20px] mb-[10px]">Посилання</h3>
+          <ul>
+            <li>
+              <Link to="#">Вигул</Link>
+            </li>
+            <li>
+              <Link to="#">Підтримка</Link>
+            </li>
+            <li>
+              <Link to="#">Грумінг</Link>
+            </li>
+          </ul>
+        </div>
       </div>
 
       {/* Копірайт */}
-      <p className="font-normal text-[12px]  font-primary text-alabaster  text-center">
-        &copy; 2025 PetsHelp marketplace
-      </p>
+      <p className="text-xs text-center">&copy; 2025 PetsHelp marketplace</p>
     </footer>
   );
 };
