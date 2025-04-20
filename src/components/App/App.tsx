@@ -9,7 +9,7 @@ const CatalogPage = lazy(() => import('@/pages/Catalog/CatalogPage'));
 
 function App() {
   return (
-    <div>
+    <>
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
@@ -17,7 +17,7 @@ function App() {
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </div>
+    </>
   );
 }
 
