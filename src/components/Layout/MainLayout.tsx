@@ -6,9 +6,8 @@ import { Suspense } from 'react';
 const MainLayout = () => {
   return (
     <>
-      <div className="px-6 my-2">
-        <Header />
-      </div>
+      <Header />
+
       <main>
         <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
