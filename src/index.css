@@ -80,7 +80,7 @@ button:not(:disabled) {
 
 @layer components {
   .btn {
-    @apply bg-tenn text-alabaster rounded-2xl px-5 min-w-full h-[40px] transition-shadow duration-300 ease-in-out;
+    @apply bg-tenn text-alabaster rounded-2xl px-5 min-w-[200px] h-[40px] transition-shadow duration-300 ease-in-out;
   }
 
   .btn:hover {
