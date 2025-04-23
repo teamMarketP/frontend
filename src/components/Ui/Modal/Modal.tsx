@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { FC, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 type ModalProps = {
   isOpen: boolean;
@@ -28,7 +29,7 @@ const Modal: FC<ModalProps> = ({
 
   if (!isOpen) return null;
 
-  return (
+  const modalContent = (
     <div
       className={clsx(
         'fixed inset-0 z-50 flex justify-center items-start bg-gray-400/20 transition-opacity duration-800 ease-in-out',
@@ -46,7 +47,7 @@ const Modal: FC<ModalProps> = ({
             : 'opacity-0 scale-95 -translate-y-4',
           className
         )}
-        onClick={e => e.stopPropagation()} // Щоб клік по модалці не закривав
+        onClick={e => e.stopPropagation()}
       >
         <button
           className="icon-close absolute right-[29px] top-[26px] text-fiery-orange hover:text-gray-800"
@@ -56,6 +57,8 @@ const Modal: FC<ModalProps> = ({
       </div>
     </div>
   );
+
+  return createPortal(modalContent, document.body);
 };
 
 export default Modal;
