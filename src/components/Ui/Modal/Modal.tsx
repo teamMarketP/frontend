@@ -41,7 +41,7 @@ const Modal: FC<ModalProps> = ({
     >
       <div
         className={clsx(
-          'relative bg-alabaster rounded-2xl w-[496px] py-[40px] px-[96px] transition-all duration-800 ease-in-out transform',
+          'relative bg-alabaster rounded-2xl w-124 py-10 px-24 transition-all duration-500 ease-in-out transform',
           isOpen
             ? 'opacity-100 scale-100 translate-y-0'
             : 'opacity-0 scale-95 -translate-y-4',
@@ -50,9 +50,13 @@ const Modal: FC<ModalProps> = ({
         onClick={e => e.stopPropagation()}
       >
         <button
-          className="icon-close absolute right-[29px] top-[26px] text-fiery-orange hover:text-gray-800"
+          className="flex justify-center items-center absolute right-[29px] top-[26px] w-5 h-5 rounded-full transition-all duration-300 ease-in-out hover:shadow-[0_0_4px_1px_rgba(207,86,0,0.8)]"
           onClick={onClose}
-        ></button>
+        >
+          <svg className="w-[10px] h-[10px] fill-fiery-orange ">
+            <use href="/icons.svg#icon-close-btn" />
+          </svg>
+        </button>
         <div>{children}</div>
       </div>
     </div>

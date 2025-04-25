@@ -11,8 +11,7 @@
 
 @font-face {
   font-family: 'Open Sans';
-  src: url('/src/assets/fonts/Open_Sans/OpenSans-SemiBold.woff2')
-      format('woff2'),
+  src: url('/src/assets/fonts/Open_Sans/OpenSans-SemiBold.woff2') format('woff2'),
     url('/src/assets/fonts/Open_Sans/OpenSans-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
@@ -119,30 +118,5 @@ button:not(:disabled) {
 
   .input-base {
     @apply w-full border-2 border-fire rounded-2xl h-[40px] px-[20px] focus:outline-none;
-  }
-
-  .icon-close {
-    @apply relative w-[12px] h-[12px];
-  }
-
-  .icon-close::before,
-  .icon-close::after {
-    content: '';
-    @apply absolute top-1/2 left-1/2 w-[12px] h-[1px] bg-fiery-orange;
-    transform: translate(-50%, -50%);
-    transition: height 300ms ease-in-out;
-  }
-
-  .icon-close::before {
-    transform: translate(-50%, -50%) rotate(45deg);
-  }
-
-  .icon-close::after {
-    transform: translate(-50%, -50%) rotate(-45deg);
-  }
-
-  .icon-close:hover::before,
-  .icon-close:hover::after {
-    @apply h-[2px];
   }
 }
