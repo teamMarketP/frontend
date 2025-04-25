@@ -51,7 +51,7 @@ const RegisterForm = () => {
             {...register('fullName')}
           />
           {fullName && (
-            <p className="text-red-500 text-xs">{fullName.message}</p>
+            <p className="text-red-500 text-[10px] ">{fullName.message}</p>
           )}
         </div>
 
@@ -62,7 +62,9 @@ const RegisterForm = () => {
             className=" input-base"
             {...register('phone')}
           />
-          {phone && <p className="text-red-500 text-xs">{phone.message}</p>}
+          {phone && (
+            <p className="text-red-500 text-[10px] ">{phone.message}</p>
+          )}
         </div>
 
         <div>
@@ -72,7 +74,9 @@ const RegisterForm = () => {
             className=" input-base"
             {...register('email')}
           />
-          {email && <p className="text-red-500 text-xs">{email.message}</p>}
+          {email && (
+            <p className="text-red-500 text-[10px] ">{email.message}</p>
+          )}
         </div>
 
         <div>
@@ -83,7 +87,7 @@ const RegisterForm = () => {
             {...register('password')}
           />
           {password && (
-            <p className="text-red-500 text-xs">{password.message}</p>
+            <p className="text-red-500 text-[10px] ">{password.message}</p>
           )}
         </div>
 
@@ -95,7 +99,9 @@ const RegisterForm = () => {
             {...register('confirmPassword')}
           />
           {confirmPassword && (
-            <p className="text-red-500 text-xs">{confirmPassword.message}</p>
+            <p className="text-red-500 text-[10px]">
+              {confirmPassword.message}
+            </p>
           )}
         </div>
 

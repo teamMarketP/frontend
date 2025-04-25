@@ -1,17 +1,12 @@
+import {
+  emailRegex,
+  lowerCaseRegex,
+  numberRegex,
+  phoneRegex,
+  specialCharRegex,
+  upperCaseRegex,
+} from '@/constants/regex';
 import { z } from 'zod';
-
-// Regular expressions for each password requirement
-const upperCaseRegex = /[A-Z]/;
-const lowerCaseRegex = /[a-z]/;
-const numberRegex = /\d/;
-const specialCharRegex = /[!@#$%^&*()_+\-=\\[\]{};':"\\|,.<>/?]/;
-
-// Phone number mask: +38 (XXX) XXX-XX-XX
-const phoneRegex = /^\+38\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}$/;
-
-// RFC 5322 email regex (simplified without comments)
-const emailRegex =
-  /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+([a-zA-Z0-9]{2,})$/;
 
 export const registerSchema = z
   .object({
@@ -24,10 +19,7 @@ export const registerSchema = z
       .string({
         required_error: 'Номер телефону обов’язковий',
       })
-      .regex(
-        phoneRegex,
-        'Невірний формат телефону. Використовуйте +38 (XXX) XXX-XX-XX'
-      ),
+      .regex(phoneRegex, 'Невірний формат. Використовуйте +38 (XXX) XXX-XX-XX'),
     email: z
       .string({
         required_error: 'Email обов’язковий',
