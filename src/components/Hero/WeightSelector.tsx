@@ -1,0 +1,27 @@
+import SearchButton from "./SearchButton";
+
+const weights = [
+    { label: "Маленький", range: "0 - 7 кг" },
+    { label: "Середній", range: "7 - 18 кг" },
+    { label: "Великий", range: "18 - 45 кг" },
+    { label: "Гігантський", range: "45+ кг" },
+  ];
+  
+  const WeightSelector = () => {
+    return (
+      <div className="flex gap-7">
+        {weights.map((w) => (
+          <button
+            key={w.label}
+            className="flex flex-col bg-wildSand px-6 py-3 border-tenn border-[2px] w-34 rounded-[16px] font-medium hover:bg-fire hover:text-white"
+          >
+            <span>{w.label}</span>
+             <span className="text-sm">({w.range})</span>
+          </button>
+        ))}        
+      <SearchButton />
+      </div>
+    );
+  };
+
+  export default WeightSelector;

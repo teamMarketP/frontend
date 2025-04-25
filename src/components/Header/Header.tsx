@@ -1,14 +1,13 @@
 import { Logo } from './Logo';
 import { LangSwitch } from './LangSwitch';
 import { Navigation } from './Navigation';
-// import { MobileMenuToggle } from "./MobileMenuToggle";
 import { UserActions } from './UserActions';
 
 const Header: React.FC = () => {
   return (
-    <header className="bg-alabaster h-[64px] shadow-sm font-primary max-w-[1232px] m-auto mt-2 rounded-lg flex">
+    <header className="relative bg-alabaster z-40 h-[64px] shadow-sm font-primary max-w-[1232px] mx-auto mt-2 rounded-[16px] flex">
       <div className="container mx-auto px-24 flex items-center justify-between">
-        {/* Left block: Language, Nav, Mobile toggle */}
+        {/* Left block: Language, Nav*/}
         <div className="flex items-center gap-10">
           <LangSwitch />
           <Navigation />
