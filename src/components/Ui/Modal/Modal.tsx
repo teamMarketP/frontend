@@ -32,7 +32,7 @@ const Modal: FC<ModalProps> = ({
   const modalContent = (
     <div
       className={clsx(
-        'fixed inset-0 z-50 flex justify-center items-start bg-gray-400/20 transition-opacity duration-800 ease-in-out',
+        'fixed inset-0 z-50 flex justify-center items-center bg-gray-400/20 transition-opacity duration-800 ease-in-out',
         isOpen
           ? 'opacity-100 pointer-events-auto'
           : 'opacity-0 pointer-events-none'
@@ -41,7 +41,7 @@ const Modal: FC<ModalProps> = ({
     >
       <div
         className={clsx(
-          'absolute top-[91px] bg-alabaster rounded-2xl w-[496px] py-[40px] px-[96px] transition-all duration-800 ease-in-out transform',
+          'relative bg-alabaster rounded-2xl w-[496px] py-[40px] px-[96px] transition-all duration-800 ease-in-out transform',
           isOpen
             ? 'opacity-100 scale-100 translate-y-0'
             : 'opacity-0 scale-95 -translate-y-4',

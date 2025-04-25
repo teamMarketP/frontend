@@ -12,7 +12,7 @@ const LoginForm = () => {
         disabled
         className="btn-icon"
         icon={
-          <svg className="w-[28px] h-[28px] fill-gray-400 ">
+          <svg className="w-[28px] h-[28px]  ">
             <use href="/icons.svg#icon-google" />
           </svg>
         }
