@@ -1,8 +1,8 @@
 import {
   emailRegex,
   lowerCaseRegex,
+  nameRegex,
   numberRegex,
-  phoneRegex,
   specialCharRegex,
   upperCaseRegex,
 } from '@/constants/regex';
@@ -12,18 +12,24 @@ export const registerSchema = z
   .object({
     fullName: z
       .string({
-        required_error: "Введіть прізвище та ім'я",
+        required_error: 'Введіть прізвище та ім’я',
       })
-      .min(2, "Введіть прізвище та ім'я"),
+      .min(2, 'Ім’я має містити мінімум 12 символів')
+      .max(100, 'Ім’я не може перевищувати 100 символів')
+      .regex(
+        nameRegex,
+        'Ім’я може містити тільки літери, апострофи та дефіси.'
+      ),
     phone: z
       .string({
         required_error: 'Номер телефону обов’язковий',
       })
-      .regex(phoneRegex, 'Невірний формат. Використовуйте +38 (XXX) XXX-XX-XX'),
+      .min(10, 'Введіть коректний номер телефону'),
     email: z
       .string({
         required_error: 'Email обов’язковий',
       })
+      .max(255, 'Email не може перевищувати 255 символів')
       .regex(emailRegex, 'Невірний формат email'),
     password: z
       .string({
@@ -37,7 +43,10 @@ export const registerSchema = z
         specialCharRegex,
         'Пароль має містити хоча б один спеціальний символ'
       ),
-    confirmPassword: z.string(),
+
+    confirmPassword: z.string({
+      required_error: 'Підтвердіть пароль',
+    }),
   })
   .refine(data => data.password !== data.email, {
     message: 'Не можна використовувати email як пароль',
