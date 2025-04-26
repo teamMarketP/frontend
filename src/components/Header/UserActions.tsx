@@ -62,8 +62,8 @@
 
 // export default UserActions;
 
-import LoginForm from '@/components/LoginForm/LoginForm';
-import RegisterForm from '@/components/RegisterForm/RegisterForm';
+import LoginForm from '@/components/Auth/LoginForm';
+import RegisterForm from '@/components/Auth/RegisterForm';
 import Modal from '@/components/Ui/Modal/Modal';
 import { useState } from 'react';
 

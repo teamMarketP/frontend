@@ -11,4 +11,3 @@ export const loginSchema = z.object({
 });
 
 export type LoginSchemaType = z.infer<typeof loginSchema>;
-// +38 (093) 229-69-52
