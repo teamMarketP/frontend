@@ -1,6 +1,7 @@
 import Player from 'lottie-react';
 import dogInBox from '@/assets/animations/dog-in-the-box.json';
 import { useNavigate } from 'react-router-dom';
+import Button from '@/components/Ui/Button/Button';
 
 const EmptyState = () => {
   const navigate = useNavigate();
@@ -23,12 +24,11 @@ const EmptyState = () => {
       </div>
 
       {/* Button */}
-      <button
+      <Button
+        label="Повернутись до пошуку"
+        type="button"
         onClick={() => navigate('/')}
-        className="px-6 py-3 bg-tenn text-alabaster rounded-full hover:bg-tenn-dark transition"
-      >
-        Повернутись до пошуку
-      </button>
+      />
     </div>
   );
 };
