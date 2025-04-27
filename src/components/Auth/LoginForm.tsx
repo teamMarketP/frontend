@@ -53,19 +53,19 @@ const LoginForm = () => {
             type="text"
             placeholder="Email"
             className={getInputClass(
-              !!errors.emailOrPhone,
-              !!(!errors.emailOrPhone && dirtyFields.emailOrPhone)
+              !!errors.email,
+              !!(!errors.email && dirtyFields.email)
             )}
-            {...register('emailOrPhone')}
+            {...register('email')}
           />
-          {errors.emailOrPhone && (
+          {errors.email && (
             <svg className="absolute right-[16px] top-1/2 transform -translate-y-1/2 w-[27px] h-[27px] fill-red-tenn">
               <use href="/icons.svg#icon-input-warning" />
             </svg>
           )}
-          {errors.emailOrPhone && (
+          {errors.email && (
             <p className="absolute text-red-tenn text-[10px] pl-1">
-              {errors.emailOrPhone.message}
+              {errors.email.message}
             </p>
           )}
         </div>

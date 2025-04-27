@@ -2,7 +2,7 @@ import { emailRegex } from '@/constants/regex';
 import { z } from 'zod';
 
 export const loginSchema = z.object({
-  emailOrPhone: z
+  email: z
     .string({
       required_error: 'Email обов’язковий',
     })

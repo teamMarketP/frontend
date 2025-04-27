@@ -23,7 +23,13 @@ const RegisterForm = () => {
   });
 
   const onSubmit = (data: RegisterSchemaType) => {
-    console.log('Form data:', data);
+    const finalData = {
+      ...data,
+      phone: '38' + data.phone, // Add the prefix +38
+      email: data.email.toLowerCase(),
+      fullName: data.fullName.replace(/\s+/g, ' ').trim(),
+    };
+    console.log('Sending data:', finalData);
   };
 
   const getInputClass = (error: boolean, success: boolean) => {
@@ -189,7 +195,7 @@ const RegisterForm = () => {
           to={'#'}
           className="text-[10px] text-fire font-semibold text-center"
         >
-          Забули пароль?
+          Вже маєте обліковий запис? Увійти
         </Link>
         <Button label="Зареєструватися" type="submit" />
       </form>
