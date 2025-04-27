@@ -7,7 +7,7 @@ import HeroTitle from '../Hero/HeroTitle';
 const HeroSection = () => {
   return (
     <section className="py-12 bg-gradient-to-bl from-red-beech via-tenn to-red-beech w-full  rounded-b-[40px] max-w-[1280px] mx-auto -mt-20 px-30 max-h-165 mb-43">
-      <div className="container relative mx-auto flex flex-col-reverse lg:flex-row items-center gap-10">
+      <div className="container flex flex-col-reverse lg:flex-row items-center justify-between">
         <HeroTitle />
         <HeroImage />
       </div>
