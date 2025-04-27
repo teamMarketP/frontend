@@ -8,9 +8,7 @@ const LoginForm = () => {
   const {
     register,
     handleSubmit,
-    formState: {
-      errors: { emailOrPhone, password },
-    },
+    formState: { errors, dirtyFields },
   } = useForm<LoginSchemaType>({
     resolver: zodResolver(loginSchema),
   });
@@ -19,9 +17,15 @@ const LoginForm = () => {
     console.log('Form data:', data);
   };
 
+  const getInputClass = (error: boolean, success: boolean) => {
+    if (error) return 'input-base border-red-tenn focus:border-red-tenn';
+    if (success) return 'input-base border-tenn focus:border-tenn';
+    return 'input-base border-fire focus:border-tenn';
+  };
+
   return (
-    <div className="flex flex-col gap-[16px] text-center">
-      <h3 className="text-fire uppercase">УВІЙТИ</h3>
+    <div className="flex flex-col gap-[16px]">
+      <h3 className="text-fire uppercase text-center">УВІЙТИ</h3>
 
       <Button
         label="Увійти з Google"
@@ -35,41 +39,68 @@ const LoginForm = () => {
         }
       />
 
-      <p className="text-[11px] text-mineShaft">або заповніть форму</p>
+      <p className="text-[11px] text-mineShaft text-center">
+        або заповніть форму
+      </p>
 
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col gap-[16px]"
       >
-        <div>
+        <div className="relative">
           <input
             type="text"
             placeholder="Email або телефон"
-            className="input-base"
+            className={getInputClass(
+              !!errors.emailOrPhone,
+              !!(!errors.emailOrPhone && dirtyFields.emailOrPhone)
+            )}
             {...register('emailOrPhone')}
           />
-          {emailOrPhone && (
-            <p className="text-red-500 text-[10px]">{emailOrPhone.message}</p>
+          {errors.emailOrPhone && (
+            <svg className="absolute right-[16px] top-1/2 transform -translate-y-1/2 w-[27px] h-[27px] fill-red-tenn">
+              <use href="/icons.svg#icon-input-warning" />
+            </svg>
+          )}
+          {errors.emailOrPhone && (
+            <p className="absolute text-red-tenn text-[10px] pl-1">
+              {errors.emailOrPhone.message}
+            </p>
           )}
         </div>
 
-        <div>
+        <div className="relative">
           <input
             type="password"
             placeholder="Пароль"
-            className="input-base"
+            className={getInputClass(
+              !!errors.password,
+              !!(!errors.password && dirtyFields.password)
+            )}
             {...register('password')}
           />
-          {password && (
-            <p className="text-red-500 text-[10px]">{password.message}</p>
+          {errors.password && (
+            <svg className="absolute right-[16px] top-1/2 transform -translate-y-1/2 w-[27px] h-[27px] fill-red-tenn">
+              <use href="/icons.svg#icon-input-warning" />
+            </svg>
+          )}
+          {errors.password && (
+            <p className="absolute text-red-tenn text-[10px] pl-1">
+              {errors.password.message}
+            </p>
           )}
         </div>
-        <p className="text-[10px] text-fire font-semibold">Забули пароль?</p>
+        <Link
+          to={'#'}
+          className="text-[10px] text-fire font-semibold text-center"
+        >
+          Забули пароль?
+        </Link>
 
         <Button label="Увійти" type="submit" />
       </form>
 
-      <p className="text-[10px] text-mineShaft">
+      <p className="text-[10px] text-mineShaft text-center">
         Увійшовши, ви погоджуєтесь з{' '}
         <Link
           to={'#'}
