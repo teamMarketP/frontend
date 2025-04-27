@@ -13,15 +13,14 @@ const ServiceTypeSelector = () => {
           key={service.label}
           className="flex flex-col items-center justify-center gap-2 py-2 px-13 border rounded-[16px] border-fire border-[2px] hover:bg-tenn hover:text-alabaster hover:border-none group"
         >
-          
-            <svg
-              className="h-13 w-12 shrink-0 fill-tenn group-hover:fill-alabaster"
-              role="img"
-              aria-label={service.label}
-            >
-              <title>{service.label}</title>
-              <use href={`/icons.svg#${service.icon}`} />
-            </svg>
+          <svg
+            className="h-13 w-12 shrink-0 fill-tenn group-hover:fill-alabaster"
+            role="img"
+            aria-label={service.label}
+          >
+            <title>{service.label}</title>
+            <use href={`/icons.svg#${service.icon}`} />
+          </svg>
           <span>{service.label}</span>
         </button>
       ))}
