@@ -11,7 +11,6 @@ const Header: React.FC = () => {
         <div className="flex items-center gap-10">
           <LangSwitch />
           <Navigation />
-          {/* <MobileMenuToggle /> */}
         </div>
 
         {/* Center block: Logo */}
