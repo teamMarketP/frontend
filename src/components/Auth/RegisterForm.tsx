@@ -54,6 +54,7 @@ const RegisterForm = () => {
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col gap-[16px]"
+        noValidate
       >
         {/* Full Name */}
         <div className="relative">
@@ -79,88 +80,81 @@ const RegisterForm = () => {
         </div>
 
         {/* Phone */}
-        <div>
-          <div className="relative">
-            <Controller
-              name="phone"
-              control={control}
-              render={({ field }) => (
-                <IMaskInput
-                  {...field}
-                  mask="+38 (000) 000-00-00"
-                  unmask={true}
-                  lazy={false}
-                  placeholder="+38 (___) ___-__-__"
-                  className={
-                    getInputClass(
-                      !!errors.phone,
-                      !!(!errors.phone && dirtyFields.phone)
-                    ) + (hasInput ? ' text-mineShaft' : ' text-gray-400')
-                  }
-                  onAccept={value => {
-                    console.log('Очищене значення телефону: ', value);
-                    setHasInput(!!value);
-                    field.onChange(value); // Передаємо очищене значення
-                  }}
-                />
-              )}
-            />
-            {errors.phone && (
-              <svg className="absolute right-[16px] top-1/2 transform -translate-y-1/2 w-[27px] h-[27px] fill-red-tenn">
-                <use href="/icons.svg#icon-input-warning" />
-              </svg>
+        <div className="relative">
+          <Controller
+            name="phone"
+            control={control}
+            render={({ field }) => (
+              <IMaskInput
+                {...field}
+                mask="+38 (000) 000-00-00"
+                unmask={true}
+                lazy={false}
+                placeholder="+38 (___) ___-__-__"
+                className={
+                  getInputClass(
+                    !!errors.phone,
+                    !!(!errors.phone && dirtyFields.phone)
+                  ) + (hasInput ? ' text-mineShaft' : ' text-gray-400')
+                }
+                onAccept={value => {
+                  setHasInput(!!value);
+                  field.onChange(value); // Передаємо очищене значення
+                }}
+              />
             )}
-            {errors.phone && (
-              <p className="absolute text-red-tenn text-[10px] pl-1">
-                {errors.phone.message}
-              </p>
-            )}
-          </div>
+          />
+          {errors.phone && (
+            <svg className="absolute right-[16px] top-1/2 transform -translate-y-1/2 w-[27px] h-[27px] fill-red-tenn">
+              <use href="/icons.svg#icon-input-warning" />
+            </svg>
+          )}
+          {errors.phone && (
+            <p className="absolute text-red-tenn text-[10px] pl-1">
+              {errors.phone.message}
+            </p>
+          )}
         </div>
 
         {/* Email */}
-        <div>
-          <div className="relative">
-            <input
-              type="email"
-              placeholder="Email"
-              className={getInputClass(
-                !!errors.email,
-                !!(!errors.email && dirtyFields.email)
-              )}
-              {...register('email')}
-            />
-            {errors.email && (
-              <svg className="absolute right-[16px] top-1/2 transform -translate-y-1/2 w-[27px] h-[27px] fill-red-tenn">
-                <use href="/icons.svg#icon-input-warning" />
-              </svg>
+        <div className="relative">
+          <input
+            type="email"
+            placeholder="Email"
+            className={getInputClass(
+              !!errors.email,
+              !!(!errors.email && dirtyFields.email)
             )}
-            {errors.email && (
-              <p className="absolute text-red-tenn text-[10px] pl-1">
-                {errors.email.message}
-              </p>
-            )}
-          </div>
+            {...register('email')}
+          />
+          {errors.email && (
+            <svg className="absolute right-[16px] top-1/2 transform -translate-y-1/2 w-[27px] h-[27px] fill-red-tenn">
+              <use href="/icons.svg#icon-input-warning" />
+            </svg>
+          )}
+          {errors.email && (
+            <p className="absolute text-red-tenn text-[10px] pl-1">
+              {errors.email.message}
+            </p>
+          )}
         </div>
 
         {/* Password */}
-        <div>
-          <div className="relative">
-            <input
-              type="password"
-              placeholder="Пароль"
-              className={getInputClass(
-                !!errors.password,
-                !!(!errors.password && dirtyFields.password)
-              )}
-              {...register('password')}
-            />
-            {errors.password && (
-              <svg className="absolute right-[16px] top-1/2 transform -translate-y-1/2 w-[27px] h-[27px] fill-red-tenn">
-                <use href="/icons.svg#icon-input-warning" />
-              </svg>
+        <div className="relative">
+          <input
+            type="password"
+            placeholder="Пароль"
+            className={getInputClass(
+              !!errors.password,
+              !!(!errors.password && dirtyFields.password)
             )}
-          </div>
+            {...register('password')}
+          />
+          {errors.password && (
+            <svg className="absolute right-[16px] top-1/2 transform -translate-y-1/2 w-[27px] h-[27px] fill-red-tenn">
+              <use href="/icons.svg#icon-input-warning" />
+            </svg>
+          )}
           {errors.password && (
             <p className="absolute text-red-tenn text-[10px] pl-1">
               {errors.password.message}
@@ -169,28 +163,26 @@ const RegisterForm = () => {
         </div>
 
         {/* Confirm Password */}
-        <div>
-          <div className="relative">
-            <input
-              type="password"
-              placeholder="Повторити пароль"
-              className={getInputClass(
-                !!errors.confirmPassword,
-                !!(!errors.confirmPassword && dirtyFields.confirmPassword)
-              )}
-              {...register('confirmPassword')}
-            />
-            {errors.confirmPassword && (
-              <svg className="absolute right-[16px] top-1/2 transform -translate-y-1/2 w-[27px] h-[27px] fill-red-tenn">
-                <use href="/icons.svg#icon-input-warning" />
-              </svg>
+        <div className="relative">
+          <input
+            type="password"
+            placeholder="Повторити пароль"
+            className={getInputClass(
+              !!errors.confirmPassword,
+              !!(!errors.confirmPassword && dirtyFields.confirmPassword)
             )}
-            {errors.confirmPassword && (
-              <p className="absolute text-red-tenn text-[10px] pl-1">
-                {errors.confirmPassword.message}
-              </p>
-            )}
-          </div>
+            {...register('confirmPassword')}
+          />
+          {errors.confirmPassword && (
+            <svg className="absolute right-[16px] top-1/2 transform -translate-y-1/2 w-[27px] h-[27px] fill-red-tenn">
+              <use href="/icons.svg#icon-input-warning" />
+            </svg>
+          )}
+          {errors.confirmPassword && (
+            <p className="absolute text-red-tenn text-[10px] pl-1">
+              {errors.confirmPassword.message}
+            </p>
+          )}
         </div>
 
         <Link

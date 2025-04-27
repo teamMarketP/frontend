@@ -46,11 +46,12 @@ const LoginForm = () => {
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col gap-[16px]"
+        noValidate
       >
         <div className="relative">
           <input
             type="text"
-            placeholder="Email або телефон"
+            placeholder="Email"
             className={getInputClass(
               !!errors.emailOrPhone,
               !!(!errors.emailOrPhone && dirtyFields.emailOrPhone)

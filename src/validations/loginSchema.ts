@@ -1,13 +1,13 @@
-import { emailRegex, phoneRegex } from '@/constants/regex';
+import { emailRegex } from '@/constants/regex';
 import { z } from 'zod';
 
 export const loginSchema = z.object({
   emailOrPhone: z
-    .string()
+    .string({
+      required_error: 'Email обов’язковий',
+    })
     .max(255, 'Email не може перевищувати 255 символів')
-    .refine(val => emailRegex.test(val) || phoneRegex.test(val), {
-      message: 'Невірний формат email або телефону.',
-    }),
+    .regex(emailRegex, 'Невірний формат email'),
   password: z.string().min(12, 'Пароль має містити мінімум 12 символів'),
 });
 
