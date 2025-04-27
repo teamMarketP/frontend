@@ -1,8 +1,8 @@
 
-import HeroImage from '../Hero/HeroImage';
-import HeroFilters from '../Hero/HeroFilters';
-import DogWithBlob from '../Hero/HeroBlob';
-import HeroTitle from '../Hero/HeroTitle';
+import HeroImage from './Hero/HeroImage';
+import HeroFilters from './Hero/HeroFilters';
+import DogWithBlob from './Hero/HeroBlob';
+import HeroTitle from './Hero/HeroTitle';
 
 const HeroSection = () => {
   return (
