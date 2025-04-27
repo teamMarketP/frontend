@@ -1,5 +1,5 @@
 import Player from 'lottie-react';
-import errorAnimation from '@/assets/animations/dog-in-water-errorstate.json';
+import errorAnimation from '@/assets/animations/black-cat-error.json';
 import { useNavigate } from 'react-router-dom';
 import Button from '@/components/Ui/Button/Button';
 
