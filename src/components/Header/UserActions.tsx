@@ -10,7 +10,7 @@ export const UserActions = () => {
   return (
     <div className="flex gap-6 text-fire">
       <button
-        className="hover:text-mineShaft transition-colors"
+        className="hover:text-mineShaft transition-colors py-2"
         type="button"
         onClick={() => setOpenLoginModal(true)}
       >
@@ -21,7 +21,7 @@ export const UserActions = () => {
       </Modal>
 
       <button
-        className="hover:text-mineShaft transition-colors"
+        className="hover:text-mineShaft transition-colors py-2"
         type="button"
         onClick={() => setOpenRegisterModal(true)}
       >
