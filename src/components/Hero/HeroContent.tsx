@@ -1,4 +1,3 @@
-// src/components/Hero/HeroContent.tsx
 import HeroTitle from "./HeroTitle";
 
 const HeroContent = () => {

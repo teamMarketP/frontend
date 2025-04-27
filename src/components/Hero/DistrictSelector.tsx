@@ -1,4 +1,3 @@
-// src/components/Hero/DistrictSelector.tsx
 const DistrictSelector = () => {
     return (
       <select className="flex-1 rounded-[12px] border-[2px] border-tenn text-fire bg-alabaster px-12 py-2 appearance-none">

@@ -1,4 +1,3 @@
-// src/components/Hero/AnimalSelector.tsx
 const AnimalSelector = () => {
     return (
       <div className="flex-1 flex justify-center rounded-[12px] bg-wildSand w-fit border-[2px] border-tenn">
