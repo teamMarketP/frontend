@@ -2,7 +2,7 @@
 
 const HeroImage = () => {
     return (
-      <div className="z-10 w-full max-w-md">
+      <div className="z-20 w-full max-w-md">
         <img
           src="/public/images/Mops-Hero-1x-min.png"
           alt="Dog"

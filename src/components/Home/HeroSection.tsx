@@ -1,9 +1,8 @@
 // src/components/Hero/Hero.tsx
-import HeroContent from "../Hero/HeroContent";
-import HeroImage from "../Hero/HeroImage";
-import HeroFilters from "../Hero/HeroFilters";
-import DogWithBlob from "../Hero/HeroBlob";
-
+import HeroContent from '../Hero/HeroContent';
+import HeroImage from '../Hero/HeroImage';
+import HeroFilters from '../Hero/HeroFilters';
+import DogWithBlob from '../Hero/HeroBlob';
 
 const HeroSection = () => {
   return (
@@ -11,15 +10,14 @@ const HeroSection = () => {
       <div className="container relative mx-auto flex flex-col-reverse lg:flex-row items-center gap-10">
         <HeroContent />
         <HeroImage />
-        </div>
-        <div className="absolute z-0">
-      <DogWithBlob />
+      </div>
+      <div className="absolute z-0">
+        <DogWithBlob />
       </div>
       <div className="relative z-20">
         <HeroFilters />
       </div>
     </section>
-    
   );
 };
 
