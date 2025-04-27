@@ -9,11 +9,11 @@ const weights = [
   
   const WeightSelector = () => {
     return (
-      <div className="flex gap-7">
+      <div className="flex gap-[29px]">
         {weights.map((w) => (
           <button
             key={w.label}
-            className="flex flex-col bg-wildSand px-6 py-3 border-tenn border-[2px] w-[136px] rounded-[16px] font-medium hover:bg-fire hover:text-white"
+            className="flex flex-col gap-[2px] bg-wildSand px-[20px] py-[9px] border-tenn border-[2px] w-[136px] rounded-[16px] font-medium hover:bg-fire hover:text-white"
           >
             <span>{w.label}</span>
              <span className="text-sm">({w.range})</span>
