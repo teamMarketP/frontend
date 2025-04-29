@@ -1,12 +1,12 @@
 const HeroImage = () => {
     return (
-      <div className="z-20 w-full max-w-md">
+      <div className="relative overflow-visible w-full max-w-md">
         <img
           src="/images/hero-mops-1x.png"
           alt="Dog"
           width={524}
           height={738}
-          className="w-full h-auto object-contain"
+          className="relative z-15 w-full h-auto"
         />
       </div>
     );
