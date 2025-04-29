@@ -19,7 +19,7 @@ const AnimalSelector = () => {
           onClick={() => handleSelect(animal)}
           className={`px-4 w-1/2 font-semibold py-2 font-semibold transition  active:shadow-inset-shark ${
             selectedAnimal === animal
-              ? 'bg-tenn text-alabaster ${animal === "dog" ? "rounded-l-[8px]" : "rounded-r-[8px]"}'
+              ? `bg-tenn text-alabaster ${animal === "dog" ? "rounded-l-[8px]" : "rounded-r-[8px]"}`
               : "text-fire"
           }`}
         >
