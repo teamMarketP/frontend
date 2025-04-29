@@ -8,9 +8,9 @@ export const UserActions = () => {
   const [openLoginModal, setOpenLoginModal] = useState(false);
 
   return (
-    <div className="flex gap-6 text-fire">
+    <div className="flex gap-2 text-fire">
       <button
-        className="hover:text-mineShaft transition-colors py-2"
+        className="px-2 py-1 border-[2px] border-transparent rounded-full hover:border-fire transition-colors"
         type="button"
         onClick={() => setOpenLoginModal(true)}
       >
@@ -21,7 +21,7 @@ export const UserActions = () => {
       </Modal>
 
       <button
-        className="hover:text-mineShaft transition-colors py-2"
+        className="px-2 py-1 border-[2px] border-transparent rounded-full hover:border-fire transition-colors"
         type="button"
         onClick={() => setOpenRegisterModal(true)}
       >

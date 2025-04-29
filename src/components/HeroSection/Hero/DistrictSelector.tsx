@@ -30,7 +30,7 @@ export default function CustomSelect() {
   const selectedLabel = areas.find((area) => area.value === selected)?.label || "Обрати район";
 
   return (
-    <div className="relative w-1/2 border-[2px] border-tenn rounded-[12px]" ref={dropdownRef}>
+    <div className="relative w-1/2 border-[2px] border-tenn rounded-[12px] hover:shadow-shark" ref={dropdownRef}>
       <button
         type="button"
         className="w-full flex items-center justify-between py-[10px] pr-8 pl-12"
