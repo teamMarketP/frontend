@@ -33,17 +33,17 @@ export default function CustomSelect() {
     <div className="relative w-1/2 border-[2px] border-tenn rounded-[12px]" ref={dropdownRef}>
       <button
         type="button"
-        className="w-full justify-between"
+        className="w-full flex items-center justify-between py-[10px] pr-8 pl-12"
         onClick={() => setIsOpen((prev) => !prev)}
       >
         {selectedLabel}
         <svg
-          className={`w-4 h-4 ml-2 transition-transform duration-200 ${
+          className={`w-4 h-4 transition-transform duration-200 text-tenn ${
             isOpen ? "rotate-180" : ""
           }`}
           fill="none"
           stroke="currentColor"
-          strokeWidth="2"
+          strokeWidth="3"
           viewBox="0 0 24 24"
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
@@ -51,7 +51,7 @@ export default function CustomSelect() {
       </button>
 
       {isOpen && (
-        <ul className="absolute z-100 mt-[32px] w-full border-tenn border-[2px] py-5 px-15 text-shark  bg-alabaster rounded-[12px]">
+        <ul className="absolute z-100 mt-[16px] w-full border-tenn border-[2px] py-5 px-15 text-shark  bg-alabaster rounded-[12px]">
           {areas.map((area) => (
             <li key={area.value}>
               <a
