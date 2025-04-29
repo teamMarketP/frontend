@@ -11,7 +11,7 @@ const dogservices = [
 ];
 const catservices = [
   { label: 'Вакцинація', icon: 'icon-vet' },
-  { label: 'Перетримка', icon: 'icon-cat-house' },
+  { label: 'Перетримка', icon: 'icon-cat-house-vec' },
   { label: 'Догляд вдома', icon: 'icon-cat' },
   { label: 'Грумінг', icon: 'icon-scissors' },
 ];
