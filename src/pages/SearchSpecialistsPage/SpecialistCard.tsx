@@ -37,7 +37,7 @@ const SpecialistCard: FC<Props> = ({ specialist }) => {
       : '/placeholder.webp');
 
   return (
-    <div className="w-[500px] h-[400px] bg-[alabaster] rounded-[16px] shadow-[0_1px_4px_4px_rgba(0,0,0,0.25)] p-5 gap-[24px] flex overflow-hidden">
+    <div className="w-[500px] h-[400px] bg-alabaster rounded-[16px] shadow-[0_1px_4px_4px_rgba(0,0,0,0.25)] p-5 gap-[24px] flex overflow-hidden">
       {/* Зображення */}
       <div className="w-[236px] h-[360px]  flex-shrink-0 rounded-[16px] overflow-hidden">
         <picture>
@@ -56,14 +56,14 @@ const SpecialistCard: FC<Props> = ({ specialist }) => {
       </div>
 
       {/* Контент */}
-      <div className="flex flex-col  h-[360px]">
-        <div>
-          <h2 className="text-[20px] font-semibold text-fire mb-[20px]">
+      <div className="flex flex-col gap-[16px] h-[360px]">
+        <div className="flex flex-col gap-[12px] mb-auto">
+          <h2 className="text-[20px] font-semibold text-fire">
             {name} {family_name}
           </h2>
 
           {is_verified && (
-            <div className="flex  gap-[7px] mb-[23px]">
+            <div className="flex  gap-[7px]">
               <svg className="w-[17px] h-[17px] fill-fire">
                 <use href="/icons.svg#icon-verified" />
               </svg>
@@ -73,12 +73,12 @@ const SpecialistCard: FC<Props> = ({ specialist }) => {
             </div>
           )}
 
-          <p className="text-sm text-cod-gray mb-[32px]">
+          <p className="text-sm text-cod-gray">
             <strong className="font-semibold">Досвід:</strong>{' '}
             <span className="font-normal">{renderExperience()}</span>
           </p>
 
-          <p className="text-sm text-cod-gray  text-justify">
+          <p className="text-sm text-cod-gray text-justify">
             <strong className="font-semibold">Про себе:</strong>{' '}
             {bio || description || 'Без опису'}
           </p>
