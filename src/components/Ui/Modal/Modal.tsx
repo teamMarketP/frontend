@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { FC, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 type ModalProps = {
   isOpen: boolean;
@@ -28,10 +29,10 @@ const Modal: FC<ModalProps> = ({
 
   if (!isOpen) return null;
 
-  return (
+  const modalContent = (
     <div
       className={clsx(
-        'fixed inset-0 z-50 flex justify-center items-start bg-gray-400/20 transition-opacity duration-800 ease-in-out',
+        'fixed inset-0 z-50 flex justify-center items-center bg-gray-400/20 transition-opacity duration-800 ease-in-out',
         isOpen
           ? 'opacity-100 pointer-events-auto'
           : 'opacity-0 pointer-events-none'
@@ -40,22 +41,28 @@ const Modal: FC<ModalProps> = ({
     >
       <div
         className={clsx(
-          'absolute top-[91px] bg-alabaster rounded-2xl w-[496px] py-[40px] px-[96px] transition-all duration-800 ease-in-out transform',
+          'relative bg-alabaster rounded-2xl w-124 py-10 px-24 transition-all duration-500 ease-in-out transform',
           isOpen
             ? 'opacity-100 scale-100 translate-y-0'
             : 'opacity-0 scale-95 -translate-y-4',
           className
         )}
-        onClick={e => e.stopPropagation()} // Щоб клік по модалці не закривав
+        onClick={e => e.stopPropagation()}
       >
         <button
-          className="icon-close absolute right-[29px] top-[26px] text-fiery-orange hover:text-gray-800"
+          className="flex justify-center items-center absolute right-[29px] top-[26px] w-5 h-5 rounded-full transition-all duration-300 ease-in-out hover:shadow-[0_0_4px_1px_rgba(207,86,0,0.8)]"
           onClick={onClose}
-        ></button>
+        >
+          <svg className="w-[10px] h-[10px] fill-fiery-orange ">
+            <use href="/icons.svg#icon-close-btn" />
+          </svg>
+        </button>
         <div>{children}</div>
       </div>
     </div>
   );
+
+  return createPortal(modalContent, document.body);
 };
 
 export default Modal;
