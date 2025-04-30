@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import LoginForm from '@/components/LoginForm/LoginForm';
-import RegisterForm from '@/components/RegisterForm/RegisterForm';
-=======
 // import { useState } from 'react';
 // import LoginForm from '../LoginForm/LoginForm'; // Імпортуємо форму для входу
 // import RegisterForm from '../RegisterForm/RegisterForm'; // Імпортуємо форму для реєстрації
@@ -68,7 +64,6 @@ import RegisterForm from '@/components/RegisterForm/RegisterForm';
 
 import LoginForm from '@/components/Auth/LoginForm';
 import RegisterForm from '@/components/Auth/RegisterForm';
->>>>>>> 550ad4287b667d67efa3952e6705e4ab03e2becb
 import Modal from '@/components/Ui/Modal/Modal';
 import { useState } from 'react';
 
