@@ -30,7 +30,7 @@ const SpecialistsList = ({ specialists, loading, error }: Props) => {
   }
 
   return (
-    <div className="grid grid-cols-2 gap-x-[40px] gap-y-[40px]">
+    <div className="grid grid-cols-2 gap-x-[40px] gap-y-[40px] mb-[58px]">
       {specialists.map(specialist => (
         <SpecialistCard key={specialist.id} specialist={specialist} />
       ))}

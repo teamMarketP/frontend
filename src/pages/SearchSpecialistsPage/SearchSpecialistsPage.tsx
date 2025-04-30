@@ -1,40 +1,42 @@
-// import { useState, useEffect } from 'react';
-// // import Pagination from '@/pages/SearchSpecialistsPage/Pagination';
-// import SpecialistsList from '@/pages/SearchSpecialistsPage/SpecialistsList';
-// import { mockSpecialists } from '@/data/mockSpecialists';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import Pagination from '@/pages/SearchSpecialistsPage/Pagination';
+import SpecialistsList from '@/pages/SearchSpecialistsPage/SpecialistsList';
+import { mockSpecialists } from '@/data/mockSpecialists';
 
-// const specialistsPerPage = 16;
+import BackButton from '@/pages/SearchSpecialistsPage/BackButton';
 
 const SearchSpecialistsPage = () => {
-  const navigate = useNavigate();
-  // const [page, setPage] = useState<number>(1);
-  // const [loading, setLoading] = useState<boolean>(false);
-  // const [error, setError] = useState<boolean>(false);
+  const specialistsPerPage = 16;
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
-  // const totalPages = Math.ceil(mockSpecialists.length / specialistsPerPage);
+  const totalPages = Math.ceil(mockSpecialists.length / specialistsPerPage);
 
-  // const specialistsToShow = mockSpecialists.slice(
-  //   (page - 1) * specialistsPerPage,
-  //   page * specialistsPerPage
-  // );
+  const specialistsToShow = mockSpecialists.slice(
+    (page - 1) * specialistsPerPage,
+    page * specialistsPerPage
+  );
 
-  // useEffect(() => {
-  //   setLoading(true);
-  //   setError(false);
-  //   const timer = setTimeout(() => {
-  //     setLoading(false);
-  //   }, 500);
-  //   return () => clearTimeout(timer);
-  // }, [page]);
+  useEffect(() => {
+    setLoading(true);
+    setError(false);
 
-  // const handleChangePage = (newPage: number) => {
-  //   setPage(newPage);
-  // };
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [page]);
+
+  const handleChangePage = (newPage: number) => {
+    setPage(newPage);
+  };
 
   return (
     <div className="max-w-[1280px] mx-auto px-[120px] pt-[47px] pb-[58px]">
-      <button
+      <BackButton />
+      {/* <button
         type="button"
         onClick={() => navigate('/')}
         className="flex items-center gap-[11px] text-fire hover:underline font-semibold text-[16px] mb-[25px]"
@@ -43,7 +45,7 @@ const SearchSpecialistsPage = () => {
           <use href="/icons.svg#icon-arrow-left" />
         </svg>
         Повернутись до пошуку
-      </button>
+      </button> */}
 
       <h1 className="flex items-center gap-[8px] font-semibold text-[20px] text-fire mb-[20px]">
         Ми знайшли фахівців для вашого запиту
@@ -52,19 +54,19 @@ const SearchSpecialistsPage = () => {
         </svg>
       </h1>
 
-      {/* <SpecialistsList
+      <SpecialistsList
         specialists={specialistsToShow}
         loading={loading}
         error={error}
-      /> */}
+      />
 
-      {/* <div className="mt-8 flex justify-center">
+      <div className="mt-8 flex justify-center">
         <Pagination
           currentPage={page}
           totalPages={totalPages}
           onChange={handleChangePage}
         />
-      </div> */}
+      </div>
     </div>
   );
 };
