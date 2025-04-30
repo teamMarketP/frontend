@@ -121,4 +121,18 @@ button:not(:disabled) {
     @apply relative w-full border-2 border-fire rounded-2xl h-[40px] pl-5 pr-10 focus:outline-none caret-fire placeholder-gray-400 focus:placeholder-transparent focus:border-tenn;
   }
 
+  .book-radio-btn {
+    @apply appearance-none relative w-5 h-5 rounded-full border-2 border-fire checked:bg-alabaster checked:border-fire focus:outline-none cursor-pointer transition-all duration-300 ease-in-out;
+  }
+
+  .book-radio-btn:checked::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    border-radius: 50%;
+    background-color: var(--color-tenn);
+  }
 }

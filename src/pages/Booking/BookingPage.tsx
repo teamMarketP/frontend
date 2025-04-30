@@ -1,5 +1,5 @@
-import BookingForm from '@/components/Booking/BookingForm';
-import BookingSpecialistCard from '@/components/Booking/BookingSpecialistCard';
+import BookingForm from '@/components/BookingForm/BookingForm';
+import BookingSpecialistCard from '@/components/BookingForm/Booking/BookingSpecialistCard';
 import BackButton from '@/components/Ui/BackButton';
 
 const BookingPage = () => {
