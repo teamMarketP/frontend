@@ -2,8 +2,12 @@ import AnimalSelector from './AnimalSelector';
 import DistrictSelector from './DistrictSelector';
 import ServiceTypeSelector from './ServiceTypeSelector';
 import WeightSelector from './WeightSelector';
+import SearchButton from "./SearchButton";
+import { useAppSelector } from '@/hooks';
+import { selectAnimal } from '@/features/hero/heroSelectors';
 
 const HeroFilters = () => {
+  const selectedAnimal = useAppSelector(selectAnimal);
   return (
     <div className="relative bg-alabaster shadow-md rounded-[20px] py-4 px-8 w-full flex flex-col gap-4 -mt-208 z-10">
       <div className="flex justify-center gap-8">
@@ -11,7 +15,10 @@ const HeroFilters = () => {
         <DistrictSelector />
       </div>
       <ServiceTypeSelector />
-      <WeightSelector />
+      <div className="flex justify-end gap-[40px] min-h-[68px]">
+        {selectedAnimal === "dog" && <WeightSelector />}
+        <SearchButton />
+      </div>
     </div>
   );
 };

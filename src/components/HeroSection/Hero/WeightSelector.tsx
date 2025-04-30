@@ -1,4 +1,3 @@
-import SearchButton from "./SearchButton";
 
 const weights = [
     { label: "Маленький", range: "0 - 7 кг" },
@@ -18,8 +17,7 @@ const weights = [
             <span>{w.label}</span>
              <span className="text-sm">({w.range})</span>
           </button>
-        ))}        
-      <SearchButton />
+        ))}
       </div>
     );
   };
