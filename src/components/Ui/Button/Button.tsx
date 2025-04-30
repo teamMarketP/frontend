@@ -34,7 +34,7 @@ const Button: FC<ButtonProps> = ({
       disabled={disabled}
     >
       {icon && (
-        <span className="absolute left-[20px] flex items-center">{icon}</span>
+        <span className="absolute left-[16px] flex items-center">{icon}</span>
       )}
       <span>{label}</span>
     </button>
