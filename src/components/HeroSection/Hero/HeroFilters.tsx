@@ -9,7 +9,7 @@ import { selectAnimal } from '@/features/hero/heroSelectors';
 const HeroFilters = () => {
   const selectedAnimal = useAppSelector(selectAnimal);
   return (
-    <div className="relative bg-alabaster shadow-md rounded-[20px] py-4 px-8 w-full flex flex-col gap-4 -mt-212 z-10">
+    <div className="relative bg-alabaster shadow-md rounded-[20px] py-4 px-8 w-full flex flex-col gap-[17px] -mt-212 z-10">
       <div className="flex justify-center gap-8">
         <AnimalSelector />
         <DistrictSelector />

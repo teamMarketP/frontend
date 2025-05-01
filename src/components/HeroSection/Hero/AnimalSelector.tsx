@@ -17,7 +17,7 @@ const AnimalSelector = () => {
         <button
           key={animal}
           onClick={() => handleSelect(animal)}
-          className={`px-4 w-1/2 font-semibold py-3 font-semibold transition  active:shadow-inset-shark ${
+          className={`px-4 w-1/2 py-3 font-semibold transition  active:shadow-inset-shark ${
             selectedAnimal === animal
               ? `bg-tenn text-alabaster ${animal === "dog" ? "rounded-l-[8px]" : "rounded-r-[8px]"}`
               : "text-fire"
