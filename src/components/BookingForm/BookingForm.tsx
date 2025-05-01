@@ -1,5 +1,6 @@
 import BookingCategory from '@/components/BookingForm/Booking/BookingCategory ';
 import BookingDatePicker from '@/components/BookingForm/Booking/BookingDatePicker';
+import BookingDetails from '@/components/BookingForm/Booking/BookingDetails';
 import BookingLocation from '@/components/BookingForm/Booking/BookingLocation';
 import BookingPrice from '@/components/BookingForm/Booking/BookingPrice';
 import BookingTimePicker from '@/components/BookingForm/Booking/BookingTimePicker';
@@ -18,16 +19,7 @@ const BookingForm = () => {
           setSelectedLocationOption={setSelectedOption}
         />
         <BookingLocation selectedLocationOption={selectedOption} />
-
-        <div>
-          <h4 className="text-xl font-semibold text-fire">Деталі замовлення</h4>
-          <textarea
-            name="orderDetails"
-            id="orderDetails"
-            className="input-base xl:min-h-[186px] resize-none "
-            placeholder="Приклад: порода собаки, вимоги до виконавця, особливості собаки, розмір собаки, вік улюбленця та ін."
-          ></textarea>
-        </div>
+        <BookingDetails />
         <BookingDatePicker />
         <BookingTimePicker />
         <BookingPrice />
