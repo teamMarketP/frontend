@@ -29,7 +29,7 @@ const ServiceTypeSelector = () => {
           className="flex flex-col items-center justify-center gap-2 py-3 px-13 border rounded-[16px] border-tenn border-[2px] hover:bg-tenn hover:text-alabaster hover:border-none hover:shadow-shark active:shadow-inset-shark group"
         >
           <svg
-            className="h-13 w-12 shrink-0 fill-tenn group-hover:fill-alabaster"
+            className="h-[52px] w-[55px] shrink-0 fill-tenn group-hover:fill-alabaster"
             role="img"
             aria-label={service.label}
           >
