@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import {
+  BookingLocationState,
+  LocationOptions,
+} from '@/components/BookingForm/types';
 
-const BookingCategory = () => {
-  const [selectedOption, setSelectedOption] = useState('specialist');
-
+const BookingCategory: React.FC<BookingLocationState> = ({
+  selectedLocationOption,
+  setSelectedLocationOption,
+}) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedOption(event.target.value);
+    setSelectedLocationOption(event.target.value as LocationOptions);
   };
 
   return (
@@ -24,28 +28,28 @@ const BookingCategory = () => {
         </select>
 
         <div className="xl:flex xl:flex-col xl:text-sm gap-5 xl:absolute xl:left-[520px] ">
-          <label className="xl:flex xl:items-center xl:gap-[10px] ">
+          <label className="xl:flex xl:items-center xl:gap-[10px] leading-none">
             <input
               type="radio"
               name="location"
-              value="specialist"
-              checked={selectedOption === 'specialist'}
-              onChange={handleChange}
-              className="book-radio-btn"
-            />
-            У фахівця
-          </label>
-
-          <label className="xl:flex xl:items-center xl:gap-[10px] ">
-            <input
-              type="radio"
-              name="location"
-              value="home"
-              checked={selectedOption === 'home'}
+              value="customer"
+              checked={selectedLocationOption === 'customer'}
               onChange={handleChange}
               className="book-radio-btn"
             />
             На виїзді
+          </label>
+
+          <label className="xl:flex xl:items-center xl:gap-[10px] leading-none">
+            <input
+              type="radio"
+              name="location"
+              value="specialist"
+              checked={selectedLocationOption === 'specialist'}
+              onChange={handleChange}
+              className="book-radio-btn"
+            />
+            У фахівця
           </label>
 
           {/* <p>
