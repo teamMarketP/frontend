@@ -7,7 +7,7 @@ const BookingDetails = () => {
       <textarea
         name="orderDetails"
         id="orderDetails"
-        className="input-base xl:min-h-[186px] resize-none p-4 block box-  overflow-y-auto"
+        className="input-base xl:min-h-[186px] resize-none xl:p-4 block overflow-y-auto"
         placeholder="Приклад: порода собаки, вимоги до виконавця, особливості собаки, розмір собаки, вік улюбленця та ін."
       ></textarea>
     </div>
