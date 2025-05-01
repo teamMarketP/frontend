@@ -33,7 +33,7 @@ export default function CustomSelect() {
     <div className="relative w-1/2 border-[2px] border-tenn rounded-[12px] hover:shadow-shark" ref={dropdownRef}>
       <button
         type="button"
-        className="w-full flex items-center justify-between py-[10px] pr-8 pl-12"
+        className="w-full flex items-center justify-between py-[12px] pr-8 pl-12"
         onClick={() => setIsOpen((prev) => !prev)}
       >
         {selectedLabel}
