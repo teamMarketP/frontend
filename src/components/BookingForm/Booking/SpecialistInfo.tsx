@@ -3,8 +3,8 @@ const SpecialistInfo = () => {
     <div>
       <div className="flex items-center justify-center w-[272px] h-[364px] mb-[30px] ">
         <img
-          // src="/public/booking-img/default-specialist-avatar.png"
-          src="/public/booking-img/ihor-lytvyn.jpg"
+          // src="/booking-img/default-specialist-avatar.png"
+          src="/booking-img/ihor-lytvyn.jpg"
           alt="Specailist's picture"
           className=" rounded-2xl"
         />
