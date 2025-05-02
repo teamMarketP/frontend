@@ -1,12 +1,14 @@
+import { Link } from "react-router-dom";
+
 export const Navigation = () => {
   return (
     <nav>
-      <a
-        href="#"
-        className="flex text-fire hover:text-mineShaft transition-colors"
+      <Link
+        to="#"
+        className="flex text-fire px-2 py-1 border-[2px] border-transparent rounded-full hover:border-fire transition-colors"
       >
         Сервіси
-      </a>
+      </Link>
     </nav>
   );
 };
