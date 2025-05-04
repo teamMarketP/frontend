@@ -1,10 +1,9 @@
-import { FC } from "react";
 import { SpecialistProfileHeader } from "../components/SpecialistProfileHeader";
 import mockProfileData from "../__mocks__/mockProfileData";
 
-const SpecialistProfilePage: FC = () => {
+const SpecialistProfilePage = () => {
   return (
-    <div className="container mx-auto p-[120px] space-y-8 max-w-[1280px]">
+    <div className="container mx-auto p-[120px] max-w-[1280px]">
       <SpecialistProfileHeader profile={mockProfileData} />
       {/* <SpecialistPetsCarousel />
       <SpecialistReviewsSection /> */}

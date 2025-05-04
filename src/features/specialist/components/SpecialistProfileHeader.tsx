@@ -7,32 +7,33 @@ interface Props {
 }
 
 export const SpecialistProfileHeader: FC<Props> = ({ profile }) => {
+  const { avatar, name, isVerified, icon, updata, profession, experience, bio, services, iconDog, iconCat } = profile;
   return (
-    <section className="flex xl:flex-row gap-[26px] text-shark">
+    <section className="flex xl:flex-row gap-[26px] text-shark mb-[70px]">
       {/* Ліва частина */}
       <div className="flex-1 flex xl:flex-row gap-[37px] p-5 shadow-smoke rounded-[16px] bg-alabaster">
         <img
-          src={profile.avatar}
-          alt={profile.name}
+          src={avatar}
+          alt={name}
           className="w-[236px] h-auto rounded-xl object-cover"
         />
         <div>
           <h2 className="text-fire text-xl font-semibold flex items-center gap-3 mb-5">
-            {profile.name}
-            {profile.isVerified && (
+            {name}
+            {isVerified && (
               <span className="fill-fire" title="Перевірений">
                 <svg width="20" height="20" aria-hidden="true">
-                  <use href={`/icons.svg#${profile.icon}`} />
+                  <use href={`/icons.svg#${icon}`} />
                 </svg>
               </span>
             )}
           </h2>
-          <p className="text-inherit mb-6">На сайті з:{profile.updata}</p>
-          <p className="text-inherit mb-5">{profile.profession}</p>
+          <p className="text-inherit mb-6">На сайті з:{updata}</p>
+          <p className="text-inherit mb-5">{profession}</p>
           <p className="text-inherit mb-7">
-            <span className="font-semibold">Досвід:</span> {profile.experience}
+            <span className="font-semibold">Досвід:</span> {experience}
           </p>
-          <p className="text-inherit text-justify">{profile.bio}</p>
+          <p className="text-inherit text-justify">{bio}</p>
         </div>
       </div>
 
@@ -41,12 +42,12 @@ export const SpecialistProfileHeader: FC<Props> = ({ profile }) => {
         <div className="rounded-[16px] px-[25px] pt-5 pb-3 bg-gray-50 shadow-smoke bg-alabaster">
           <div className="flex justify-center items-center gap-5 mb-4">
               <svg className="fill-tenn" width="30" height="30" aria-hidden="true">
-                <use href={`/icons.svg#${profile.iconDog}`} />
+                <use href={`/icons.svg#${iconDog}`} />
               </svg>
               <h3 className="text-tenn text-xl font-semibold">Собаки</h3>
           </div>
           <div className="mb-7">
-              {profile.services.map(service => (
+              {services.map(service => (
                 <p key={service.id} className="text-base text-center">
                   {service.title}: {service.price}
                   {service.currency} / {service.duration}
@@ -55,12 +56,12 @@ export const SpecialistProfileHeader: FC<Props> = ({ profile }) => {
           </div>
           <div className="flex justify-center items-center gap-5 mb-4">
               <svg className="fill-tenn" width="30" height="30" aria-hidden="true">
-                <use href={`/icons.svg#${profile.iconCat}`} />
+                <use href={`/icons.svg#${iconCat}`} />
               </svg>
               <h3 className="text-tenn text-xl font-semibold">Коти</h3>
           </div>
           <div className="mb-7">
-              {profile.services.map(service => (
+              {services.map(service => (
                 <p key={service.id} className="text-base text-center">
                   {service.title}: {service.price}
                   {service.currency} / {service.duration}
