@@ -48,6 +48,13 @@ const mockProfileData: SpecialistMock = {
     phone: '+380961234567',
     website: 'https://pet-help.com.ua',
   },
+  petsPhotos: [
+    '/images/loveAnimal/1.jpg',
+    '/images/loveAnimal/2.jpg',
+    '/images/loveAnimal/3.jpg',
+    '/images/loveAnimal/4.jpg',
+    '/images/loveAnimal/1.jpg',
+  ],
 };
 
 export default mockProfileData;

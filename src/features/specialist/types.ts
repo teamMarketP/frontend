@@ -61,5 +61,6 @@ export interface SpecialistService {
     availableDays: string[];
     isVerified: boolean;
     contact: Contact;
+    petsPhotos: string[];
   };
   
