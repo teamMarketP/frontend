@@ -129,4 +129,14 @@ button:not(:disabled) {
     @apply relative w-full border-2 border-fire rounded-2xl h-[40px] pl-5 pr-10 focus:outline-none caret-fire placeholder-gray-400 focus:placeholder-transparent focus:border-tenn;
   }
 
+  .no-scrollbar {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  
+
 }

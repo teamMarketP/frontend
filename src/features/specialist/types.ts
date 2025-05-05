@@ -46,6 +46,8 @@ export interface SpecialistService {
     icon: string;
     iconDog: string;
     iconCat: string;
+    iconLeft: string;
+    iconRight: string;
     avatar: string;
     profession: string;
     rating: number;
