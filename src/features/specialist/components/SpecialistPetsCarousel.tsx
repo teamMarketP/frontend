@@ -38,6 +38,7 @@ export const SpecialistPetsCarousel= ({ images }: Props) => {
       };
     }, []);
 
+    if (!petsPhotos || petsPhotos.length === 0) return null;
 
 return (
   <section className="section">
