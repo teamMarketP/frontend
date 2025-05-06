@@ -7,14 +7,14 @@ const ErrorState = () => {
 
 
   return (
-    <div>
+
 
       <StateDisplay
         animationData={errorAnimation}
         size={300}
         message={<>Щось пішло не так. Спробуйте ще раз пізніше.</>}
       />
-    </div>
+  
   );
 };
 

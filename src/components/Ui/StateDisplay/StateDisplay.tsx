@@ -9,14 +9,14 @@ type StateDisplayProps = {
 
 const StateDisplay: FC<StateDisplayProps> = ({ animationData, message, size = 200 }) => {
   return (
-    <div className="flex flex-col items-center gap-3 mb-20 mt-20 px-4">
+    <div className="flex flex-col items-center gap-6 my-20 px-4">
       <Lottie
         autoplay
         loop
         animationData={animationData}
-        style={{ width: size, height: size }}
+        className={`w-[${size}px] h-[${size}px]`}
       />
-      <div className="text-center text-lg text-cod-gray mt-6 mb-6">{message}</div>
+      <div className="text-center text-lg text-cod-gray">{message}</div>
     </div>
   );
 };

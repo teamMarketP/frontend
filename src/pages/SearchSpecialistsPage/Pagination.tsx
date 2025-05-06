@@ -22,6 +22,7 @@ const Pagination: FC<Props> = ({ currentPage, totalPages, onChange }) => {
     if (currentPage <= 8) {
       for (let i = 1; i <= 9; i++) pages.push(i);
       pages.push(DOTS);
+      pages.push(totalPages); // 👈 Додаємо останню сторінку (за кроликом)
       return pages;
     }
 
@@ -35,7 +36,8 @@ const Pagination: FC<Props> = ({ currentPage, totalPages, onChange }) => {
     pages.push(1);
     pages.push(DOTS);
     for (let i = currentPage - 1; i <= currentPage + 3; i++) pages.push(i);
-
+    pages.push(DOTS); // за кроликом
+    pages.push(totalPages); // за кроликом
     return pages;
   };
 
@@ -63,7 +65,9 @@ const Pagination: FC<Props> = ({ currentPage, totalPages, onChange }) => {
 
         {generatePageRange().map((page, i) =>
           page === DOTS ? (
-            <span key={`dots-${i}`} className="text-fire px-2">
+            <span key={`dots-${i}`} className="text-fire px-2"
+            aria-hidden="true"
+  title="Проміжні сторінки">
               {DOTS}
             </span>
           ) : (
@@ -71,6 +75,8 @@ const Pagination: FC<Props> = ({ currentPage, totalPages, onChange }) => {
               key={page}
               type="button"
               onClick={() => handleClick(page)}
+              aria-label={`Перейти на сторінку ${page}${page === currentPage ? ' (поточна сторінка)' : ''}`}
+              aria-current={page === currentPage ? 'page' : undefined}
               className={`h-[27px] text-fire ${
                 page === currentPage
                   ? 'font-bold text-[24px]'

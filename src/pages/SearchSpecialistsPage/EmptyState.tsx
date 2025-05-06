@@ -7,7 +7,7 @@ const EmptyState = () => {
  
 
   return (
-    <div>
+   
  
       <StateDisplay
         animationData={dogInBox}
@@ -19,7 +19,7 @@ const EmptyState = () => {
           </>
         }
       />
-    </div>
+    
   );
 };
 

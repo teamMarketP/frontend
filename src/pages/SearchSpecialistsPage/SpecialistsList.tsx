@@ -10,16 +10,15 @@ type Props = {
   loading: boolean;
   error: boolean;
 };
+  
+
+const SpecialistsList = ({ specialists, loading, error }: Props) => {
   const getSkeletonCount = (): number =>{
     const width = window.innerWidth;
     if(width < 768) return 4;
     if(width < 1280) return 8;
     return 16;
   } 
-
-
-const SpecialistsList = ({ specialists, loading, error }: Props) => {
-
   const [skeletonCount] = useState(getSkeletonCount);
   const skeletonArray = useMemo(() => 
   Array.from({length: skeletonCount}).map((_, index) => (

@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import Button from '@/components/Ui/Button/Button';
 import { useState } from 'react';
 
-
-
 type Props = {
   specialist: Specialist;
 };
@@ -45,45 +43,59 @@ const SpecialistCard: FC<Props> = ({ specialist }) => {
     if (typeof text !== 'string') return '';
     const clean = text.trim().replace(/\s+/g, ' ');
     const isTruncated = clean.length > maxLength;
-    return isTruncated ? clean.slice(0, maxLength).trimEnd() + '…' : clean;
+    if (!isTruncated) return clean;
+    const truncated = clean.slice(0, maxLength);
+    const lastSpaceIndex = truncated.lastIndexOf(' ');
+
+    return lastSpaceIndex > 0
+      ? truncated.slice(0, lastSpaceIndex).trimEnd() + '…'
+      : truncated.trimEnd() + '…';
   }
-  
 
   return (
     <div className="w-[500px] h-[400px] bg-alabaster rounded-[16px] shadow-[0_1px_4px_4px_rgba(0,0,0,0.25)] p-5 gap-6 flex">
       {/* Зображення */}
       <div className="w-[236px] h-[360px] flex-shrink-0 rounded-[16px] overflow-hidden">
-      <picture>
-  {!hasImageError && hasImageBase && (
-    <source
-      srcSet={`/imagesSpecialists/${imageBase}-2x.webp 2x, /imagesSpecialists/${imageBase}-1x.webp 1x`}
-      type="image/webp"
-    />
-  )}
-  <img
-    src={imageSrc}
-    alt={`${name} ${family_name}`}
-    className="w-full h-full object-cover"
-    onError={(e) => {
-      setHasImageError(true); // прибираємо <source>
-      e.currentTarget.onerror = null;
-      e.currentTarget.src = '/placeholder.webp';
-    }}
-    loading="lazy"
-  />
-</picture>
+        <picture>
+          {!hasImageError && hasImageBase && (
+            <source
+              srcSet={`/imagesSpecialists/${imageBase}-2x.webp 2x, /imagesSpecialists/${imageBase}-1x.webp 1x`}
+              type="image/webp"
+            />
+          )}
+          <img
+            src={imageSrc}
+            alt={`${name} ${family_name}`}
+            className="w-full h-full object-cover"
+            onError={e => {
+              console.debug(`Image failed to load: ${imageSrc}`);
+              setHasImageError(true); // прибираємо <source>
+              e.currentTarget.onerror = null;
+              e.currentTarget.src = '/placeholder.webp';
+            }}
+            loading="lazy"
+          />
+        </picture>
       </div>
 
       {/* Контент */}
       <div className="flex flex-col h-[360px] flex-grow overflow-hidden">
-        <div className={`flex flex-col flex-grow min-h-0 overflow-hidden ${!is_verified ? 'gap-6' : 'gap-4'}`}>
+        <div
+          className={`flex flex-col flex-grow min-h-0 overflow-hidden ${
+            !is_verified ? 'gap-6' : 'gap-4'
+          }`}
+        >
           <h2 className="text-[20px] font-semibold text-fire">
             {name} {shortFamilyName}
           </h2>
 
           {is_verified && (
             <div className="flex gap-[7px]">
-              <svg className="w-[17px] h-[17px] fill-fire">
+              <svg
+                className="w-[17px] h-[17px] fill-fire"
+                aria-label="Перевірений фахівець"
+                role="img"
+              >
                 <use href="/icons.svg#icon-verified" />
               </svg>
               <span className="text-sm font-normal text-cod-gray">
