@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import Pagination from '@/pages/SearchSpecialistsPage/Pagination';
 import SpecialistsList from '@/pages/SearchSpecialistsPage/SpecialistsList';
 import { mockSpecialists } from '@/data/mockSpecialists';
-
 import BackButton from '@/pages/SearchSpecialistsPage/BackButton';
 
 const SearchSpecialistsPage = () => {
@@ -24,6 +23,11 @@ const SearchSpecialistsPage = () => {
 
     const timer = setTimeout(() => {
       setLoading(false);
+      // Simulate occasional error for testing error state
+      // Remove in production or replace with actual error handling
+if (Math.random() < 0.1) {
+setError(true);
+ }
     }, 500);
 
     return () => clearTimeout(timer);
@@ -34,20 +38,11 @@ const SearchSpecialistsPage = () => {
   };
 
   return (
-    <div className="max-w-[1280px] mx-auto px-[120px] pt-[47px] pb-[58px]">
+    <div className="max-w-[1040px] mx-auto  pt-[47px] pb-[58px]">
       <BackButton />
-      {/* <button
-        type="button"
-        onClick={() => navigate('/')}
-        className="flex items-center gap-[11px] text-fire hover:underline font-semibold text-[16px] mb-[25px]"
-      >
-        <svg className="w-2 h-4 fill-fire">
-          <use href="/icons.svg#icon-arrow-left" />
-        </svg>
-        Повернутись до пошуку
-      </button> */}
+    
 
-      <h1 className="flex items-center gap-[8px] font-semibold text-[20px] text-fire mb-[20px]">
+      <h1 className="flex items-center gap-2 font-semibold text-[20px] text-fire mb-5">
         Ми знайшли фахівців для вашого запиту
         <svg className="w-[17px] h-[15px] fill-fire">
           <use href="/icons.svg#icon-two-paws-print" />
@@ -60,13 +55,13 @@ const SearchSpecialistsPage = () => {
         error={error}
       />
 
-      <div className="mt-8 flex justify-center">
+  
         <Pagination
           currentPage={page}
           totalPages={totalPages}
           onChange={handleChangePage}
         />
-      </div>
+     
     </div>
   );
 };

@@ -6,61 +6,94 @@ type Props = {
   onChange: (page: number) => void;
 };
 
+const DOTS = '...';
+
 const Pagination: FC<Props> = ({ currentPage, totalPages, onChange }) => {
   if (totalPages <= 1) return null;
 
-  const renderPageNumbers = () => {
-    return Array.from({ length: totalPages }, (_, index) => {
-      const pageNumber = index + 1;
+  const generatePageRange = () => {
+    const pages: (number | string)[] = [];
 
-      return (
-        <button
-          key={pageNumber}
-          type="button"
-          onClick={() => onChange(pageNumber)}
-          className={`h-[27px] text-fire ${
-            pageNumber === currentPage
-              ? 'font-bold text-[24px]'
-              : 'font-semibold text-[20px]'
-          }`}
-        >
-          {pageNumber}
-        </button>
-      );
-    });
+    if (totalPages <= 10) {
+      for (let i = 1; i <= totalPages; i++) pages.push(i);
+      return pages;
+    }
+
+    if (currentPage <= 8) {
+      for (let i = 1; i <= 9; i++) pages.push(i);
+      pages.push(DOTS);
+      return pages;
+    }
+
+    if (currentPage >= 9 && currentPage + 3 >= totalPages) {
+      pages.push(1);
+      pages.push(DOTS);
+      for (let i = totalPages - 4; i <= totalPages; i++) pages.push(i);
+      return pages;
+    }
+
+    pages.push(1);
+    pages.push(DOTS);
+    for (let i = currentPage - 1; i <= currentPage + 3; i++) pages.push(i);
+
+    return pages;
+  };
+
+  const handleClick = (page: number | string) => {
+    if (page !== DOTS && page !== currentPage) {
+      onChange(Number(page));
+    }
   };
 
   return (
     <div className="flex justify-center">
       <div className="flex items-baseline gap-2">
-        {/* Стрілка назад */}
-        <button
-          type="button"
-          className="text-fire mr-[8px]"
-          aria-label="Previous page"
-          onClick={() => onChange(currentPage - 1)}
-          disabled={currentPage === 1}
-        >
-          <svg className="w-[10px] h-[19px] fill-fire">
-            <use href="/icons.svg#icon-arrow-left" />
-          </svg>
-        </button>
+        {currentPage > 1 && (
+          <button
+            type="button"
+            className="mr-[8px] fill-fire"
+            aria-label="Previous page"
+            onClick={() => handleClick(currentPage - 1)}
+          >
+            <svg className="w-[10px] h-[19px]">
+              <use href="/icons.svg#icon-arrow-left" />
+            </svg>
+          </button>
+        )}
 
-        {/* Кнопки з цифрами */}
-        {renderPageNumbers()}
+        {generatePageRange().map((page, i) =>
+          page === DOTS ? (
+            <span key={`dots-${i}`} className="text-fire px-2">
+              {DOTS}
+            </span>
+          ) : (
+            <button
+              key={page}
+              type="button"
+              onClick={() => handleClick(page)}
+              className={`h-[27px] text-fire ${
+                page === currentPage
+                  ? 'font-bold text-[24px]'
+                  : 'font-semibold text-[20px]'
+              }`}
+            >
+              {page}
+            </button>
+          )
+        )}
 
-        {/* Стрілка вперед */}
-        <button
-          type="button"
-          className="text-fire ml-[8px]"
-          aria-label="Next page"
-          onClick={() => onChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
-        >
-          <svg className="w-[10px] h-[19px] fill-fire">
-            <use href="/icons.svg#icon-arrow-right" />
-          </svg>
-        </button>
+        {currentPage < totalPages && (
+          <button
+            type="button"
+            className="ml-[8px] fill-fire"
+            aria-label="Next page"
+            onClick={() => handleClick(currentPage + 1)}
+          >
+            <svg className="w-[10px] h-[19px]">
+              <use href="/icons.svg#icon-arrow-right" />
+            </svg>
+          </button>
+        )}
       </div>
     </div>
   );

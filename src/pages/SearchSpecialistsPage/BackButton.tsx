@@ -8,7 +8,7 @@ const BackButton: FC = () => {
     <button
       type="button"
       onClick={() => navigate('/')}
-      className="flex items-center gap-[11px] text-fire hover:underline font-semibold text-[16px] mb-[25px]"
+      className="flex items-center gap-3 text-fire hover:underline font-semibold text-[16px] mb-6"
     >
       <svg className="w-2 h-4 fill-fire">
         <use href="/icons.svg#icon-arrow-left" />

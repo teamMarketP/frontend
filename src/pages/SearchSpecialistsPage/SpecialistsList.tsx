@@ -1,3 +1,4 @@
+import {useMemo, useState} from 'react';
 import { Specialist } from '@/types/specialist';
 import SpecialistCard from '@/pages/SearchSpecialistsPage/SpecialistCard';
 import SpecialistCardSkeleton from '@/pages/SearchSpecialistsPage/SpecialistCardSkeleton';
@@ -9,14 +10,31 @@ type Props = {
   loading: boolean;
   error: boolean;
 };
+  const getSkeletonCount = (): number =>{
+    const width = window.innerWidth;
+    if(width < 768) return 4;
+    if(width < 1280) return 8;
+    return 16;
+  } 
+
 
 const SpecialistsList = ({ specialists, loading, error }: Props) => {
-  if (loading) {
+
+  const [skeletonCount] = useState(getSkeletonCount);
+  const skeletonArray = useMemo(() => 
+  Array.from({length: skeletonCount}).map((_, index) => (
+    <SpecialistCardSkeleton key={`skeleton-${index}`} />
+      )),
+      [skeletonCount]
+    );
+
+
+    const gridClasses ="grid grid-cols-2 gap-x-[40px] gap-y-[40px] mb-[58px]";
+
+  if (loading && specialists.length === 0) {
     return (
-      <div className="grid grid-cols-2 gap-x-[40px] gap-y-[40px]">
-        {Array.from({ length: 16 }).map((_, index) => (
-          <SpecialistCardSkeleton key={`skeleton-${index}`} />
-        ))}
+      <div className={gridClasses}>
+        {skeletonArray}
       </div>
     );
   }
@@ -25,12 +43,12 @@ const SpecialistsList = ({ specialists, loading, error }: Props) => {
     return <ErrorState />;
   }
 
-  if (specialists.length === 0) {
+  if (!loading && specialists.length === 0) {
     return <EmptyState />;
   }
 
   return (
-    <div className="grid grid-cols-2 gap-x-[40px] gap-y-[40px] mb-[58px]">
+    <div className={gridClasses}>
       {specialists.map(specialist => (
         <SpecialistCard key={specialist.id} specialist={specialist} />
       ))}
