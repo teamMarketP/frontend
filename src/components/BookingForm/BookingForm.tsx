@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 const BookingForm = () => {
   const [selectedOption, setSelectedOption] =
-    useState<LocationOptions>('specialist');
+    useState<LocationOptions>('customer');
 
   return (
     <div>

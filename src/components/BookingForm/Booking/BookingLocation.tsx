@@ -25,18 +25,17 @@ const BookingLocation = ({
         Місце виконання замовлення
       </h4>
       {selectedLocationOption === 'specialist' ? (
-        <input
-          type="text"
-          placeholder="Київ / Святошинський р-н"
-          className="input-base xl:w-[472px] cursor-not-allowed placeholder:text-fire"
-        />
+        <div className="flex items-center input-base xl:w-[472px]  text-fire select-none cursor-not-allowed">
+          Київ / Святошинський р-н
+        </div>
       ) : (
         <div className="xl:flex xl:flex-col xl:gap-[21px] ">
           <input
             type="text"
-            // defaultValue="Київ"
-            placeholder="Київ / Святошинський р-н"
-            className="input-base xl:w-[472px] cursor-not-allowed placeholder:text-fire"
+            defaultValue="Київ"
+            className="input-base xl:w-[472px] cursor-not-allowed placeholder:text-fire text-fire select-none pointer-events-none"
+            readOnly
+            tabIndex={-1}
           />
           <select
             name="district"
