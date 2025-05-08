@@ -1,4 +1,4 @@
-import { BookingLocationState } from '@/components/BookingForm/types';
+import { BookingLocationState } from '@/features/booking/types';
 
 // this code will be deleted when API is ready
 const districts = [

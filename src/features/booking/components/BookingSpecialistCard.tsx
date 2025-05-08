@@ -1,5 +1,5 @@
-import SpecialistInfo from '@/components/BookingForm/Booking/SpecialistInfo';
-import SpecialistReview from '@/components/BookingForm/Booking/SpecialistReview';
+import SpecialistInfo from '@/features/booking/components/SpecialistInfo';
+import SpecialistReview from '@/features/booking/components/SpecialistReview';
 
 const BookingSpecialistCard = () => {
   return (

@@ -1,6 +1,6 @@
-import BookingForm from '@/components/BookingForm/BookingForm';
-import BookingSpecialistCard from '@/components/BookingForm/Booking/BookingSpecialistCard';
-import BackButton from '@/components/Ui/BackButton';
+import BookingForm from '@/features/booking/components/BookingForm';
+import BookingSpecialistCard from '@/features/booking/components/BookingSpecialistCard';
+import BackButton from '@/shared/components/UI/BackButton';
 
 const BookingPage = () => {
   return (

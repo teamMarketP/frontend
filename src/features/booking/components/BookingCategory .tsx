@@ -1,7 +1,7 @@
 import {
   BookingLocationState,
   LocationOptions,
-} from '@/components/BookingForm/types';
+} from '@/features/booking/types';
 
 const BookingCategory: React.FC<BookingLocationState> = ({
   selectedLocationOption,

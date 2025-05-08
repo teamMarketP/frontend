@@ -5,7 +5,7 @@ import NotFoundPage from '@/pages/NotFound/NotFoundPage';
 import MainLayout from '@/components/Layout/MainLayout';
 
 const HomePage = lazy(() => import('@/pages/Home/HomePage'));
-const BookingPage = lazy(() => import('@/pages/Booking/BookingPage'));
+const BookingPage = lazy(() => import('@/features/booking/pages/BookingPage'));
 
 function App() {
   return (

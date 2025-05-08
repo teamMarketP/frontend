@@ -1,10 +1,10 @@
-import BookingCategory from '@/components/BookingForm/Booking/BookingCategory ';
-import BookingDatePicker from '@/components/BookingForm/Booking/BookingDatePicker';
-import BookingDetails from '@/components/BookingForm/Booking/BookingDetails';
-import BookingLocation from '@/components/BookingForm/Booking/BookingLocation';
-import BookingPrice from '@/components/BookingForm/Booking/BookingPrice';
-import BookingTimePicker from '@/components/BookingForm/Booking/BookingTimePicker';
-import { LocationOptions } from '@/components/BookingForm/types';
+import BookingCategory from '@/features/booking/components/BookingCategory ';
+import BookingDatePicker from '@/features/booking/components/BookingDatePicker';
+import BookingDetails from '@/features/booking/components/BookingDetails';
+import BookingLocation from '@/features/booking/components/BookingLocation';
+import BookingPrice from '@/features/booking/components/BookingPrice';
+import BookingTimePicker from '@/features/booking/components/BookingTimePicker';
+import { LocationOptions } from '@/features/booking/types';
 import { useState } from 'react';
 
 const BookingForm = () => {
