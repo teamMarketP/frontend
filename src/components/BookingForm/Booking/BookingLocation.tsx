@@ -25,7 +25,7 @@ const BookingLocation = ({
         Місце виконання замовлення
       </h4>
       {selectedLocationOption === 'specialist' ? (
-        <div className="flex items-center input-base xl:w-[472px]  text-fire select-none cursor-not-allowed">
+        <div className="flex items-center input-base pl-12 xl:w-[472px]  text-fire select-none cursor-not-allowed">
           Київ / Святошинський р-н
         </div>
       ) : (
@@ -33,14 +33,14 @@ const BookingLocation = ({
           <input
             type="text"
             defaultValue="Київ"
-            className="input-base xl:w-[472px] cursor-not-allowed placeholder:text-fire text-fire select-none pointer-events-none"
+            className="input-base pl-12 xl:w-[472px] cursor-not-allowed placeholder:text-fire text-fire select-none pointer-events-none"
             readOnly
             tabIndex={-1}
           />
           <select
             name="district"
             id="district"
-            className="input-base xl:w-[472px] "
+            className="input-base pl-12 xl:w-[472px] "
           >
             <option value="">Обрати район</option>
             {sortedDistricts.map((district, index) => (
@@ -53,13 +53,13 @@ const BookingLocation = ({
           <input
             type="text"
             placeholder="Приклад: вул. Шевченка"
-            className="input-base xl:w-[472px] "
+            className="input-base pl-12 xl:w-[472px] "
           />
 
           <input
             type="text"
             placeholder="Приклад: буд. 1, корп. 2, кв. 3"
-            className="input-base xl:w-[472px] "
+            className="input-base pl-12 xl:w-[472px] "
           />
         </div>
       )}

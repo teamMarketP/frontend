@@ -60,6 +60,7 @@
   --color-red-beech: #6d2e01;
   --color-fiery-tenn: #ce5601;
   --color-red-tenn: #bf0000;
+  --color-chicago-600: #5b5959;
   /* --color-wildSand: #f5f5f5; */
   /* --color-woodsmoke: #191919; */
   /* --color-shark: #272727; */
@@ -89,7 +90,7 @@ button:not(:disabled) {
 
 @layer components {
   .btn {
-    @apply bg-tenn text-alabaster rounded-2xl px-5 min-w-[200px] h-[40px]  transition-shadow duration-300 ease-in-out ;
+    @apply bg-tenn text-alabaster rounded-2xl px-5 min-w-[200px] h-[40px] transition-shadow duration-300 ease-in-out;
   }
 
   .btn:hover {
@@ -125,7 +126,7 @@ button:not(:disabled) {
   }
 
   .input-base {
-    @apply relative w-full border-2 border-fire rounded-2xl h-[40px] pl-5 pr-10 focus:outline-none caret-fire placeholder-gray-400 focus:placeholder-transparent focus:border-tenn;
+    @apply relative w-full border-2 border-fire rounded-2xl h-[40px] px-5 focus:outline-none caret-fire placeholder-gray-400 focus:placeholder-transparent focus:border-tenn;
   }
 
   .book-radio-btn {
