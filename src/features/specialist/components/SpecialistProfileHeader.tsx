@@ -108,7 +108,7 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
             <button
               type="button"
               onClick={() => setOpenSpecialistServices(true)}
-              className="bg-transparent text-tenn underline text-sm h-auto font-semibold hover:bg-shark active:text-shark transition"
+              className="bg-transparent text-tenn text-sm h-auto font-semibold hover:underline transition duration-200 ease-in-out"
             >
               Всі послуги
             </button>
