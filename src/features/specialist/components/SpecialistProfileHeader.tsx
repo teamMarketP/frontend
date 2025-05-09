@@ -115,7 +115,7 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
           <Modal
             isOpen={openSpecialistServices}
             onClose={() => setOpenSpecialistServices(false)}
-            className="w-[1036px] h-auto -inset-y-25 shadow-smoke bg-alabaster px-[152px] py-[52px]"
+            className="w-[800px] h-auto shadow-smoke px-[52px] py-[52px]"
           >
             <SpecialistServices
               profile={profile}
