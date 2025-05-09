@@ -81,10 +81,6 @@
     scrollbar-gutter: stable;
   }
 }
- 
-/* body {
-scrollbar-gutter: stable;
-} */
 
 button:not(:disabled) {
   cursor: pointer;
