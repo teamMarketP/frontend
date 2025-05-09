@@ -19,7 +19,7 @@ const BookingPrice = () => {
           <input
             type="text"
             placeholder="Email для зворотного зв’язку"
-            className="input-base pl-12"
+            className="input-base h-12 pl-12"
           />
           <p className="text-sm text-chicago-600">
             Вартість вказана лише для попередньої оцінки бюджету вашого

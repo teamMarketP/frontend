@@ -20,7 +20,7 @@ const BookingCategory: React.FC<BookingLocationState> = ({
         <select
           name="service"
           id="service"
-          className="input-base pl-12 xl:w-[472px] "
+          className="input-base h-12 pl-12 xl:w-[472px] "
         >
           <option value="">Обрати послугу</option>
           <option value="Грумінг">Грумінг</option>
