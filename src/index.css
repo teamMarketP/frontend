@@ -137,6 +137,4 @@ button:not(:disabled) {
   .no-scrollbar::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
   }
-  
-
 }

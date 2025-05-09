@@ -41,7 +41,7 @@ export const SpecialistPetsCarousel= ({ images }: Props) => {
     if (!petsPhotos || petsPhotos.length === 0) return null;
 
 return (
-  <section className="section">
+  <section className="mb-10">
     <div className="container">
       <h2 className="text-center text-xl font-semibold uppercase text-fire mb-10">
         Задоволені улюбленці

@@ -11,6 +11,7 @@ const mockProfileData: SpecialistMock = {
   iconCat: 'icon-cat',
   iconRight: 'icon-arrow-right',
   iconLeft: 'icon-arrow-left',
+  iconBottom: 'icon-arrow-bottom',
   profession: 'Перетримка / Догляд вдома',
   rating: 4.8,
   reviewsCount: 56,

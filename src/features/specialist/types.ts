@@ -48,6 +48,7 @@ export interface SpecialistService {
     iconCat: string;
     iconLeft: string;
     iconRight: string;
+    iconBottom: string;
     avatar: string;
     profession: string;
     rating: number;
@@ -64,5 +65,13 @@ export interface SpecialistService {
     isVerified: boolean;
     contact: Contact;
     petsPhotos: string[];
+  };
+
+  export type ReviewMock = {
+    name: string;
+    date: string;
+    rating: number;
+    service: string;
+    comment: string;
   };
   

@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { SpecialistMock } from '../types';
 import { Link } from 'react-router-dom';
 
@@ -6,7 +5,7 @@ interface Props {
   profile: SpecialistMock;
 }
 
-export const SpecialistProfileHeader: FC<Props> = ({ profile }) => {
+export const SpecialistProfileHeader = ({ profile }: Props) => {
   const { avatar, name, isVerified, icon, updata, profession, experience, bio, services, iconDog, iconCat } = profile;
   return (
     <section className="flex xl:flex-row gap-[26px] text-shark mb-[70px]">
