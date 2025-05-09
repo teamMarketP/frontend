@@ -7,7 +7,7 @@ import MainLayout from '@/components/Layout/MainLayout';
 const HomePage = lazy(() => import('@/pages/Home/HomePage'));
 const CatalogPage = lazy(() => import('@/pages/Catalog/CatalogPage'));
 const SearchSpecialistsPage = lazy(
-  () => import('@/pages/SearchSpecialistsPage/SearchSpecialistsPage')
+  () => import('@/features/searchSpecialists/pages/SearchSpecialistsPage')
 );
 
 function App() {

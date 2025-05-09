@@ -1,7 +1,7 @@
 import { useMemo, useState, useEffect } from 'react';
 import { Specialist } from '@/types/specialist';
-import SpecialistCard from '@/pages/SearchSpecialistsPage/SpecialistCard';
-import SpecialistCardSkeleton from '@/pages/SearchSpecialistsPage/SpecialistCardSkeleton';
+import SpecialistCard from '@/features/searchSpecialists/components/SpecialistCard';
+import SpecialistCardSkeleton from '@/features/searchSpecialists/components/SpecialistCardSkeleton';
 
 type Props = {
   specialists: Specialist[];

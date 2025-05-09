@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
-import Pagination from '@/pages/SearchSpecialistsPage/Pagination';
-import SpecialistsList from '@/pages/SearchSpecialistsPage/SpecialistsList';
+import Pagination from '@/features/searchSpecialists/components/Pagination';
+import SpecialistsList from '@/features/searchSpecialists/components/SpecialistsList';
 import { mockSpecialists } from '@/data/mockSpecialists';
-import BackButton from '@/pages/SearchSpecialistsPage/BackButton';
-import StateDisplay from '@/components/Ui/StateDisplay/StateDisplay';
+import BackButton from '@/features/searchSpecialists/components/BackButton';
+import StateDisplay from '@/features/searchSpecialists/components/StateDisplay';
 
 const SearchSpecialistsPage = () => {
   const specialistsPerPage = 16;
