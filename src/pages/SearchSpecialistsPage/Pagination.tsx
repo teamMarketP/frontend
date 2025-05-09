@@ -14,19 +14,19 @@ const Pagination: FC<Props> = ({ currentPage, totalPages, onChange }) => {
   const generatePageRange = () => {
     const pages: (number | string)[] = [];
 
-    if (totalPages <= 10) {
+    if (totalPages <= 7) {
       for (let i = 1; i <= totalPages; i++) pages.push(i);
       return pages;
     }
 
-    if (currentPage <= 8) {
-      for (let i = 1; i <= 9; i++) pages.push(i);
+    if (currentPage <= 4) {
+      for (let i = 1; i <= 5; i++) pages.push(i);
       pages.push(DOTS);
-      pages.push(totalPages); // 👈 Додаємо останню сторінку (за кроликом)
+      pages.push(totalPages);
       return pages;
     }
 
-    if (currentPage >= 9 && currentPage + 3 >= totalPages) {
+    if (currentPage >= totalPages - 3) {
       pages.push(1);
       pages.push(DOTS);
       for (let i = totalPages - 4; i <= totalPages; i++) pages.push(i);
@@ -35,9 +35,9 @@ const Pagination: FC<Props> = ({ currentPage, totalPages, onChange }) => {
 
     pages.push(1);
     pages.push(DOTS);
-    for (let i = currentPage - 1; i <= currentPage + 3; i++) pages.push(i);
-    pages.push(DOTS); // за кроликом
-    pages.push(totalPages); // за кроликом
+    for (let i = currentPage - 1; i <= currentPage + 1; i++) pages.push(i);
+    pages.push(DOTS);
+    pages.push(totalPages);
     return pages;
   };
 
@@ -50,24 +50,30 @@ const Pagination: FC<Props> = ({ currentPage, totalPages, onChange }) => {
   return (
     <div className="flex justify-center">
       <div className="flex items-baseline gap-2">
-        {currentPage > 1 && (
-          <button
-            type="button"
-            className="mr-[8px] fill-fire"
-            aria-label="Previous page"
-            onClick={() => handleClick(currentPage - 1)}
-          >
-            <svg className="w-[10px] h-[19px]">
-              <use href="/icons.svg#icon-arrow-left" />
-            </svg>
-          </button>
-        )}
+        <button
+          type="button"
+          className={`mr-[8px] transition-opacity ${
+            currentPage === 1
+              ? 'opacity-50 pointer-events-none cursor-not-allowed'
+              : 'fill-fire'
+          }`}
+          aria-label="Previous page"
+          disabled={currentPage === 1}
+          onClick={() => handleClick(currentPage - 1)}
+        >
+          <svg className="w-[10px] h-[19px] fill-fire">
+            <use href="/icons.svg#icon-arrow-left" />
+          </svg>
+        </button>
 
         {generatePageRange().map((page, i) =>
           page === DOTS ? (
-            <span key={`dots-${i}`} className="text-fire px-2"
-            aria-hidden="true"
-  title="Проміжні сторінки">
+            <span
+              key={`dots-${i}`}
+              className="text-fire px-2"
+              aria-hidden="true"
+              title="Проміжні сторінки"
+            >
               {DOTS}
             </span>
           ) : (
@@ -75,9 +81,11 @@ const Pagination: FC<Props> = ({ currentPage, totalPages, onChange }) => {
               key={page}
               type="button"
               onClick={() => handleClick(page)}
-              aria-label={`Перейти на сторінку ${page}${page === currentPage ? ' (поточна сторінка)' : ''}`}
+              aria-label={`Перейти на сторінку ${page}${
+                page === currentPage ? ' (поточна сторінка)' : ''
+              }`}
               aria-current={page === currentPage ? 'page' : undefined}
-              className={`h-[27px] text-fire ${
+              className={`w-[27px] h-[27px] text-center text-fire ${
                 page === currentPage
                   ? 'font-bold text-[24px]'
                   : 'font-semibold text-[20px]'
@@ -88,18 +96,21 @@ const Pagination: FC<Props> = ({ currentPage, totalPages, onChange }) => {
           )
         )}
 
-        {currentPage < totalPages && (
-          <button
-            type="button"
-            className="ml-[8px] fill-fire"
-            aria-label="Next page"
-            onClick={() => handleClick(currentPage + 1)}
-          >
-            <svg className="w-[10px] h-[19px]">
-              <use href="/icons.svg#icon-arrow-right" />
-            </svg>
-          </button>
-        )}
+        <button
+          type="button"
+          className={`ml-[8px] transition-opacity ${
+            currentPage === totalPages
+              ? 'opacity-50 pointer-events-none cursor-not-allowed'
+              : 'fill-fire'
+          }`}
+          aria-label="Next page"
+          disabled={currentPage === totalPages}
+          onClick={() => handleClick(currentPage + 1)}
+        >
+          <svg className="w-[10px] h-[19px] fill-fire">
+            <use href="/icons.svg#icon-arrow-right" />
+          </svg>
+        </button>
       </div>
     </div>
   );

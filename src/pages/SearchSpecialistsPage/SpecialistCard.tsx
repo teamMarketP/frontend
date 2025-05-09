@@ -68,8 +68,7 @@ const SpecialistCard: FC<Props> = ({ specialist }) => {
             alt={`${name} ${family_name}`}
             className="w-full h-full object-cover"
             onError={e => {
-              console.debug(`Image failed to load: ${imageSrc}`);
-              setHasImageError(true); // прибираємо <source>
+              setHasImageError(true);
               e.currentTarget.onerror = null;
               e.currentTarget.src = '/placeholder.webp';
             }}
@@ -90,7 +89,7 @@ const SpecialistCard: FC<Props> = ({ specialist }) => {
           </h2>
 
           {is_verified && (
-            <div className="flex gap-[7px]">
+            <div className="flex items-center gap-[7px]">
               <svg
                 className="w-[17px] h-[17px] fill-fire"
                 aria-label="Перевірений фахівець"
