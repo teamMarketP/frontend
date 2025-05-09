@@ -73,16 +73,18 @@
 @layer base {
   html {
     @apply font-sans;
+    scrollbar-gutter: stable;
   }
 
   body {
     @apply font-primary text-cod-gray bg-alabaster font-normal text-base;
+    scrollbar-gutter: stable;
   }
 }
-
-option {
-  padding: 0;
-}
+ 
+/* body {
+scrollbar-gutter: stable;
+} */
 
 button:not(:disabled) {
   cursor: pointer;

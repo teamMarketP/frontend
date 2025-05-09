@@ -36,7 +36,7 @@ const Modal: FC<ModalProps> = ({
   const modalContent = (
     <div
       className={clsx(
-        'fixed inset-0 z-50 flex justify-center backdrop-blur-xs items-center bg-[rgba(47,47,47,0.6)] transition-opacity duration-800 ease-in-out',
+        'fixed inset-0 z-50 flex justify-center backdrop-blur-xs items-center bg-[rgba(47,47,47,0.6)] transition-opacity duration-800 ease-in-out px-4',
         isOpen
           ? 'opacity-100 pointer-events-auto'
           : 'opacity-0 pointer-events-none'
