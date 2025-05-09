@@ -1,12 +1,30 @@
 import { SpecialistMock } from '../types';
-import { Link } from 'react-router-dom';
+import Button from '@/components/Ui/Button/Button';
+import { useState } from 'react';
+import Modal from '@/components/Ui/Modal/Modal';
+import SpecialistServices from './SpecialistServices';
 
 interface Props {
   profile: SpecialistMock;
 }
 
 export const SpecialistProfileHeader = ({ profile }: Props) => {
-  const { avatar, name, isVerified, icon, updata, profession, experience, bio, services, iconDog, iconCat } = profile;
+  const {
+    avatar,
+    name,
+    isVerified,
+    icon,
+    updata,
+    profession,
+    experience,
+    bio,
+    services,
+    iconDog,
+    iconCat,
+  } = profile;
+  const [openSpecialistServices, setOpenSpecialistServices] = useState(false);
+  const shortDogServices = services.filter(s => s.type === 'dog').slice(0, 2);
+  const shortCatServices = services.filter(s => s.type === 'cat').slice(0, 2);
   return (
     <section className="flex xl:flex-row gap-[26px] text-shark mb-[70px]">
       {/* Ліва частина */}
@@ -38,42 +56,79 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
 
       {/* Права частина */}
       <div className="flex xl:flex-col justify-between w-full md:w-1/3 max-w-[304px]">
-        <div className="rounded-[16px] px-[25px] pt-5 pb-3 shadow-smoke bg-alabaster">
+        <div className="flex flex-col justify-center rounded-[16px] px-[25px] pt-5 pb-3 shadow-smoke bg-alabaster">
+          {/* Собаки */}
           <div className="flex justify-center items-center gap-5 mb-4">
-              <svg className="fill-tenn" width="30" height="30" aria-hidden="true">
-                <use href={`/icons.svg#${iconDog}`} />
-              </svg>
-              <h3 className="text-tenn text-xl font-semibold">Собаки</h3>
+            <svg
+              className="fill-tenn"
+              width="30"
+              height="30"
+              aria-hidden="true"
+            >
+              <use href={`/icons.svg#${iconDog}`} />
+            </svg>
+            <h3 className="text-tenn text-xl font-semibold">Собаки</h3>
           </div>
           <div className="mb-7">
-              {services.map(service => (
-                <p key={service.id} className="text-base text-center">
-                  {service.title}: {service.price}
-                  {service.currency} / {service.duration}
-                </p>
-              ))}
+            {shortDogServices.map(service => (
+              <p key={service.id} className="text-base text-center">
+                {service.title}: {service.price}
+                {service.currency} / {service.duration}
+              </p>
+            ))}
           </div>
+
+          {/* Коти */}
           <div className="flex justify-center items-center gap-5 mb-4">
-              <svg className="fill-tenn" width="30" height="30" aria-hidden="true">
-                <use href={`/icons.svg#${iconCat}`} />
-              </svg>
-              <h3 className="text-tenn text-xl font-semibold">Коти</h3>
+            <svg
+              className="fill-tenn"
+              width="30"
+              height="30"
+              aria-hidden="true"
+            >
+              <use href={`/icons.svg#${iconCat}`} />
+            </svg>
+            <h3 className="text-tenn text-xl font-semibold">Коти</h3>
           </div>
           <div className="mb-7">
-              {services.map(service => (
-                <p key={service.id} className="text-base text-center">
-                  {service.title}: {service.price}
-                  {service.currency} / {service.duration}
-                </p>
-              ))}
+            {shortCatServices.map(service => (
+              <p key={service.id} className="text-base text-center">
+                {service.title}: {service.price}
+                {service.currency} / {service.duration}
+              </p>
+            ))}
           </div>
-          <Link to="#" className="text-md text-tenn flex justify-center underline">
-            Всі послуги
-          </Link>
+
+          {/* Кнопка відкриття модалки */}
+          {services.length > 2 && (
+            <button
+              type="button"
+              onClick={() => setOpenSpecialistServices(true)}
+              className="bg-transparent text-tenn underline text-sm h-auto font-semibold hover:bg-shark active:text-shark transition"
+            >
+              Всі послуги
+            </button>
+          )}
+          {/* Кнопка закриття модалки */}
+
+          {/* Модалка */}
+          <Modal
+            isOpen={openSpecialistServices}
+            onClose={() => setOpenSpecialistServices(false)}
+            className="w-[1036px] h-auto -inset-y-25 shadow-smoke bg-alabaster px-[152px] py-[52px]"
+          >
+            <SpecialistServices
+              profile={profile}
+              services={services}
+              onClose={() => setOpenSpecialistServices(false)} //функцію закриття
+            />
+          </Modal>
         </div>
-          <button className="bg-tenn text-alabaster text-xl py-4 px-9 rounded-[16px] hover:shadow-shark active:shadow-inset-shark transition">
-            Запропонувати роботу
-          </button>
+        <Button
+          label="Запропонувати роботу"
+          type="button"
+          className="text-xl py-4 px-9 rounded-[16px] h-auto"
+        />
       </div>
     </section>
   );

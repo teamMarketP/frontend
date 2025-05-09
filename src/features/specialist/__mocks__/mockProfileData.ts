@@ -22,16 +22,66 @@ const mockProfileData: SpecialistMock = {
   services: [
     {
       id: 'srv1',
+      type: 'dog',
       title: 'Догляд дома',
-      duration: '1 год',
+      duration: 'грн/год',
       price: 250,
       currency: '₴',
     },
     {
       id: 'srv2',
+      type: 'dog',
       title: 'Перетримка',
-      duration: '1 доба',
+      duration: 'грн/доба',
       price: 450,
+      currency: '₴',
+    },
+    {
+      id: 'srv3',
+      type: 'dog',
+      title: 'Грумінг',
+      duration: 'грн/тушка',
+      price: 350,
+      currency: '₴',
+    },
+    {
+      id: 'srv4',
+      type: 'dog',
+      title: 'Вигулювання',
+      duration: 'грн/год',
+      price: 150,
+      currency: '₴',
+    },
+    {
+      id: 'srv1',
+      type: 'cat',
+      title: 'Догляд дома',
+      duration: 'грн/год',
+      price: 200,
+      currency: '₴',
+    },
+    {
+      id: 'srv2',
+      type: 'cat',
+      title: 'Перетримка',
+      duration: 'грн/доба',
+      price: 350,
+      currency: '₴',
+    },
+    {
+      id: 'srv3',
+      type: 'cat',
+      title: 'Грумінг',
+      duration: 'грн/тушка',
+      price: 250,
+      currency: '₴',
+    },
+    {
+      id: 'srv4',
+      type: 'cat',
+      title: 'Вигулювання',
+      duration: 'грн/год',
+      price: 100,
       currency: '₴',
     },
   ],
@@ -51,6 +101,7 @@ const mockProfileData: SpecialistMock = {
     phone: '+380961234567',
     website: 'https://pet-help.com.ua',
   },
+
   petsPhotos: [
     '/images/loveAnimal/1.jpg',
     '/images/loveAnimal/2.jpg',
@@ -64,6 +115,10 @@ const mockProfileData: SpecialistMock = {
     '/images/loveAnimal/4.jpg',
     '/images/loveAnimal/1.jpg',
   ],
+
+  onClose: () => {
+    console.log('Modal closed');
+  },
 };
 
 export default mockProfileData;

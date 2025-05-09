@@ -21,6 +21,7 @@ export interface SpecialistService {
 
   export type Service = {
     id: string;
+    type: 'dog' | 'cat';
     title: string;
     duration: string;
     price: number;
@@ -65,6 +66,8 @@ export interface SpecialistService {
     isVerified: boolean;
     contact: Contact;
     petsPhotos: string[];
+    onClose?: () => void;
+
   };
 
   export type ReviewMock = {
