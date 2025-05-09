@@ -69,11 +69,13 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
             </svg>
             <h3 className="text-tenn text-xl font-semibold">Собаки</h3>
           </div>
-          <div className="mb-7">
+          <div className="flex flex-col mb-7">
             {shortDogServices.map(service => (
-              <p key={service.id} className="text-base text-center">
-                {service.title}: {service.price}
-                {service.currency} / {service.duration}
+              <p key={service.id}>
+                {service.title}: 
+                <span className="ml-10">
+                  {service.price}  {service.duration}
+                </span>
               </p>
             ))}
           </div>
@@ -92,9 +94,11 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
           </div>
           <div className="mb-7">
             {shortCatServices.map(service => (
-              <p key={service.id} className="text-base text-center">
-                {service.title}: {service.price}
-                {service.currency} / {service.duration}
+              <p key={service.id}>
+                {service.title}: 
+                <span className="ml-10">
+                  {service.price}  {service.duration}
+                </span>
               </p>
             ))}
           </div>
