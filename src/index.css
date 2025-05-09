@@ -76,7 +76,7 @@
   }
 
   body {
-    @apply font-primary text-cod-gray bg-white font-normal text-base;
+    @apply font-primary text-cod-gray bg-alabaster font-normal text-base;
   }
 }
 

@@ -38,7 +38,7 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
 
       {/* Права частина */}
       <div className="flex xl:flex-col justify-between w-full md:w-1/3 max-w-[304px]">
-        <div className="rounded-[16px] px-[25px] pt-5 pb-3 bg-gray-50 shadow-smoke bg-alabaster">
+        <div className="rounded-[16px] px-[25px] pt-5 pb-3 shadow-smoke bg-alabaster">
           <div className="flex justify-center items-center gap-5 mb-4">
               <svg className="fill-tenn" width="30" height="30" aria-hidden="true">
                 <use href={`/icons.svg#${iconDog}`} />
