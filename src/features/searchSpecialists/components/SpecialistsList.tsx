@@ -1,4 +1,4 @@
-import { Specialist } from '@/types/specialist';
+import { Specialist } from '@/features/searchSpecialists/types/specialist';
 import SpecialistCard from '@/features/searchSpecialists/components/SpecialistCard';
 
 type Props = {

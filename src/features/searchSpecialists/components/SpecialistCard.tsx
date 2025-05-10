@@ -1,5 +1,4 @@
-import { FC } from 'react';
-import { Specialist } from '@/types/specialist';
+import { Specialist } from '@/features/searchSpecialists/types/specialist';
 import { useNavigate } from 'react-router-dom';
 import Button from '@/components/Ui/Button/Button';
 import { useState } from 'react';
@@ -8,7 +7,7 @@ type Props = {
   specialist: Specialist;
 };
 
-const SpecialistCard: FC<Props> = ({ specialist }) => {
+const SpecialistCard = ({ specialist }: Props) => {
   const navigate = useNavigate();
   const {
     id,

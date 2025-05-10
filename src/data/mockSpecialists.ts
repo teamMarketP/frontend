@@ -1,4 +1,4 @@
-import { Specialist } from '@/types/specialist';
+import { Specialist } from '@/features/searchSpecialists/types/specialist';
 
 export const mockSpecialists: Specialist[] = [
   {
