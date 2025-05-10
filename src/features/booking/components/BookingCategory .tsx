@@ -4,6 +4,7 @@ import {
   BookingLocationState,
   LocationOptions,
 } from '@/features/booking/types';
+import { dogsWeight } from '@/shared/constants/dogsWeight';
 
 const BookingCategory: React.FC<BookingLocationState> = ({
   selectedLocationOption,
@@ -12,13 +13,24 @@ const BookingCategory: React.FC<BookingLocationState> = ({
   const [selectedService, setSelectedService] = useState<string | null>(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [selectedAnimal, setSelectedAnimal] = useState<string | null>(null);
+  const [selectedWeight, setSelectedWeight] = useState<string | null>(null);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedLocationOption(event.target.value as LocationOptions);
   };
 
-  const handleServiceClick = (service: string) => {
+  const handleServiceClick = (service: string, animalName: string) => {
     setSelectedService(service);
+    setSelectedAnimal(animalName);
+
+    if (animalName === 'собаки') {
+      // встановити "Малі" тільки якщо ще не вибрано
+      setSelectedWeight(prev => prev || dogsWeight[0].range);
+    } else {
+      setSelectedWeight(null);
+    }
+
     setDropdownOpen(false);
   };
 
@@ -70,7 +82,7 @@ const BookingCategory: React.FC<BookingLocationState> = ({
                     {animal.services.map(service => (
                       <li
                         key={service}
-                        onClick={() => handleServiceClick(service)}
+                        onClick={() => handleServiceClick(service, animal.name)}
                         className="cursor-pointer hover:text-fiery-orange transition-colors duration-300 ease-in-out"
                       >
                         {service}
@@ -83,7 +95,7 @@ const BookingCategory: React.FC<BookingLocationState> = ({
           )}
         </div>
 
-        {/* Радіо кнопки */}
+        {/* radio-buttons for location service */}
         <div className="xl:flex xl:flex-col xl:text-sm gap-5 xl:absolute xl:left-[520px]">
           <label className="xl:flex xl:items-center xl:gap-[10px] leading-none">
             <input
@@ -109,6 +121,27 @@ const BookingCategory: React.FC<BookingLocationState> = ({
             У фахівця
           </label>
         </div>
+
+        {/* radio-buttons for dogs weight*/}
+        {selectedAnimal === 'собаки' && (
+          <ul className="xl:flex xl:flex-col xl:text-sm gap-5 xl:absolute xl:left-[520px] xl:top-[126px]">
+            {dogsWeight.map((weight, index) => (
+              <li key={index}>
+                <label className="xl:flex xl:items-center xl:gap-[10px] leading-none">
+                  <input
+                    type="radio"
+                    name="dogWeight"
+                    value={weight.range}
+                    checked={selectedWeight === weight.range}
+                    onChange={() => setSelectedWeight(weight.range)}
+                    className="book-radio-btn"
+                  />
+                  {weight.label} {weight.range}
+                </label>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );
