@@ -59,7 +59,7 @@ const BookingDatePicker: React.FC = () => {
                 ${
                   isSelected
                     ? 'bg-tenn text-alabaster border-tenn'
-                    : 'bg-alabaster border-fire text-fire'
+                    : 'border-fire text-fire'
                 }`}
               >
                 <div

@@ -11,7 +11,7 @@ const BackButton: React.FC<BackButtonProps> = ({
   className,
 }) => {
   const backBtnClass = clsx(
-    'font-semibold text-fire flex gap-3 items-center',
+    'font-semibold text-fire flex gap-3 items-center transition-[text-shadow] duration-300 ease-in-out hover:text-shadow-xs',
     className
   );
 
