@@ -14,7 +14,7 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
     name,
     isVerified,
     icon,
-    updata,
+    joinDate,
     profession,
     experience,
     bio,
@@ -45,7 +45,7 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
               </span>
             )}
           </h2>
-          <p className="text-inherit mb-6">На сайті з:{updata}</p>
+          <p className="text-inherit mb-6">На сайті з:{joinDate}</p>
           <p className="text-inherit mb-5">{profession}</p>
           <p className="text-inherit mb-7">
             <span className="font-semibold">Досвід:</span> {experience}
@@ -104,7 +104,7 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
           </div>
 
           {/* Кнопка відкриття модалки */}
-          {services.length > 2 && (
+          {(services.filter(s => s.type === 'dog').length > 2 || services.filter(s => s.type === 'cat').length > 2) && (
             <button
               type="button"
               onClick={() => setOpenSpecialistServices(true)}

@@ -5,7 +5,7 @@ const mockProfileData: SpecialistMock = {
   id: 'spc12345',
   name: 'Ігор Литвин',
   avatar: '/images/specy/ihor-lytvyn-2.jpg',
-  updata: '2022-03-09', 
+  joinDate: '2022-03-09', 
   icon: 'icon-verified',
   iconDog: 'icon-spec-dog',
   iconCat: 'icon-cat',
@@ -21,7 +21,7 @@ const mockProfileData: SpecialistMock = {
   bio: 'Про себе: Я Ігор, живу в приватному будинку з великим огородженим двором. Приймаю собак будь-якого розміру на перетримку. Є зона для вигулу, місце для ігор і, головне — любов до тварин. Проживаю в районі Академмістечка, проте також маю можливість виїзду до вас додому, де буду здійснювати догляд за вашим улюбленцем.',
   services: [
     {
-      id: 'srv1',
+      id: 'dog-srv1',
       type: 'dog',
       title: 'Догляд дома',
       duration: 'грн/год',
@@ -29,7 +29,7 @@ const mockProfileData: SpecialistMock = {
       currency: '₴',
     },
     {
-      id: 'srv2',
+      id: 'dog-srv2',
       type: 'dog',
       title: 'Перетримка',
       duration: 'грн/доба',
@@ -37,7 +37,7 @@ const mockProfileData: SpecialistMock = {
       currency: '₴',
     },
     {
-      id: 'srv3',
+      id: 'dog-srv3',
       type: 'dog',
       title: 'Грумінг',
       duration: 'грн/тушка',
@@ -45,7 +45,7 @@ const mockProfileData: SpecialistMock = {
       currency: '₴',
     },
     {
-      id: 'srv4',
+      id: 'dog-srv4',
       type: 'dog',
       title: 'Вигулювання',
       duration: 'грн/год',
@@ -53,7 +53,7 @@ const mockProfileData: SpecialistMock = {
       currency: '₴',
     },
     {
-      id: 'srv1',
+      id: 'cat-srv1',
       type: 'cat',
       title: 'Догляд дома',
       duration: 'грн/год',
@@ -61,7 +61,7 @@ const mockProfileData: SpecialistMock = {
       currency: '₴',
     },
     {
-      id: 'srv2',
+      id: 'cat-srv2',
       type: 'cat',
       title: 'Перетримка',
       duration: 'грн/доба',
@@ -69,7 +69,7 @@ const mockProfileData: SpecialistMock = {
       currency: '₴',
     },
     {
-      id: 'srv3',
+      id: 'cat-srv3',
       type: 'cat',
       title: 'Грумінг',
       duration: 'грн/тушка',
@@ -77,7 +77,7 @@ const mockProfileData: SpecialistMock = {
       currency: '₴',
     },
     {
-      id: 'srv4',
+      id: 'cat-srv4',
       type: 'cat',
       title: 'Вигулювання',
       duration: 'грн/год',
@@ -114,11 +114,7 @@ const mockProfileData: SpecialistMock = {
     '/images/loveAnimal/3.jpg',
     '/images/loveAnimal/4.jpg',
     '/images/loveAnimal/1.jpg',
-  ],
-
-  onClose: () => {
-    console.log('Modal closed');
-  },
+  ], 
 };
 
 export default mockProfileData;

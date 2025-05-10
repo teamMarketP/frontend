@@ -43,7 +43,7 @@ export interface SpecialistService {
   export type SpecialistMock = {
     id: string;
     name: string;
-    updata?: string;
+    joinDate?: string;
     icon: string;
     iconDog: string;
     iconCat: string;
@@ -66,8 +66,6 @@ export interface SpecialistService {
     isVerified: boolean;
     contact: Contact;
     petsPhotos: string[];
-    onClose?: () => void;
-
   };
 
   export type ReviewMock = {
