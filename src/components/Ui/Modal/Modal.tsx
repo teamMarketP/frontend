@@ -22,9 +22,13 @@ const Modal: FC<ModalProps> = ({
 
     if (isOpen) {
       document.addEventListener('keydown', handleEsc);
+      document.body.style.overflow = 'hidden';
     }
 
-    return () => document.removeEventListener('keydown', handleEsc);
+    return () => {
+      document.removeEventListener('keydown', handleEsc);
+      document.body.style.overflow = '';
+    };
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
@@ -32,7 +36,7 @@ const Modal: FC<ModalProps> = ({
   const modalContent = (
     <div
       className={clsx(
-        'fixed inset-0 z-50 flex justify-center items-center bg-gray-400/20 transition-opacity duration-800 ease-in-out',
+        'fixed inset-0 z-50 flex justify-center backdrop-blur-xs items-center bg-[rgba(47,47,47,0.6)] transition-opacity duration-800 ease-in-out px-4',
         isOpen
           ? 'opacity-100 pointer-events-auto'
           : 'opacity-0 pointer-events-none'

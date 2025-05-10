@@ -1,0 +1,28 @@
+import { ReviewMock } from '../types';
+
+interface Props {
+  review: ReviewMock;
+}
+
+export const ReviewCard = ({ review }: Props) => {
+  const { name, date, service, rating, comment } = review;
+  return (
+    <div className="flex gap-[51px] rounded-[16px] px-8 py-7 bg-alabaster shadow-smoke">
+      <div className="flex flex-col min-w-[136px]">
+        <h3 className="font-semibold text-xl text-fire mb-[21px]">{name}</h3>
+        <div className="flex gap-1 mb-4 text-fire">
+          {Array.from({ length: 5 }).map((_, idx) => (
+            <span key={idx}>{idx < rating ? '★' : '☆'}</span>
+          ))}
+        </div>
+        <span className="text-shark">{date}</span>
+      </div>
+
+      <div className="text-fire">
+        <p className="mb-[21px] font-semibold">Відгук на послугу: <span className="font-medium text-shark ">{service}</span>
+        </p>
+        <p className="text-shark text-justify">{comment}</p>
+      </div>
+    </div>
+  );
+};

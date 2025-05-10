@@ -1,12 +1,17 @@
 import { Logo } from './Logo';
 import { LangSwitch } from './LangSwitch';
 import { Navigation } from './Navigation';
+import GradientHeaderWrapper from '../Shared/ui/GradientHeaderWrapper/GradientHeaderWrapper';
 import { UserActions } from './UserActions';
+import { useLocation } from 'react-router-dom';
 
 const Header: React.FC = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
   return (
-    <header className="relative bg-alabaster z-30 h-[68px] shadow-sm font-primary max-w-[1232px] mx-auto mt-2 rounded-[16px] flex">
-      <div className="container mx-auto px-24 flex items-center justify-between">
+    <header className="relative z-20 h-[68px] font-base max-w-[1232px] shadow-box mx-auto mt-2 flex">
+      {!isHomePage && <GradientHeaderWrapper />}
+      <div className="relative z-30 bg-alabaster container mx-auto px-24 flex items-center justify-between  rounded-[16px]">
         {/* Left block: Language, Nav*/}
         <div className="flex items-center gap-10">
           <LangSwitch />
