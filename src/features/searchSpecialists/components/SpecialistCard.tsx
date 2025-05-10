@@ -64,7 +64,7 @@ const SpecialistCard: FC<Props> = ({ specialist }) => {
       </div>
 
       {/* Контент */}
-      <div className="flex flex-col h-[360px] flex-grow overflow-hidden">
+      <div className="flex flex-col h-[360px] flex-grow">
         <div
           className={`flex flex-col flex-grow min-h-0 overflow-hidden ${
             !is_verified ? 'gap-6' : 'gap-4'
