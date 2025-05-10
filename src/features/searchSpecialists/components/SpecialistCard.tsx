@@ -38,20 +38,6 @@ const SpecialistCard: FC<Props> = ({ specialist }) => {
 
   const shortFamilyName = family_name ? `${family_name[0]}.` : '';
 
-  // Функція для обрізання тексту
-  function truncateText(text: string, maxLength = 248) {
-    if (typeof text !== 'string') return '';
-    const clean = text.trim().replace(/\s+/g, ' ');
-    const isTruncated = clean.length > maxLength;
-    if (!isTruncated) return clean;
-    const truncated = clean.slice(0, maxLength);
-    const lastSpaceIndex = truncated.lastIndexOf(' ');
-
-    return lastSpaceIndex > 0
-      ? truncated.slice(0, lastSpaceIndex).trimEnd() + '…'
-      : truncated.trimEnd() + '…';
-  }
-
   return (
     <div className="w-[500px] h-[400px] bg-alabaster rounded-[16px] shadow-[0_1px_4px_4px_rgba(0,0,0,0.25)] p-5 gap-6 flex">
       {/* Зображення */}
@@ -108,16 +94,16 @@ const SpecialistCard: FC<Props> = ({ specialist }) => {
             <span className="font-normal">{renderExperience()}</span>
           </p>
 
-          <p className="text-sm text-cod-gray text-justify">
+          <p className="text-sm text-cod-gray text-justify line-clamp-10">
             <strong className="font-semibold">Про себе:</strong>{' '}
-            {truncateText(bio || 'Опис відсутній', is_verified ? 200 : 248)}
+            {bio || 'Опис відсутній'}
           </p>
         </div>
 
         <Button
           label="Відкрити профіль"
           type="button"
-          onClick={() => navigate(`/specialist/${id}`)}
+          onClick={() => navigate(`/specialists/${id}`)}
           className="mt-auto max-w-[200px] h-[40px] text-[16px] font-normal text-alabaster text-center rounded-[16px] bg-tenn hover:shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] active:shadow-[inset_0_4px_4px_0_rgba(0,0,0,0.25)]"
           aria-label={`Відкрити профіль ${name} ${family_name}`}
         />

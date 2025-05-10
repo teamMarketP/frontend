@@ -4,12 +4,13 @@ import SpecialistsList from '@/features/searchSpecialists/components/Specialists
 import { mockSpecialists } from '@/data/mockSpecialists';
 import BackButton from '@/features/searchSpecialists/components/BackButton';
 import StateDisplay from '@/features/searchSpecialists/components/StateDisplay';
-
+import SpecialistCardSkeleton from '@/features/searchSpecialists/components/SpecialistCardSkeleton';
 const SearchSpecialistsPage = () => {
   const specialistsPerPage = 16;
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [skeletonCount, setSkeletonCount] = useState(16);
 
   const listRef = useRef<HTMLDivElement | null>(null);
 
@@ -19,7 +20,14 @@ const SearchSpecialistsPage = () => {
     (page - 1) * specialistsPerPage,
     page * specialistsPerPage
   );
-
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const width = window.innerWidth;
+      if (width < 768) setSkeletonCount(4);
+      else if (width < 1280) setSkeletonCount(8);
+      else setSkeletonCount(16);
+    }
+  }, []);
   useEffect(() => {
     setLoading(true);
     setHasError(false);
@@ -37,6 +45,24 @@ const SearchSpecialistsPage = () => {
   const handleChangePage = (newPage: number) => {
     setPage(newPage);
   };
+  const renderSkeletons = () => (
+    <div className="grid grid-cols-2 gap-x-[40px] gap-y-[40px] mb-[58px]">
+      {Array.from({ length: skeletonCount }).map((_, i) => (
+        <SpecialistCardSkeleton key={`skeleton-${i}`} />
+      ))}
+    </div>
+  );
+  let content;
+
+  if (loading) {
+    content = renderSkeletons();
+  } else if (hasError) {
+    content = <StateDisplay type="error" />;
+  } else if (specialistsToShow.length === 0) {
+    content = <StateDisplay type="empty" />;
+  } else {
+    content = <SpecialistsList specialists={specialistsToShow} />;
+  }
 
   return (
     <div className="max-w-[1040px] mx-auto pt-[47px] pb-[58px]">
@@ -49,17 +75,7 @@ const SearchSpecialistsPage = () => {
           </svg>
         </h1>
       )}
-      <div ref={listRef}>
-        {loading ? (
-          <SpecialistsList specialists={[]} loading={true} />
-        ) : hasError ? (
-          <StateDisplay type="error" />
-        ) : specialistsToShow.length === 0 ? (
-          <StateDisplay type="empty" />
-        ) : (
-          <SpecialistsList specialists={specialistsToShow} loading={false} />
-        )}
-      </div>
+      <div ref={listRef}>{content}</div>
       {!loading && !hasError && specialistsToShow.length > 0 && (
         <Pagination
           currentPage={page}
