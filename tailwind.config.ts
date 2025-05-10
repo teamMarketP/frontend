@@ -7,7 +7,7 @@ const config: Config = {
   theme: {
     extend: {},
   },
-  plugins: [daisyui, lineClamp],
+  plugins: [daisyui],
 };
 
 export default config;
