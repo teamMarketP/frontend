@@ -71,12 +71,12 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
           </div>
           <div className="flex flex-col mb-7">
             {shortDogServices.map(service => (
-              <p key={service.id}>
-                {service.title}: 
-                <span className="ml-10">
+              <ul className="flex gap-7" key={service.id}>
+                <li className="flex min-w-30">{service.title}:</li> 
+                <li className="flex">
                   {service.price}  {service.duration}
-                </span>
-              </p>
+                </li>
+              </ul>
             ))}
           </div>
 
@@ -94,12 +94,12 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
           </div>
           <div className="mb-7">
             {shortCatServices.map(service => (
-              <p key={service.id}>
-                {service.title}: 
-                <span className="ml-10">
+              <ul className="flex gap-7" key={service.id}>
+                <li className="flex min-w-30">{service.title}:</li> 
+                <li className="flex">
                   {service.price}  {service.duration}
-                </span>
-              </p>
+                </li>
+              </ul>
             ))}
           </div>
 
