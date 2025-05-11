@@ -1,4 +1,4 @@
-import { ReviewMock } from '../types';
+import { ReviewMock } from '../../features/specialist/types';
 
 const mockReviewsData: ReviewMock[] = [
     {

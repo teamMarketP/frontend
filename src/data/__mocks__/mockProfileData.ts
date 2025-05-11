@@ -1,5 +1,5 @@
 // features/specialist/__mocks__/mockProfileData.ts
-import { SpecialistMock } from '../types';
+import { SpecialistMock } from '../../features/specialist/types';
 
 const mockProfileData: SpecialistMock = {
   id: 'spc12345',

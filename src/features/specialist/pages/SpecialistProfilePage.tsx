@@ -1,7 +1,7 @@
 import { SpecialistProfileHeader } from "../components/SpecialistProfileHeader";
 import { SpecialistPetsCarousel } from "../components/SpecialistPetsCarousel";
 import SpecialistReviewsSection from "../components/SpecialistReviewsSection";
-import mockProfileData from "../__mocks__/mockProfileData";
+import mockProfileData from "../../../data/__mocks__/mockProfileData";
 
 const SpecialistProfilePage = () => {
   return (

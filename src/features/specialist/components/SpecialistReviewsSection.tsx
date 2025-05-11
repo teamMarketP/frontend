@@ -1,6 +1,6 @@
 // import { useEffect, useRef, useState } from 'react';
 import { ReviewsList } from './SpecialistReviewList';
-import mockReviewsData from '../__mocks__/mockReviewsData';
+import mockReviewsData from '../../../data/__mocks__/mockReviewsData';
 
 
 
