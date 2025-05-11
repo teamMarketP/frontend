@@ -1,21 +1,20 @@
 import { ReviewMock } from '../types';
-import { formatDate } from '@/utils/formatDate';
+import { formatDate } from '@/shared/utils/formatDate';
+// import { RatingStars } from '@/components/RatingStars';
 
 interface Props {
   review: ReviewMock;
 }
 
 export const ReviewCard = ({ review }: Props) => {
-  const { name, date, service, rating, comment } = review;
+  const { name, date, service, comment } = review;
   
   return (
     <div className="flex gap-[51px] rounded-[16px] px-8 py-7 bg-alabaster shadow-smoke">
       <div className="flex flex-col min-w-[136px]">
         <h3 className="font-semibold text-xl text-fire mb-[21px]">{name}</h3>
         <div className="flex gap-1 mb-4 text-fire">
-          {Array.from({ length: 5 }).map((_, idx) => (
-            <span key={idx}>{idx < rating ? '★' : '☆'}</span>
-          ))}
+          {/* <RatingStars rating={rating} /> */}
         </div>
         <span className="text-shark">{formatDate(date)}</span>
       </div>

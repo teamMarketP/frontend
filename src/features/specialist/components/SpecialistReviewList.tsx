@@ -8,6 +8,7 @@ interface Props {
 
 const arrowMore = {
   title: "Більше відгуків",
+  titleBack: "Згорнути відгуки",
   icon: "icon-arrow-bottom",
 };
 
@@ -54,9 +55,9 @@ export const ReviewsList = ({ reviews }: Props) => {
         <button
           onClick={handleToggle}
           className="self-center px-6 py-2 text-shark hover:underline hover:fill-fire flex items-center gap-3 transition"
-          title={arrowMore.title}
+          title={isFullyExpanded ? arrowMore.titleBack : arrowMore.title}
         >
-          {isFullyExpanded ? "Згорнути" : "Всі відгуки"}
+          {isFullyExpanded ? "Згорнути" : `Всі відгуки (${totalCount})`}
           <svg
             className={`hover:fill-fire transition-transform ${isFullyExpanded ? "rotate-180" : ""}`}
             width="22"

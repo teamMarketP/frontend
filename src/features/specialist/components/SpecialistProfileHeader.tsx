@@ -56,12 +56,12 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
               </span>
             )}
           </h2>
-          <p className="text-inherit mb-6">На сайті з: {joinDate}</p>
+          <p className="text-inherit mb-5">На сайті з: {joinDate}</p>
           <p className="text-inherit mb-5">{profession}</p>
-          <p className="text-inherit mb-7">
+          <p className="text-inherit mb-8">
             <span className="font-semibold">Досвід:</span> {experience}
           </p>
-          <p className="text-inherit text-justify">{bio}</p>
+          <p className="text-inherit text-justify"><span className="font-semibold">Про себе:</span>{bio}</p>
         </div>
       </div>
 
@@ -83,8 +83,7 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
           <div className="flex flex-col gap-[10px] mb-[28px]">
             {shortDogAnimalServices.map(service => (
               <ul className="flex gap-7" key={service.id}>
-                <li className="flex min-w-30">{service.title}:</li>
-                <li className="flex">
+                <li className="flex min-w-30">{service.title}:
                   {service.price} {service.duration}
                 </li>
               </ul>
@@ -144,7 +143,7 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
           label="Запропонувати роботу"
           type="button"
           onClick={() => navigate('/specialists/${id}/booking')}
-          className="text-xl py-4 px-9 rounded-[16px] h-auto"
+          className="text-xl py-4 rounded-[16px] h-auto"
         />
       </div>
     </section>
