@@ -1,6 +1,7 @@
 import { SpecialistMock, AnimalService } from '../types';
 import Button from '@/components/Ui/Button/Button';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Modal from '@/components/Ui/Modal/Modal';
 import SpecialistServices from './SpecialistServices';
 
@@ -32,6 +33,8 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
   const shortCatAnimalServices = services
     .filter((s): s is AnimalService => s.type === 'cat')
     .slice(0, 2);
+
+    const navigate = useNavigate();
 
   return (
     <section className="flex xl:flex-row gap-[26px] text-shark mb-[70px]">
@@ -140,6 +143,7 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
         <Button
           label="Запропонувати роботу"
           type="button"
+          onClick={() => navigate('/specialists/${id}/booking')}
           className="text-xl py-4 px-9 rounded-[16px] h-auto"
         />
       </div>

@@ -1,6 +1,6 @@
 // components/ServicesModal.tsx
 import { Service } from '../types';
-import { SpecialistMock } from '../types';
+import { SpecialistMock, AnimalService } from '../types';
 
 type Props = {
   services: Service[];
@@ -10,8 +10,8 @@ type Props = {
 
 const SpecialistServices = ({ profile, services }: Props) => {
   const { iconDog, iconCat } = profile;
-  const dogServices = services.filter(s => s.type === 'dog');
-  const catServices = services.filter(s => s.type === 'cat');
+  const dogServices = services.filter((s): s is AnimalService => s.type === 'cat')
+  const catServices = services.filter((s): s is AnimalService => s.type === 'cat')
 
   return (
     <>
