@@ -72,6 +72,7 @@ export interface SpecialistService {
     name: string;
     date: string;
     rating: number;
+    id: string | number;
     service: string;
     comment: string;
   };

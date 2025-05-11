@@ -1,4 +1,5 @@
 import { ReviewMock } from '../types';
+import { formatDate } from '@/utils/formatDate';
 
 interface Props {
   review: ReviewMock;
@@ -6,6 +7,7 @@ interface Props {
 
 export const ReviewCard = ({ review }: Props) => {
   const { name, date, service, rating, comment } = review;
+  
   return (
     <div className="flex gap-[51px] rounded-[16px] px-8 py-7 bg-alabaster shadow-smoke">
       <div className="flex flex-col min-w-[136px]">
@@ -15,7 +17,7 @@ export const ReviewCard = ({ review }: Props) => {
             <span key={idx}>{idx < rating ? '★' : '☆'}</span>
           ))}
         </div>
-        <span className="text-shark">{date}</span>
+        <span className="text-shark">{formatDate(date)}</span>
       </div>
 
       <div className="text-fire">

@@ -45,7 +45,7 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
               </span>
             )}
           </h2>
-          <p className="text-inherit mb-6">На сайті з:{joinDate}</p>
+          <p className="text-inherit mb-6">На сайті з: {joinDate}</p>
           <p className="text-inherit mb-5">{profession}</p>
           <p className="text-inherit mb-7">
             <span className="font-semibold">Досвід:</span> {experience}
@@ -58,7 +58,7 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
       <div className="flex xl:flex-col justify-between w-full md:w-1/3 max-w-[304px]">
         <div className="flex flex-col justify-center rounded-[16px] px-[25px] pt-5 pb-3 shadow-smoke bg-alabaster">
           {/* Собаки */}
-          <div className="flex justify-center items-center gap-5 mb-4">
+          <div className="flex justify-center items-center gap-5 mb-[16px]">
             <svg
               className="fill-tenn"
               width="30"
@@ -67,9 +67,9 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
             >
               <use href={`/icons.svg#${iconDog}`} />
             </svg>
-            <h3 className="text-tenn text-xl font-semibold">Собаки</h3>
+            <h3 className="text-fire text-xl font-semibold">Собаки</h3>
           </div>
-          <div className="flex flex-col mb-7">
+          <div className="flex flex-col gap-[10px] mb-[28px]">
             {shortDogServices.map(service => (
               <ul className="flex gap-7" key={service.id}>
                 <li className="flex min-w-30">{service.title}:</li> 
@@ -81,7 +81,7 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
           </div>
 
           {/* Коти */}
-          <div className="flex justify-center items-center gap-5 mb-4">
+          <div className="flex justify-center items-center gap-5 mb-[16px]">
             <svg
               className="fill-tenn"
               width="30"
@@ -92,7 +92,7 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
             </svg>
             <h3 className="text-tenn text-xl font-semibold">Коти</h3>
           </div>
-          <div className="mb-7">
+          <div className="flex flex-col gap-[10px] mb-[28px]">
             {shortCatServices.map(service => (
               <ul className="flex gap-7" key={service.id}>
                 <li className="flex min-w-30">{service.title}:</li> 

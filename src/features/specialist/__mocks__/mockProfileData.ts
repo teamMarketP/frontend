@@ -5,7 +5,7 @@ const mockProfileData: SpecialistMock = {
   id: 'spc12345',
   name: 'Ігор Литвин',
   avatar: '/images/specy/ihor-lytvyn-2.jpg',
-  joinDate: '2022-03-09', 
+  joinDate: '2022.03.09', 
   icon: 'icon-verified',
   iconDog: 'icon-spec-dog',
   iconCat: 'icon-cat',
