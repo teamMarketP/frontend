@@ -11,6 +11,7 @@ const SearchSpecialistsPage = () => {
   const [loading, setLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [skeletonCount, setSkeletonCount] = useState(16);
+  const [isFirstRender, setIsFirstRender] = useState(true);
 
   const listRef = useRef<HTMLDivElement | null>(null);
 
@@ -32,8 +33,10 @@ const SearchSpecialistsPage = () => {
     setLoading(true);
     setHasError(false);
 
-    // Прокрутка до початку списку при зміні сторінки
-    listRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (!isFirstRender) {
+      listRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    setIsFirstRender(false);
 
     const timer = setTimeout(() => {
       setLoading(false);
@@ -52,12 +55,13 @@ const SearchSpecialistsPage = () => {
       ))}
     </div>
   );
+
   let content;
 
-  if (loading) {
-    content = renderSkeletons();
-  } else if (hasError) {
+  if (hasError) {
     content = <StateDisplay type="error" />;
+  } else if (loading) {
+    content = renderSkeletons();
   } else if (specialistsToShow.length === 0) {
     content = <StateDisplay type="empty" />;
   } else {

@@ -1,6 +1,6 @@
 import Lottie from 'lottie-react';
-import emptyAnimation from '@/assets/animations/dog-in-the-box.json';
-import errorAnimation from '@/assets/animations/black-cat-error.json';
+import emptyAnimation from '@/features/searchSpecialists/animations/dog-in-the-box.json';
+import errorAnimation from '@/features/searchSpecialists/animations/black-cat-error.json';
 
 type StateType = 'empty' | 'error';
 
