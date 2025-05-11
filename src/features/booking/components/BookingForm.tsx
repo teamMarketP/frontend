@@ -12,7 +12,7 @@ const BookingForm = () => {
 
   return (
     <>
-      <form className="xl:flex xl:flex-col xl:gap-[30px] xl:w-[692px] ">
+      <form className="xl:flex xl:flex-col xl:gap-[30px] xl:w-[692px] novalidate">
         <BookingCategory
           selectedLocationOption={selectedLocationOption}
           setSelectedLocationOption={setSelectedLocationOption}

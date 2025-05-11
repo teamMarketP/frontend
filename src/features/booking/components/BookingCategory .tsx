@@ -53,13 +53,14 @@ const BookingCategory: React.FC<BookingLocationState> = ({
 
   return (
     <div>
-      <h4 className="xl:text-xl xl:font-semibold text-fire xl:mb-5">
+      <h1 className="xl:text-xl xl:font-semibold text-fire xl:mb-5">
         Оберіть категорію послуг
-      </h4>
+      </h1>
 
       <div className="xl:flex xl:relative">
         {/* Кастомний дропдаун */}
         <div className="relative xl:w-[472px]" ref={dropdownRef}>
+          <h2 className="sr-only ">Обрати тварину/послугу</h2>
           <button
             type="button"
             onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -75,15 +76,16 @@ const BookingCategory: React.FC<BookingLocationState> = ({
             <div className="absolute z-10 mt-2 flex gap-8 justify-between bg-alabaster border-2 border-fire rounded-2xl shadow-[0_2px_3px_0_rgba(0,0,0,0.25)] w-full px-19 py-7">
               {animals.map(animal => (
                 <div key={animal.name}>
-                  <h6 className="mb-1 text-fire text-center capitalize">
+                  <h3 className="mb-1 text-fire text-center capitalize">
                     {animal.name}
-                  </h6>
+                  </h3>
                   <ul className="space-y-1">
                     {animal.services.map(service => (
                       <li
                         key={service}
                         onClick={() => handleServiceClick(service, animal.name)}
                         className="cursor-pointer hover:text-fiery-orange transition-colors duration-300 ease-in-out"
+                        aria-selected={selectedService === service}
                       >
                         {service}
                       </li>
@@ -96,7 +98,8 @@ const BookingCategory: React.FC<BookingLocationState> = ({
         </div>
 
         {/* radio-buttons for location service */}
-        <div className="xl:flex xl:flex-col xl:text-sm gap-5 xl:absolute xl:left-[520px]">
+        <fieldset className="xl:flex xl:flex-col xl:text-sm gap-5 xl:absolute xl:left-[520px]">
+          <legend className="sr-only">Місце виконання замовлення</legend>
           <label className="xl:flex xl:items-center xl:gap-[10px] leading-none">
             <input
               type="radio"
@@ -120,27 +123,30 @@ const BookingCategory: React.FC<BookingLocationState> = ({
             />
             У фахівця
           </label>
-        </div>
+        </fieldset>
 
         {/* radio-buttons for dogs weight*/}
         {selectedAnimal === 'собаки' && (
-          <ul className="xl:flex xl:flex-col xl:text-sm gap-5 xl:absolute xl:left-[520px] xl:top-[126px]">
+          <fieldset className="xl:flex xl:flex-col xl:text-sm gap-5 xl:absolute xl:left-[520px] xl:top-[126px]">
+            <legend className="sr-only">Вага собаки</legend>
             {dogsWeight.map((weight, index) => (
-              <li key={index}>
-                <label className="xl:flex xl:items-center xl:gap-[10px] leading-none">
-                  <input
-                    type="radio"
-                    name="dogWeight"
-                    value={weight.range}
-                    checked={selectedWeight === weight.range}
-                    onChange={() => setSelectedWeight(weight.range)}
-                    className="book-radio-btn"
-                  />
-                  {weight.label} {weight.range}
-                </label>
-              </li>
+              <label
+                key={index}
+                className="xl:flex xl:items-center xl:gap-[10px] leading-none"
+                aria-selected={selectedWeight === weight.range}
+              >
+                <input
+                  type="radio"
+                  name="dogWeight"
+                  value={weight.range}
+                  checked={selectedWeight === weight.range}
+                  onChange={() => setSelectedWeight(weight.range)}
+                  className="book-radio-btn"
+                />
+                {weight.label} {weight.range}
+              </label>
             ))}
-          </ul>
+          </fieldset>
         )}
       </div>
     </div>

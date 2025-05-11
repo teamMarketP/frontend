@@ -14,9 +14,9 @@ const SpecialistReview = () => {
   return (
     <div className="overflow-hidden ">
       <div className="border-1 border-fire rounded-2xl mb-6 "></div>
-      <h4 className="text-xl font-semibold text-fire mb-5 text-center">
+      <h2 className="text-xl font-semibold text-fire mb-5 text-center">
         Останні відгуки
-      </h4>
+      </h2>
       {latestReviews.length > 0 ? (
         <ul className="flex flex-col gap-5 ">
           {latestReviews.map((review, index) => {
@@ -24,7 +24,10 @@ const SpecialistReview = () => {
               <li key={index}>
                 <div className="flex gap-4 items-center mb-2">
                   <p className=" font-semibold ">{review.name}</p>
-                  <RatingStars rating={review.rating} />
+                  <RatingStars
+                    rating={review.rating}
+                    aria-label={`Рейтинг: ${review.rating}`}
+                  />
                 </div>
                 <p
                   className={`text-sm text-mineShaft text-justify ${lineClamp}`}

@@ -27,9 +27,9 @@ const BookingDatePicker: React.FC = () => {
 
   return (
     <div>
-      <h4 className="xl:text-xl xl:font-semibold text-fire xl:mb-5">
+      <h2 className="xl:text-xl xl:font-semibold text-fire xl:mb-5">
         Дата виконання замовлення
-      </h4>
+      </h2>
       <div className="relative">
         {showLeftArrow && (
           <button
@@ -52,14 +52,19 @@ const BookingDatePicker: React.FC = () => {
             const dayOfWeek = format(date, 'eeee', { locale: uk });
 
             return (
-              <div
+              <button
+                type="button"
                 key={index}
                 onClick={() => setSelectedDate(date)}
-                className={`flex flex-col justify-between xl:w-[132px] xl:h-[132px] rounded-2xl px-2 py-3 text-center cursor-pointer transition border-2
+                className={`flex flex-col justify-between xl:w-[132px] xl:h-[132px] rounded-2xl px-2 py-3 text-center transition border-2
                 ${
                   isSelected
                     ? 'bg-tenn text-alabaster border-tenn'
                     : 'border-fire text-fire'
+                }`}
+                aria-current={isSelected ? 'date' : undefined}
+                aria-label={`Дата: ${day} ${month}, ${
+                  isToday ? 'сьогодні' : dayOfWeek
                 }`}
               >
                 <div
@@ -79,7 +84,7 @@ const BookingDatePicker: React.FC = () => {
                 <p className="text-sm capitalize">
                   {isToday ? 'сьогодні' : dayOfWeek}
                 </p>
-              </div>
+              </button>
             );
           })}
         </div>
