@@ -10,7 +10,7 @@ type Props = {
 
 const SpecialistServices = ({ profile, services }: Props) => {
   const { iconDog, iconCat } = profile;
-  const dogServices = services.filter((s): s is AnimalService => s.type === 'cat')
+  const dogServices = services.filter((s): s is AnimalService => s.type === 'dog')
   const catServices = services.filter((s): s is AnimalService => s.type === 'cat')
 
   return (
