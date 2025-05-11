@@ -1,4 +1,4 @@
-import { SpecialistMock } from '../types';
+import { SpecialistMock, AnimalService } from '../types';
 import Button from '@/components/Ui/Button/Button';
 import { useState } from 'react';
 import Modal from '@/components/Ui/Modal/Modal';
@@ -22,9 +22,17 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
     iconDog,
     iconCat,
   } = profile;
+
   const [openSpecialistServices, setOpenSpecialistServices] = useState(false);
-  const shortDogServices = services.filter(s => s.type === 'dog').slice(0, 2);
-  const shortCatServices = services.filter(s => s.type === 'cat').slice(0, 2);
+  // Типізовані фільтри — тільки AnimalService
+  const shortDogAnimalServices = services
+    .filter((s): s is AnimalService => s.type === 'dog')
+    .slice(0, 2);
+
+  const shortCatAnimalServices = services
+    .filter((s): s is AnimalService => s.type === 'cat')
+    .slice(0, 2);
+
   return (
     <section className="flex xl:flex-row gap-[26px] text-shark mb-[70px]">
       {/* Ліва частина */}
@@ -70,11 +78,11 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
             <h3 className="text-fire text-xl font-semibold">Собаки</h3>
           </div>
           <div className="flex flex-col gap-[10px] mb-[28px]">
-            {shortDogServices.map(service => (
+            {shortDogAnimalServices.map(service => (
               <ul className="flex gap-7" key={service.id}>
-                <li className="flex min-w-30">{service.title}:</li> 
+                <li className="flex min-w-30">{service.title}:</li>
                 <li className="flex">
-                  {service.price}  {service.duration}
+                  {service.price} {service.duration}
                 </li>
               </ul>
             ))}
@@ -93,18 +101,19 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
             <h3 className="text-tenn text-xl font-semibold">Коти</h3>
           </div>
           <div className="flex flex-col gap-[10px] mb-[28px]">
-            {shortCatServices.map(service => (
+            {shortCatAnimalServices.map(service => (
               <ul className="flex gap-7" key={service.id}>
-                <li className="flex min-w-30">{service.title}:</li> 
+                <li className="flex min-w-30">{service.title}:</li>
                 <li className="flex">
-                  {service.price}  {service.duration}
+                  {service.price} {service.duration}
                 </li>
               </ul>
             ))}
           </div>
 
           {/* Кнопка відкриття модалки */}
-          {(services.filter(s => s.type === 'dog').length > 2 || services.filter(s => s.type === 'cat').length > 2) && (
+          {(services.filter(s => s.type === 'dog').length > 2 ||
+            services.filter(s => s.type === 'cat').length > 2) && (
             <button
               type="button"
               onClick={() => setOpenSpecialistServices(true)}
@@ -113,7 +122,6 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
               Всі послуги
             </button>
           )}
-          {/* Кнопка закриття модалки */}
 
           {/* Модалка */}
           <Modal
@@ -124,10 +132,11 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
             <SpecialistServices
               profile={profile}
               services={services}
-              onClose={() => setOpenSpecialistServices(false)} //функцію закриття
+              onClose={() => setOpenSpecialistServices(false)}
             />
           </Modal>
         </div>
+
         <Button
           label="Запропонувати роботу"
           type="button"

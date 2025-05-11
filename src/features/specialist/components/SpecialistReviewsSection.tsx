@@ -11,9 +11,9 @@ function SpecialistReviewsSection() {
         <h2 className="text-center text-xl text-fire font-semibold uppercase mb-10">
           Відгуки
         </h2>
-          <ReviewsList reviews={mockReviewsData} />;
+          <ReviewsList reviews={mockReviewsData} />
     </section>
   );
-}
+};
 
 export default SpecialistReviewsSection;

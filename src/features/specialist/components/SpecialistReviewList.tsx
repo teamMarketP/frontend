@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ReviewCard } from './SpecialistReviewCard';
-import { ReviewMock } from '../types';
+import { ReviewCard } from "./SpecialistReviewCard";
+import { ReviewMock } from "../types";
 
 interface Props {
   reviews: ReviewMock[];
@@ -11,31 +11,38 @@ const arrowMore = {
   icon: "icon-arrow-bottom",
 };
 
-export const ReviewsList = ({ reviews }: Props) => {    
-  
-  if (reviews.length === 0) {
+export const ReviewsList = ({ reviews }: Props) => {
+  const initialCount = 3;
+  const totalCount = reviews.length;
+
+  const [visibleCount, setVisibleCount] = useState(initialCount);
+
+  // Якщо немає відгуків, показуємо повідомлення
+  if (totalCount === 0) {
     return (
       <div className="text-center text-lg text-shark py-10">
         Ще немає відгуків. Будьте першим, хто залишить відгук!
       </div>
     );
   }
-
-  const {} = reviews[0];
-  const [visibleCount, setVisibleCount] = useState(3);
-
-const sortedReviews = [...reviews]
-  .sort((a, b) => {
-    // Приводимо до об'єктів Date для порівняння
+    // Сортуємо відгуки за датою
+  const sortedReviews = [...reviews].sort((a, b) => {
     const dateA = new Date(a.date);
     const dateB = new Date(b.date);
+    return dateB.getTime() - dateA.getTime(); // новіші спочатку
+  });
 
-    return dateB.getTime() - dateA.getTime(); // від новішого до старішого
-  })
-  .slice(0, 3);
+  const visibleReviews = sortedReviews.slice(0, visibleCount);
+  const isFullyExpanded = visibleCount >= totalCount;
 
-    const visibleReviews = sortedReviews.slice(0, visibleCount);
-  const hasMore = visibleCount < reviews.length;
+  // Функція для обробки натискання кнопки "Показати більше"
+  const handleToggle = () => {
+    if (isFullyExpanded) {
+      setVisibleCount(initialCount);
+    } else {
+      setVisibleCount((prev) => Math.min(prev + 3, totalCount));
+    }
+  };
 
   return (
     <div className="flex flex-col gap-6">
@@ -43,13 +50,21 @@ const sortedReviews = [...reviews]
         <ReviewCard key={review.id} review={review} />
       ))}
 
-      {hasMore && (
+      {totalCount > initialCount && (
         <button
-          onClick={() => setVisibleCount((prev) => prev + 3)}
-          className="self-center mt-4 px-6 py-2 text-fire border border-fire rounded-full hover:bg-fire hover:text-white flex items-center gap-2 transition"
+          onClick={handleToggle}
+          className="self-center px-6 py-2 text-shark hover:underline hover:fill-fire flex items-center gap-3 transition"
           title={arrowMore.title}
         >
-          Ще відгуки
+          {isFullyExpanded ? "Згорнути" : "Всі відгуки"}
+          <svg
+            className={`hover:fill-fire transition-transform ${isFullyExpanded ? "rotate-180" : ""}`}
+            width="22"
+            height="12"
+            aria-hidden="true"
+          >
+            <use href={`/icons.svg#${arrowMore.icon}`} />
+          </svg>
         </button>
       )}
     </div>
