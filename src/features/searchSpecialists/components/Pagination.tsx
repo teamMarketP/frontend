@@ -1,5 +1,3 @@
-import { FC } from 'react';
-
 type Props = {
   currentPage: number;
   totalPages: number;
@@ -8,7 +6,7 @@ type Props = {
 
 const DOTS = '...';
 
-const Pagination: FC<Props> = ({ currentPage, totalPages, onChange }) => {
+const Pagination = ({ currentPage, totalPages, onChange }: Props) => {
   if (totalPages <= 1) return null;
 
   const generatePageRange = () => {
@@ -49,10 +47,10 @@ const Pagination: FC<Props> = ({ currentPage, totalPages, onChange }) => {
 
   return (
     <div className="flex justify-center">
-      <div className="flex items-baseline gap-2">
+      <div className="flex  gap-2">
         <button
           type="button"
-          className={`mr-[8px] transition-opacity ${
+          className={`w-7 h-7 flex items-center justify-center transition-opacity ${
             currentPage === 1
               ? 'opacity-50 pointer-events-none cursor-not-allowed'
               : 'fill-fire'
@@ -70,7 +68,7 @@ const Pagination: FC<Props> = ({ currentPage, totalPages, onChange }) => {
           page === DOTS ? (
             <span
               key={`dots-${i}`}
-              className="text-fire px-2"
+              className="w-7 h-7 flex items-center justify-center text-fire text-xl"
               aria-hidden="true"
               title="Проміжні сторінки"
             >
@@ -85,10 +83,10 @@ const Pagination: FC<Props> = ({ currentPage, totalPages, onChange }) => {
                 page === currentPage ? ' (поточна сторінка)' : ''
               }`}
               aria-current={page === currentPage ? 'page' : undefined}
-              className={`w-[27px] h-[27px] text-center text-fire ${
+              className={`w-7 h-7 flex items-center justify-center text-fire rounded ${
                 page === currentPage
-                  ? 'font-bold text-[24px]'
-                  : 'font-semibold text-[20px]'
+                  ? 'font-bold text-2xl'
+                  : 'font-semibold text-xl'
               }`}
             >
               {page}
@@ -98,7 +96,7 @@ const Pagination: FC<Props> = ({ currentPage, totalPages, onChange }) => {
 
         <button
           type="button"
-          className={`ml-[8px] transition-opacity ${
+          className={`w-7 h-7 flex items-center justify-center  transition-opacity ${
             currentPage === totalPages
               ? 'opacity-50 pointer-events-none cursor-not-allowed'
               : 'fill-fire'

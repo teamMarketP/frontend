@@ -24,9 +24,9 @@ const SearchSpecialistsPage = () => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const width = window.innerWidth;
-      if (width < 768) setSkeletonCount(4);
-      else if (width < 1280) setSkeletonCount(8);
-      else setSkeletonCount(16);
+      if (width < 768) setSkeletonCount(2);
+      else if (width < 1280) setSkeletonCount(4);
+      else setSkeletonCount(4);
     }
   }, []);
   useEffect(() => {
@@ -72,7 +72,7 @@ const SearchSpecialistsPage = () => {
     <div className="max-w-[1040px] mx-auto pt-[47px] pb-[58px]">
       <BackButton />
       {!loading && !hasError && specialistsToShow.length > 0 && (
-        <h1 className="flex items-center gap-2 font-semibold text-[20px] text-fire mb-5">
+        <h1 className="flex items-center gap-2 font-semibold text-xl text-fire mb-5">
           Ми знайшли фахівців для вашого запиту
           <svg className="w-[17px] h-[15px] fill-fire">
             <use href="/icons.svg#icon-two-paws-print" />

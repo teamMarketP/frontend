@@ -69,7 +69,7 @@ const SpecialistCard = ({ specialist }: Props) => {
             !is_verified ? 'gap-6' : 'gap-4'
           }`}
         >
-          <h2 className="text-[20px] font-semibold text-fire">
+          <h2 className="text-xl font-semibold text-fire">
             {name} {shortFamilyName}
           </h2>
 
@@ -93,7 +93,7 @@ const SpecialistCard = ({ specialist }: Props) => {
             <span className="font-normal">{renderExperience()}</span>
           </p>
 
-          <p className="text-sm text-cod-gray text-justify line-clamp-10">
+          <p className="text-sm text-cod-gray text-justify line-clamp-9">
             <strong className="font-semibold">Про себе:</strong>{' '}
             {bio || 'Опис відсутній'}
           </p>
@@ -103,7 +103,7 @@ const SpecialistCard = ({ specialist }: Props) => {
           label="Відкрити профіль"
           type="button"
           onClick={() => navigate(`/specialists/${id}`)}
-          className="mt-auto max-w-[200px] h-[40px] text-[16px] font-normal text-alabaster text-center rounded-[16px] bg-tenn hover:shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] active:shadow-[inset_0_4px_4px_0_rgba(0,0,0,0.25)]"
+          className="mt-auto max-w-[200px] h-[40px] text-base font-normal text-alabaster text-center rounded-xl bg-tenn hover:shadow-shark active:shadow-inset-shark"
           aria-label={`Відкрити профіль ${name} ${family_name}`}
         />
       </div>

@@ -4,7 +4,7 @@ import SpecialistCard from '@/features/searchSpecialists/components/SpecialistCa
 type Props = {
   specialists: Specialist[];
 };
-const gridClasses = 'grid grid-cols-2 gap-x-[40px] gap-y-[40px] mb-[58px]';
+const gridClasses = 'grid grid-cols-2 gap-x-10 gap-y-10 mb-[58px]';
 const SpecialistsList = ({ specialists }: Props) => {
   return (
     <div className={gridClasses}>
