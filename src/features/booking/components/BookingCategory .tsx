@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { animals } from '@/data/bookMock';
 import {
   BookingLocationState,
   LocationOptions,
 } from '@/features/booking/types';
 import { dogsWeight } from '@/shared/constants/dogsWeight';
+import { useOutsideClick } from '@/shared/hooks/useOutsideClick';
 
 const BookingCategory: React.FC<BookingLocationState> = ({
   selectedLocationOption,
@@ -12,9 +13,11 @@ const BookingCategory: React.FC<BookingLocationState> = ({
 }) => {
   const [selectedService, setSelectedService] = useState<string | null>(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
   const [selectedAnimal, setSelectedAnimal] = useState<string | null>(null);
   const [selectedWeight, setSelectedWeight] = useState<string | null>(null);
+
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  useOutsideClick(dropdownRef, () => setDropdownOpen(false));
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedLocationOption(event.target.value as LocationOptions);
@@ -25,7 +28,7 @@ const BookingCategory: React.FC<BookingLocationState> = ({
     setSelectedAnimal(animalName);
 
     if (animalName === 'собаки') {
-      // встановити "Малі" тільки якщо ще не вибрано
+      // Set 'Малі' only if not already selected.
       setSelectedWeight(prev => prev || dogsWeight[0].range);
     } else {
       setSelectedWeight(null);
@@ -34,23 +37,6 @@ const BookingCategory: React.FC<BookingLocationState> = ({
     setDropdownOpen(false);
   };
 
-  // 👇 закриваємо дропдаун при кліку поза ним
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setDropdownOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
   return (
     <div>
       <h1 className="xl:text-xl xl:font-semibold text-fire xl:mb-5">
@@ -58,7 +44,7 @@ const BookingCategory: React.FC<BookingLocationState> = ({
       </h1>
 
       <div className="xl:flex xl:relative">
-        {/* Кастомний дропдаун */}
+        {/* Custom dropdown  */}
         <div className="relative xl:w-[472px]" ref={dropdownRef}>
           <h2 className="sr-only ">Обрати тварину/послугу</h2>
           <button
@@ -67,13 +53,17 @@ const BookingCategory: React.FC<BookingLocationState> = ({
             className="input-base h-12 pl-12 pr-8 w-full text-left flex items-center justify-between"
           >
             {selectedService || 'Обрати послугу'}
-            <svg className="w-[9px] h-[17px] fill-fire transform rotate-270">
+            <svg
+              className={`w-[9px] h-[17px] fill-fire transform transition-transform duration-300 ease-in-out ${
+                dropdownOpen ? 'rotate-90' : 'rotate-270'
+              } `}
+            >
               <use href="/icons.svg#icon-arrow-left" />
             </svg>
           </button>
 
           {dropdownOpen && (
-            <div className="absolute z-10 mt-2 flex gap-8 justify-between bg-alabaster border-2 border-fire rounded-2xl shadow-[0_2px_3px_0_rgba(0,0,0,0.25)] w-full px-19 py-7">
+            <div className="absolute z-10 mt-2 flex gap-8 justify-between bg-alabaster border-2 border-tenn rounded-2xl shadow-[0_2px_3px_0_rgba(0,0,0,0.25)] w-full px-19 py-7">
               {animals.map(animal => (
                 <div key={animal.name}>
                   <h3 className="mb-1 text-fire text-center capitalize">
@@ -84,7 +74,7 @@ const BookingCategory: React.FC<BookingLocationState> = ({
                       <li
                         key={service}
                         onClick={() => handleServiceClick(service, animal.name)}
-                        className="cursor-pointer hover:text-fiery-orange transition-colors duration-300 ease-in-out"
+                        className="cursor-pointer hover:text-fire hover:underline transition-all duration-300 ease-in-out"
                         aria-selected={selectedService === service}
                       >
                         {service}
