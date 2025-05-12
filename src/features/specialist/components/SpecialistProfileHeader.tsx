@@ -25,14 +25,13 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
   } = profile;
 
   const [openSpecialistServices, setOpenSpecialistServices] = useState(false);
+  
   // Типізовані фільтри — тільки AnimalService
-  const shortDogAnimalServices = services
-    .filter((s): s is AnimalService => s.type === 'dog')
-    .slice(0, 2);
+  const filterServicesByType = (type: 'dog' | 'cat') =>
+    services.filter((s): s is AnimalService => s.type === type);
 
-  const shortCatAnimalServices = services
-    .filter((s): s is AnimalService => s.type === 'cat')
-    .slice(0, 2);
+  const shortDogAnimalServices = filterServicesByType('dog').slice(0, 2);
+  const shortCatAnimalServices = filterServicesByType('cat').slice(0, 2);
 
   const navigate = useNavigate();
 
