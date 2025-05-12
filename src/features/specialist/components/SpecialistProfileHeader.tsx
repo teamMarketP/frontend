@@ -34,7 +34,7 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
     .filter((s): s is AnimalService => s.type === 'cat')
     .slice(0, 2);
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <section className="flex xl:flex-row gap-[26px] text-shark mb-[70px]">
@@ -61,7 +61,10 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
           <p className="text-inherit mb-8">
             <span className="font-semibold">Досвід:</span> {experience}
           </p>
-          <p className="text-inherit text-justify"><span className="font-semibold">Про себе:</span>{bio}</p>
+          <p className="text-inherit text-justify">
+            <span className="font-semibold">Про себе:</span>
+            {bio}
+          </p>
         </div>
       </div>
 
@@ -80,15 +83,16 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
             </svg>
             <h3 className="text-fire text-xl font-semibold">Собаки</h3>
           </div>
-          <div className="flex flex-col gap-[10px] mb-[28px]">
+          <ul className="flex flex-col gap-[10px] mb-[28px]">
             {shortDogAnimalServices.map(service => (
-              <ul className="flex gap-7" key={service.id}>
-                <li className="flex min-w-30">{service.title}:
+              <li key={service.id} className="flex gap-7 min-w-30">
+                <span>{service.title}:</span>
+                <span>
                   {service.price} {service.duration}
-                </li>
-              </ul>
+                </span>
+              </li>
             ))}
-          </div>
+          </ul>
 
           {/* Коти */}
           <div className="flex justify-center items-center gap-5 mb-[16px]">
@@ -102,16 +106,16 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
             </svg>
             <h3 className="text-tenn text-xl font-semibold">Коти</h3>
           </div>
-          <div className="flex flex-col gap-[10px] mb-[28px]">
+          <ul className="flex flex-col gap-[10px] mb-[28px]">
             {shortCatAnimalServices.map(service => (
-              <ul className="flex gap-7" key={service.id}>
-                <li className="flex min-w-30">{service.title}:</li>
-                <li className="flex">
+              <li key={service.id} className="flex gap-7 min-w-30">
+                <span>{service.title}:</span>
+                <span>
                   {service.price} {service.duration}
-                </li>
-              </ul>
+                </span>
+              </li>
             ))}
-          </div>
+          </ul>
 
           {/* Кнопка відкриття модалки */}
           {(services.filter(s => s.type === 'dog').length > 2 ||
