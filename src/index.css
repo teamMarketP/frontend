@@ -78,7 +78,7 @@
   }
 
   body {
-    @apply font-primary text-cod-gray bg-alabaster font-normal text-base;
+    @apply font-primary text-cod-gray bg-alabaster text-base leading-[1.37];
     scrollbar-gutter: stable;
   }
 }

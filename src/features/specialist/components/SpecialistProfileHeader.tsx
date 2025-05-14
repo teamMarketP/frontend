@@ -16,7 +16,6 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
     isVerified,
     icon,
     joinDate,
-    profession,
     experience,
     bio,
     services,
@@ -38,11 +37,11 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
   return (
     <section className="flex xl:flex-row gap-[26px] text-shark mb-[70px]">
       {/* Ліва частина */}
-      <div className="flex-1 flex xl:flex-row gap-[37px] p-5 shadow-smoke rounded-[16px] bg-alabaster">
+      <div className="flex-1 flex xl:flex-row gap-[35px] p-5 shadow-smoke rounded-2xl bg-alabaster">
         <img
           src={avatar}
           alt={name}
-          className="w-[236px] h-auto rounded-xl object-cover"
+          className="w-[236px] h-auto rounded-2xl object-cover"
         />
         <div>
           <h2 className="text-fire text-xl font-semibold flex items-center gap-3 mb-5">
@@ -55,12 +54,11 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
               </span>
             )}
           </h2>
-          <p className="text-inherit mb-5">На сайті з: {joinDate}</p>
-          <p className="text-inherit mb-5">{profession}</p>
-          <p className="text-inherit mb-8">
+          <p className="mb-5">На сайті з: {joinDate}</p>
+          <p className="mb-8">
             <span className="font-semibold">Досвід:</span> {experience}
           </p>
-          <p className="text-inherit text-justify">
+          <p className="text-justify">
             <span className="font-semibold">Про себе:</span>
             {bio}
           </p>
@@ -68,8 +66,8 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
       </div>
 
       {/* Права частина */}
-      <div className="flex xl:flex-col justify-between w-full md:w-1/3 max-w-[304px]">
-        <div className="flex flex-col justify-center rounded-[16px] px-[25px] pt-5 pb-3 shadow-smoke bg-alabaster">
+      <div className="flex xl:flex-col justify-between w-full max-w-[304px]">
+        <div className="flex flex-col justify-center rounded-[16px] px-[25px] pt-5 pb-[14px] shadow-smoke bg-alabaster">
           {/* Собаки */}
           <div className="flex justify-center items-center gap-5 mb-[16px]">
             <svg
@@ -82,7 +80,7 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
             </svg>
             <h3 className="text-fire text-xl font-semibold">Собаки</h3>
           </div>
-          <ul className="flex flex-col gap-[10px] mb-[28px]">
+          <ul className="flex flex-col gap-[13px] mb-[28px]">
             {shortDogAnimalServices.map(service => (
               <li key={service.id} className="flex gap-7 min-w-30">
                 <span>{service.title}:</span>
@@ -105,7 +103,7 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
             </svg>
             <h3 className="text-tenn text-xl font-semibold">Коти</h3>
           </div>
-          <ul className="flex flex-col gap-[10px] mb-[28px]">
+          <ul className="flex flex-col gap-[13px] mb-[28px]">
             {shortCatAnimalServices.map(service => (
               <li key={service.id} className="flex gap-7 min-w-30">
                 <span>{service.title}:</span>
@@ -146,7 +144,7 @@ export const SpecialistProfileHeader = ({ profile }: Props) => {
           label="Запропонувати роботу"
           type="button"
           onClick={() => navigate('/specialists/${id}/booking')}
-          className="text-xl py-4 rounded-[16px] h-auto"
+          className="text-xl py-4 rounded-[16px] h-[68px]"
         />
       </div>
     </section>
