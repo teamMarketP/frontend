@@ -6,9 +6,7 @@ import MainLayout from '@/components/Layout/MainLayout';
 
 const HomePage = lazy(() => import('@/pages/Home/HomePage'));
 const CatalogPage = lazy(() => import('@/pages/Catalog/CatalogPage'));
-const SearchSpecialistsPage = lazy(
-  () => import('@/features/searchSpecialists/pages/SearchSpecialistsPage')
-);
+const SpecialistProfilePage = lazy(() => import('@/features/specialist/pages/SpecialistProfilePage'));
 
 function App() {
   return (
@@ -17,7 +15,7 @@ function App() {
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
           <Route path="/catalog" element={<CatalogPage />} />
-          <Route path="/specialists" element={<SearchSpecialistsPage />} />
+          <Route path="/specialists/:id" element={<SpecialistProfilePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
