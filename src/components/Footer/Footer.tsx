@@ -63,7 +63,7 @@ const Footer = () => {
               <Link to="#">Вигул</Link>
             </li>
             <li>
-              <Link to="#">Підтримка</Link>
+              <Link to="#">Перетримка</Link>
             </li>
             <li>
               <Link to="#">Грумінг</Link>
