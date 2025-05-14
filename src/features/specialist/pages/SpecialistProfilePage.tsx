@@ -6,7 +6,7 @@ import BackButton from "@/shared/utils/UI/BackButton";
 
 const SpecialistProfilePage = () => {
   return (
-    <div className="mx-auto px-[120px] pt-17 pb-30 max-w-[1278px]">
+    <div className="mx-auto px-[120px] pt-17 pb-30 max-w-[1280px]">
 
       <div className="flex mb-12">
         <BackButton />
