@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
 import { addDays, subDays, isSameDay, format } from 'date-fns';
 import { uk } from 'date-fns/locale';
+import { useFormContext } from 'react-hook-form';
 
 const NUM_DAYS = 5;
 
 const BookingDatePicker: React.FC = () => {
+  const {
+    register,
+    watch,
+    setValue,
+    formState: { errors },
+  } = useFormContext();
+
   const today = new Date();
   const [startDate, setStartDate] = useState(today);
-  const [selectedDate, setSelectedDate] = useState<Date>(today);
+  const formDate = watch('date');
+  const selectedDate = formDate ? new Date(formDate) : today;
 
   const displayedDates = Array.from({ length: NUM_DAYS }, (_, i) =>
     addDays(startDate, i)
@@ -21,6 +30,10 @@ const BookingDatePicker: React.FC = () => {
     if (!isSameDay(startDate, today)) {
       setStartDate(prev => subDays(prev, 1));
     }
+  };
+
+  const handleDateClick = (date: Date) => {
+    setValue('date', format(date, 'yyyy-MM-dd'));
   };
 
   const showLeftArrow = !isSameDay(startDate, today);
@@ -43,7 +56,9 @@ const BookingDatePicker: React.FC = () => {
           </button>
         )}
 
-        <div className="flex justify-center gap-4 ">
+        <input type="hidden" {...register('date')} />
+
+        <div className="flex justify-center gap-4 relative">
           {displayedDates.map((date, index) => {
             const isSelected = isSameDay(selectedDate, date);
             const isToday = isSameDay(date, today);
@@ -55,7 +70,7 @@ const BookingDatePicker: React.FC = () => {
               <button
                 type="button"
                 key={index}
-                onClick={() => setSelectedDate(date)}
+                onClick={() => handleDateClick(date)}
                 className={`flex flex-col justify-between xl:w-[132px] xl:h-[132px] rounded-2xl px-2 py-3 text-center transition border-2
                 ${
                   isSelected
@@ -88,6 +103,11 @@ const BookingDatePicker: React.FC = () => {
             );
           })}
         </div>
+        {errors.date?.message && (
+          <p className="absolute text-red-tenn text-[10px] pl-4 mt-1">
+            {String(errors.date.message)}
+          </p>
+        )}
 
         <button
           type="button"

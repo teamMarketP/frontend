@@ -61,6 +61,7 @@
   --color-fiery-tenn: #ce5601;
   --color-red-tenn: #bf0000;
   --color-chicago-600: #5b5959;
+  --color-disabled: rgba(217, 115, 43, 0.46);
   /* --color-wildSand: #f5f5f5; */
   /* --color-woodsmoke: #191919; */
   /* --color-shark: #272727; */
@@ -111,7 +112,7 @@ button:not(:disabled) {
   }
 
   .btn-disabled {
-    @apply text-gray-400 bg-alabaster cursor-not-allowed border-2 border-gray-400;
+    @apply bg-disabled cursor-not-allowed;
 
     @variant hover {
       @apply shadow-none;
@@ -120,6 +121,10 @@ button:not(:disabled) {
     @variant active {
       @apply shadow-none;
     }
+  }
+
+  .btn-google-disabled {
+    @apply text-gray-400 bg-alabaster border-2 border-gray-400;
   }
 
   .btn-icon {

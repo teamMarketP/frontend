@@ -4,3 +4,8 @@ export const dogsWeight = [
   { label: 'Великі', range: '18-45 кг' },
   { label: 'Гігантські', range: '45+ кг' },
 ];
+
+export const dogWeightRanges = dogsWeight.map(w => w.range) as [
+  string,
+  ...string[]
+];

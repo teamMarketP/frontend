@@ -4,26 +4,38 @@ import BookingDetails from '@/features/booking/components/BookingDetails';
 import BookingLocation from '@/features/booking/components/BookingLocation';
 import BookingPrice from '@/features/booking/components/BookingPrice';
 import BookingTimePicker from '@/features/booking/components/BookingTimePicker';
-import { useBookingContext } from '@/features/booking/hooks/useBookingContext';
+import { BookingSchemaType } from '@/features/booking/validation/bookingSchema';
+// import { useEffect } from 'react';
+import { useFormContext } from 'react-hook-form';
 
 const BookingForm = () => {
-  const { selectedLocationOption, setSelectedLocationOption } =
-    useBookingContext();
+  const methods = useFormContext<BookingSchemaType>();
+
+  // const {
+  //   formState: { errors },
+  // } = methods;
+
+  // // ✅ DEBUG: лог помилок
+  // useEffect(() => {
+  //   console.log('Form errors:', errors);
+  // }, [errors]);
+
+  const onSubmit = (data: BookingSchemaType) => {
+    console.log('Form data:', data);
+  };
 
   return (
-    <>
-      <form className="xl:flex xl:flex-col xl:gap-[30px] xl:w-[692px] novalidate">
-        <BookingCategory
-          selectedLocationOption={selectedLocationOption}
-          setSelectedLocationOption={setSelectedLocationOption}
-        />
-        <BookingLocation selectedLocationOption={selectedLocationOption} />
-        <BookingDetails />
-        <BookingDatePicker />
-        <BookingTimePicker />
-        <BookingPrice />
-      </form>
-    </>
+    <form
+      onSubmit={methods.handleSubmit(onSubmit)}
+      className="xl:flex xl:flex-col xl:gap-[30px] xl:w-[692px] novalidate"
+    >
+      <BookingCategory />
+      <BookingLocation />
+      <BookingDetails />
+      <BookingDatePicker />
+      <BookingTimePicker />
+      <BookingPrice />
+    </form>
   );
 };
 

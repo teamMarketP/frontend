@@ -1,19 +1,34 @@
 import BookingForm from '@/features/booking/components/BookingForm';
 import BookingSpecialistCard from '@/features/booking/components/BookingSpecialistCard';
-import { BookingProvider } from '@/features/booking/context/BookingProvider';
+import {
+  bookingSchema,
+  BookingSchemaType,
+} from '@/features/booking/validation/bookingSchema';
 import BackButton from '@/shared/components/UI/BackButton';
+import { zodResolver } from '@hookform/resolvers/zod/src/zod.js';
+import { format } from 'date-fns';
+import { FormProvider, useForm } from 'react-hook-form';
 
 const BookingPage = () => {
+  const methods = useForm<BookingSchemaType>({
+    resolver: zodResolver(bookingSchema),
+    mode: 'onChange',
+    defaultValues: {
+      locationOption: 'customer',
+      date: format(new Date(), 'yyyy-MM-dd'),
+    },
+  });
+
   return (
-    <BookingProvider>
+    <FormProvider {...methods}>
       <section className="mx-auto xl:w-7xl xl:px-30 xl:pt-12 xl:pb-18">
         <BackButton label="Назад" className=" mb-9" />
-        <div className="flex gap-8 items-start">
+        <div className="flex gap-8">
           <BookingForm />
           <BookingSpecialistCard />
         </div>
       </section>
-    </BookingProvider>
+    </FormProvider>
   );
 };
 

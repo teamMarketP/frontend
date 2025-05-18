@@ -13,3 +13,6 @@ export const phoneRegex = /^\+?\d{12}$/;
 // RFC 5322 email regex (simplified without comments, allow Capital)
 export const emailRegex =
   /^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9]{2,}$/;
+
+// Regular expressions for validating address
+export const streetOrHouseRegex = /^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ0-9\s,\\./-]*$/;

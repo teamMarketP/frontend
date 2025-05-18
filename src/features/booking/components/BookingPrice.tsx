@@ -1,6 +1,12 @@
 import Button from '@/components/Ui/Button/Button';
+import { useFormContext } from 'react-hook-form';
 
 const BookingPrice = () => {
+  const {
+    register,
+    formState: { errors, isValid },
+  } = useFormContext();
+
   return (
     <div>
       <h2 className="xl:text-xl xl:font-semibold text-fire xl:mb-5">
@@ -16,22 +22,34 @@ const BookingPrice = () => {
         </div>
 
         <div className="flex flex-col gap-3">
-          <input
-            type="email"
-            placeholder="Email для зворотного зв’язку"
-            aria-label="Email для зворотного зв’язку"
-            className="input-base h-12 pl-12"
-          />
+          <div className="relative">
+            <input
+              type="email"
+              {...register('email')}
+              placeholder="Email для зворотного зв’язку"
+              aria-label="Email для зворотного зв’язку"
+              className="input-base h-12 pl-12"
+            />
+
+            {errors.email?.message && (
+              <p className="absolute text-red-tenn text-[10px] pl-12">
+                {String(errors.email.message)}
+              </p>
+            )}
+          </div>
+
           <p className="text-sm text-chicago-600">
             Вартість вказана лише для попередньої оцінки бюджету вашого
             замовлення. В неї не включені матеріали та додаткові роботи. Точну
             вартість зможе сказати фахівець після обговорення деталей.
           </p>
+
           <Button
             label="Замовити"
             aria-label="Замовити"
             type="submit"
             className="self-end"
+            disabled={!isValid}
           />
         </div>
       </div>

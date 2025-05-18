@@ -46,7 +46,7 @@ const RegisterForm = () => {
         label="Увійти з Google"
         type="submit"
         disabled
-        className="btn-icon"
+        className="btn-icon btn-google-disabled"
         icon={
           <svg className="w-[28px] h-[28px]">
             <use href="/icons.svg#icon-google" />

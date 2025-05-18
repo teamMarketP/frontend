@@ -1,19 +1,20 @@
 import mockReviewsData from '@/data/bookReviewMock';
-import { useBookingContext } from '@/features/booking/hooks/useBookingContext';
 import RatingStars from '@/shared/components/RatingStars';
+import { useFormContext } from 'react-hook-form';
 
 const SpecialistReview = () => {
   const latestReviews = [...mockReviewsData]
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, 3);
 
-  const { selectedLocationOption } = useBookingContext();
+  const { watch } = useFormContext();
+
+  const selectedLocationOption = watch('locationOption');
   const lineClamp =
     selectedLocationOption === 'customer' ? 'line-clamp-8' : 'line-clamp-5';
 
   return (
-    <div className="overflow-hidden ">
-      <div className="border-1 border-fire rounded-2xl mb-6 "></div>
+    <div>
       <h2 className="text-xl font-semibold text-fire mb-5 text-center">
         Останні відгуки
       </h2>

@@ -1,21 +1,29 @@
 import { districts } from '@/data/districts';
 import { useOutsideClick } from '@/shared/hooks/useOutsideClick';
-import { BookingLocationState } from '@/features/booking/types';
 import { useRef, useState } from 'react';
+import { useFormContext } from 'react-hook-form';
 
 // Sort districts alphabetically
 const sortedDistricts = [...districts].sort((a, b) => a.localeCompare(b));
 
-const BookingLocation = ({
-  selectedLocationOption,
-}: Pick<BookingLocationState, 'selectedLocationOption'>) => {
+const BookingLocation = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [selectedDistrict, setSelectedDistrict] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   useOutsideClick(dropdownRef, () => setDropdownOpen(false));
 
+  const {
+    register,
+    setValue,
+    watch,
+    formState: { errors },
+  } = useFormContext();
+
+  const selectedLocationOption = watch('locationOption');
+  const selectedDistrict = watch('district');
+  const selectedAnimal = watch('animal');
+
   const handleDistrictClick = (district: string) => {
-    setSelectedDistrict(district);
+    setValue('district', district);
     setDropdownOpen(false);
   };
 
@@ -26,7 +34,9 @@ const BookingLocation = ({
       </h2>
       {selectedLocationOption === 'specialist' ? (
         <div
-          className="flex items-center input-base h-12 pl-12 xl:w-[472px]  text-fire select-none cursor-not-allowed"
+          className={`flex items-center input-base h-12 pl-12 xl:w-[472px] text-fire select-none cursor-not-allowed ${
+            selectedAnimal === 'собаки' ? ' mb-[63px]' : ''
+          }`}
           aria-label={`Місце виконання замовлення: Київ / ${districts[9]}`}
         >
           Київ / {districts[9]}
@@ -62,6 +72,12 @@ const BookingLocation = ({
                 </svg>
               </button>
 
+              {errors.district?.message && (
+                <p className="absolute text-red-tenn text-[10px] pl-12 mt-1">
+                  {String(errors.district.message)}
+                </p>
+              )}
+
               {dropdownOpen && (
                 <ul className="absolute z-10 mt-2 flex flex-col justify-between bg-alabaster border-2 border-tenn rounded-2xl shadow-[0_2px_3px_0_rgba(0,0,0,0.25)] w-full py-5">
                   {sortedDistricts.map((district, index) => (
@@ -78,20 +94,34 @@ const BookingLocation = ({
               )}
             </div>
           </div>
-
-          <input
-            type="text"
-            placeholder="Приклад: вул. Шевченка"
-            className="input-base h-12 pl-12 xl:w-[472px] "
-            aria-label="Вулиця"
-          />
-
-          <input
-            type="text"
-            placeholder="Приклад: буд. 1, корп. 2, кв. 3"
-            aria-label="Номер будинку, корпус, квартира"
-            className="input-base h-12 pl-12 xl:w-[472px] "
-          />
+          <div className="relative">
+            <input
+              type="text"
+              {...register('street')}
+              placeholder="Приклад: вул. Шевченка"
+              className="input-base h-12 pl-12 xl:w-[472px] "
+              aria-label="Вулиця"
+            />
+            {errors.street?.message && (
+              <p className="absolute text-red-tenn text-[10px] pl-12 mt-1">
+                {String(errors.street.message)}
+              </p>
+            )}
+          </div>
+          <div className="relative">
+            <input
+              type="text"
+              {...register('house')}
+              placeholder="Приклад: буд. 1, корп. 2, кв. 3"
+              aria-label="Номер будинку, корпус, квартира"
+              className="input-base h-12 pl-12 xl:w-[472px] "
+            />
+            {errors.house?.message && (
+              <p className="absolute text-red-tenn text-[10px] pl-12 mt-1">
+                {String(errors.house.message)}
+              </p>
+            )}
+          </div>
         </div>
       )}
     </div>

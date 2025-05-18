@@ -11,6 +11,7 @@ const LoginForm = () => {
     formState: { errors, dirtyFields },
   } = useForm<LoginSchemaType>({
     resolver: zodResolver(loginSchema),
+    mode: 'onChange',
   });
 
   const onSubmit = (data: LoginSchemaType) => {
@@ -31,7 +32,7 @@ const LoginForm = () => {
         label="Увійти з Google"
         type="submit"
         disabled
-        className="btn-icon"
+        className="btn-icon btn-google-disabled"
         icon={
           <svg className="w-[28px] h-[28px]  ">
             <use href="/icons.svg#icon-google" />
