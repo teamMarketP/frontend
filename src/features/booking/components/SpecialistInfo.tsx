@@ -21,7 +21,7 @@ const SpecialistInfo = () => {
           <span className="font-semibold">Досвід:</span> 3 роки
         </p>
       </div>
-      <div className="border-1 border-fire rounded-2xl mb-5"></div>
+      <div className="border border-fire rounded-2xl mb-5"></div>
     </div>
   );
 };

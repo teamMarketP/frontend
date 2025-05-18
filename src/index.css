@@ -66,7 +66,7 @@
   /* --color-wildSand: #f5f5f5; */
   /* --color-woodsmoke: #191919; */
   --color-shark: #272727;
-  /* --color-storm-dust: #656565; */
+  --color-storm-dust: #656565;
 
   --shadow-box: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
   --shadow-shark: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
@@ -162,4 +162,12 @@ button:not(:disabled) {
     display: none;
     /* Chrome, Safari, Opera */
   }
+}
+
+.book-checkbox-btn+span {
+  fill: none;
+}
+
+.book-checkbox-btn:checked+span {
+  @apply bg-tenn fill-alabaster border-tenn
 }

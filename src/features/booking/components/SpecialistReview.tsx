@@ -24,7 +24,7 @@ const SpecialistReview = () => {
             return (
               <li key={index}>
                 <div className="flex gap-4 items-center mb-2">
-                  <p className=" font-semibold ">{review.name}</p>
+                  <p className=" font-semibold">{review.name}</p>
                   <RatingStars
                     rating={review.rating}
                     aria-label={`Рейтинг: ${review.rating}`}
@@ -40,7 +40,7 @@ const SpecialistReview = () => {
           })}
         </ul>
       ) : (
-        <p className="text-center text-sm text-gray-400">
+        <p className="text-center text-sm text-storm-dust">
           У фахівця ще немає відгуків
         </p>
       )}

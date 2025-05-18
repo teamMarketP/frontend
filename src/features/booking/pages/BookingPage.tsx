@@ -5,7 +5,7 @@ import {
   BookingSchemaType,
 } from '@/features/booking/validation/bookingSchema';
 import BackButton from '@/shared/components/UI/BackButton';
-import { zodResolver } from '@hookform/resolvers/zod/src/zod.js';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { format } from 'date-fns';
 import { FormProvider, useForm } from 'react-hook-form';
 
@@ -16,12 +16,13 @@ const BookingPage = () => {
     defaultValues: {
       locationOption: 'customer',
       date: format(new Date(), 'yyyy-MM-dd'),
+      time: [],
     },
   });
 
   return (
     <FormProvider {...methods}>
-      <section className="mx-auto xl:w-7xl xl:px-30 xl:pt-12 xl:pb-18">
+      <section className="mx-auto xl:w-7xl xl:px-30 xl:pt-[69px] xl:pb-18">
         <BackButton label="Назад" className=" mb-9" />
         <div className="flex gap-8">
           <BookingForm />

@@ -1,7 +1,6 @@
 import { emailRegex, streetOrHouseRegex } from '@/constants/regex';
 import { timeSlots } from '@/shared/constants/bookingTime';
 import { dogWeightRanges } from '@/shared/constants/dogsWeight';
-
 import { z } from 'zod';
 
 export const bookingSchema = z
@@ -42,10 +41,13 @@ export const bookingSchema = z
     date: z.string({
       required_error: 'Оберіть дату виконання замовлення',
     }),
-    time: z.enum(timeSlots, {
-      required_error: 'Оберіть час',
-      invalid_type_error: 'Оберіть час виконання замовлення',
-    }),
+    time: z
+      .array(
+        z.enum(timeSlots, {
+          invalid_type_error: 'Оберіть час виконання замовлення',
+        })
+      )
+      .min(1, 'Оберіть хоча б один проміжок часу'),
     email: z
       .string({
         required_error: 'Введіть email',

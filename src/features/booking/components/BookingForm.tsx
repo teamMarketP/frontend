@@ -27,7 +27,8 @@ const BookingForm = () => {
   return (
     <form
       onSubmit={methods.handleSubmit(onSubmit)}
-      className="xl:flex xl:flex-col xl:gap-[30px] xl:w-[692px] novalidate"
+      className="xl:flex xl:flex-col xl:gap-[30px] xl:w-[692px]"
+      noValidate
     >
       <BookingCategory />
       <BookingLocation />

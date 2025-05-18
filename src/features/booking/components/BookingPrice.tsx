@@ -4,7 +4,10 @@ import { useFormContext } from 'react-hook-form';
 const BookingPrice = () => {
   const {
     register,
-    formState: { errors, isValid },
+    formState: {
+      errors,
+      // isValid
+    },
   } = useFormContext();
 
   return (
@@ -49,7 +52,7 @@ const BookingPrice = () => {
             aria-label="Замовити"
             type="submit"
             className="self-end"
-            disabled={!isValid}
+            // disabled={!isValid}
           />
         </div>
       </div>

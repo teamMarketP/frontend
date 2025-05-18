@@ -22,11 +22,17 @@ const BookingTimePicker = () => {
                 className="h-10 flex items-center gap-2 leading-none text-sm px-[10px] w-[132px] border-2 border-fire rounded-2xl"
               >
                 <input
-                  type="radio"
+                  type="checkbox"
+                  // name="time"
                   {...register('time')}
                   value={slot}
-                  className="book-radio-btn"
+                  className="book-checkbox-btn sr-only"
                 />
+                <span className="flex items-center justify-center w-5 h-5 rounded-[4px] border-2 border-fire">
+                  <svg className="w-4 h-3">
+                    <use href="/icons.svg#icon-tick" />
+                  </svg>
+                </span>
                 {slot}
               </label>
             );
