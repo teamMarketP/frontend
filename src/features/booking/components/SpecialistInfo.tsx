@@ -5,11 +5,11 @@ const SpecialistInfo = () => {
 
   return (
     <div>
-      <div className="flex items-center justify-center w-[272px] h-[364px] mb-6">
+      <div className="flex items-center justify-center w-[272px] h-[364px] mb-6 rounded-2xl overflow-hidden">
         <img
           src={avatar || '/booking-img/default-specialist-avatar.png'}
           alt={`Фото ${name}`}
-          className=" rounded-2xl"
+          className="w-full h-full object-cover"
         />
       </div>
       <div className="flex flex-col gap-5 items-center justify-center mb-5">

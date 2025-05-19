@@ -64,10 +64,12 @@ const BookingLocation = () => {
                   if (e.key === 'ArrowDown') {
                     e.preventDefault();
                     setDropdownOpen(true);
+                  } else if (e.key === 'Escape') {
+                    setDropdownOpen(false);
                   }
                 }}
                 aria-expanded={dropdownOpen}
-                aria-controls="services-dropdown"
+                aria-controls="districts-dropdown"
                 onClick={() => setDropdownOpen(!dropdownOpen)}
                 className="input-base h-12 pl-12 flex items-center justify-between"
               >
@@ -88,7 +90,11 @@ const BookingLocation = () => {
               )}
 
               {dropdownOpen && (
-                <ul className="absolute z-10 mt-2 flex flex-col justify-between bg-alabaster border-2 border-tenn rounded-2xl shadow-[0_2px_3px_0_rgba(0,0,0,0.25)] w-full py-5">
+                <ul
+                  id="districts-dropdown"
+                  className="absolute z-10 mt-2 flex flex-col justify-between bg-alabaster border-2 border-tenn rounded-2xl shadow-[0_2px_3px_0_rgba(0,0,0,0.25)] w-full py-5"
+                  aria-hidden={selectedLocationOption !== 'customer'}
+                >
                   {sortedDistricts.map((district, index) => (
                     <li
                       key={index}
@@ -119,6 +125,7 @@ const BookingLocation = () => {
               placeholder="Приклад: вул. Шевченка"
               className="input-base h-12 pl-12 xl:w-[472px]"
               aria-label="Вулиця"
+              aria-hidden={selectedLocationOption !== 'customer'}
             />
             {errors.street?.message && (
               <p className="absolute text-red-tenn text-[10px] pl-12 mt-1">
@@ -126,12 +133,14 @@ const BookingLocation = () => {
               </p>
             )}
           </div>
+
           <div className="relative">
             <input
               type="text"
               {...register('house')}
               placeholder="Приклад: буд. 1, корп. 2, кв. 3"
               aria-label="Номер будинку, корпус, квартира"
+              aria-hidden={selectedLocationOption !== 'customer'}
               className="input-base h-12 pl-12 xl:w-[472px]"
             />
             {errors.house?.message && (

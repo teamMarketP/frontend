@@ -55,6 +55,8 @@ const BookingCategory = () => {
               if (e.key === 'ArrowDown') {
                 e.preventDefault();
                 setDropdownOpen(true);
+              } else if (e.key === 'Escape') {
+                setDropdownOpen(false);
               }
             }}
             aria-expanded={dropdownOpen}
@@ -73,7 +75,10 @@ const BookingCategory = () => {
           </button>
 
           {dropdownOpen && (
-            <div className="absolute z-10 mt-2 flex gap-8 justify-between bg-alabaster border-2 border-tenn rounded-2xl shadow-[0_2px_3px_0_rgba(0,0,0,0.25)] w-full px-19 py-7">
+            <div
+              id="services-dropdown"
+              className="absolute z-10 mt-2 flex gap-8 justify-between bg-alabaster border-2 border-tenn rounded-2xl shadow-[0_2px_3px_0_rgba(0,0,0,0.25)] w-full px-19 py-7"
+            >
               {animals.map(animal => (
                 <div key={animal.name}>
                   <h3 className="mb-1 text-fire text-center capitalize">
@@ -142,6 +147,7 @@ const BookingCategory = () => {
                 key={weight.range}
                 className="xl:flex xl:items-center xl:gap-[10px]"
                 aria-selected={selectedWeight === weight.range}
+                aria-hidden={selectedAnimal !== 'собаки'}
               >
                 <input
                   type="radio"
