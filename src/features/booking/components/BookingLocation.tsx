@@ -42,7 +42,7 @@ const BookingLocation = () => {
           Київ / {districts[9]}
         </div>
       ) : (
-        <div className="xl:flex xl:flex-col xl:gap-[21px] ">
+        <div className="xl:flex xl:flex-col xl:gap-[21px]">
           <input
             type="text"
             defaultValue="Київ"
@@ -59,6 +59,15 @@ const BookingLocation = () => {
               <h2 className="sr-only">Обрати район</h2>
               <button
                 type="button"
+                tabIndex={0}
+                onKeyDown={e => {
+                  if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    setDropdownOpen(true);
+                  }
+                }}
+                aria-expanded={dropdownOpen}
+                aria-controls="services-dropdown"
                 onClick={() => setDropdownOpen(!dropdownOpen)}
                 className="input-base h-12 pl-12 flex items-center justify-between"
               >
@@ -83,9 +92,18 @@ const BookingLocation = () => {
                   {sortedDistricts.map((district, index) => (
                     <li
                       key={index}
+                      tabIndex={0}
+                      role="option"
+                      onKeyDown={e => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          handleDistrictClick(district);
+                          e.preventDefault();
+                        }
+                      }}
                       onClick={() => handleDistrictClick(district)}
-                      className="w-full cursor-pointer hover:bg-tenn hover:text-alabaster transition-all duration-300 ease-in-out py-[5px]  px-12"
+                      className="w-full cursor-pointer hover:bg-tenn focus:bg-tenn hover:text-alabaster focus:text-alabaster focus:outline-none transition-all duration-300 ease-in-out py-[5px] px-12"
                       aria-selected={selectedDistrict === district}
+                      {...register('district')}
                     >
                       {district}
                     </li>
@@ -99,7 +117,7 @@ const BookingLocation = () => {
               type="text"
               {...register('street')}
               placeholder="Приклад: вул. Шевченка"
-              className="input-base h-12 pl-12 xl:w-[472px] "
+              className="input-base h-12 pl-12 xl:w-[472px]"
               aria-label="Вулиця"
             />
             {errors.street?.message && (
@@ -114,7 +132,7 @@ const BookingLocation = () => {
               {...register('house')}
               placeholder="Приклад: буд. 1, корп. 2, кв. 3"
               aria-label="Номер будинку, корпус, квартира"
-              className="input-base h-12 pl-12 xl:w-[472px] "
+              className="input-base h-12 pl-12 xl:w-[472px]"
             />
             {errors.house?.message && (
               <p className="absolute text-red-tenn text-[10px] pl-12 mt-1">

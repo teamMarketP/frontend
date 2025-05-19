@@ -7,7 +7,7 @@ const BookingDetails = () => {
   } = useFormContext();
 
   return (
-    <div className="">
+    <div>
       <h2 className="text-xl font-semibold  text-fire xl:mb-5">
         Деталі замовлення
       </h2>

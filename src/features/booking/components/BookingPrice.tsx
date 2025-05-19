@@ -15,7 +15,7 @@ const BookingPrice = () => {
       <h2 className="xl:text-xl xl:font-semibold text-fire xl:mb-5">
         Ціна замовлення
       </h2>
-      <div className="flex gap-5 ">
+      <div className="flex gap-5">
         <div className="flex flex-col justify-between rounded-2xl xl:min-w-[200px] text-center bg-tenn px-[22px] py-[18px]">
           <p className="text-sm text-alabaster">Орієнтовна вартість</p>
           <p className="text-xl text-cod-gray bg-alabaster rounded-2xl">

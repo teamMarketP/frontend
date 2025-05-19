@@ -1,4 +1,4 @@
-import BookingCategory from '@/features/booking/components/BookingCategory ';
+import BookingCategory from '@/features/booking/components/BookingCategory';
 import BookingDatePicker from '@/features/booking/components/BookingDatePicker';
 import BookingDetails from '@/features/booking/components/BookingDetails';
 import BookingLocation from '@/features/booking/components/BookingLocation';
@@ -11,11 +11,12 @@ import { useFormContext } from 'react-hook-form';
 const BookingForm = () => {
   const methods = useFormContext<BookingSchemaType>();
 
+  // TODO - delete before deploy
+  // // ✅ DEBUG: лог помилок
   // const {
   //   formState: { errors },
   // } = methods;
 
-  // // ✅ DEBUG: лог помилок
   // useEffect(() => {
   //   console.log('Form errors:', errors);
   // }, [errors]);

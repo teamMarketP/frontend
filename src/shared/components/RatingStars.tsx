@@ -17,7 +17,7 @@ const RatingStars = ({
         const fillPercent = Math.max(0, Math.min(1, rating - i)) * 100;
 
         return (
-          <span key={i} className="relative inline-block ">
+          <span key={i} className="relative inline-block">
             <svg className={`${size} fill-none stroke-fire stroke-2`}>
               <use href="/icons.svg#icon-star" />
             </svg>

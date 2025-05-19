@@ -19,7 +19,7 @@ const SpecialistReview = () => {
         Останні відгуки
       </h2>
       {latestReviews.length > 0 ? (
-        <ul className="flex flex-col gap-5 ">
+        <ul className="flex flex-col gap-5">
           {latestReviews.map((review, index) => {
             return (
               <li key={index}>

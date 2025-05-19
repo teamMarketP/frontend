@@ -18,12 +18,12 @@ const BackButton: React.FC<BackButtonProps> = ({
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(-1); // Повертає на попередню сторінку
+    navigate(-1); // Returns to the previous page
   };
 
   return (
     <button type="button" onClick={handleClick} className={backBtnClass}>
-      <svg className="w-2 h-4 fill-fire  ">
+      <svg className="w-2 h-4 fill-fire">
         <use href="/icons.svg#icon-arrow-left" />
       </svg>
       {label}

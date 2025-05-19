@@ -5,15 +5,22 @@ export function useOutsideClick(
   callback: () => void
 ) {
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (ref.current && !ref.current.contains(event.target as Node)) {
+    const handleEventOutside = (event: MouseEvent | TouchEvent) => {
+      if (
+        ref.current &&
+        event.target instanceof Node &&
+        !ref.current.contains(event.target)
+      ) {
         callback();
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('mousedown', handleEventOutside);
+    document.addEventListener('touchstart', handleEventOutside);
+
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('mousedown', handleEventOutside);
+      document.removeEventListener('touchstart', handleEventOutside);
     };
   }, [ref, callback]);
 }

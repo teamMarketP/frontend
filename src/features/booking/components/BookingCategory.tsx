@@ -47,9 +47,18 @@ const BookingCategory = () => {
       <div className="xl:flex xl:relative">
         {/* Dropdown */}
         <div className="relative xl:w-[472px]" ref={dropdownRef}>
-          <h2 className="sr-only ">Обрати тварину/послугу</h2>
+          <h2 className="sr-only">Обрати тварину/послугу</h2>
           <button
             type="button"
+            tabIndex={0}
+            onKeyDown={e => {
+              if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                setDropdownOpen(true);
+              }
+            }}
+            aria-expanded={dropdownOpen}
+            aria-controls="services-dropdown"
             onClick={() => setDropdownOpen(!dropdownOpen)}
             className="input-base h-12 pl-12 pr-8 w-full text-left flex items-center justify-between"
           >
@@ -74,8 +83,16 @@ const BookingCategory = () => {
                     {animal.services.map(service => (
                       <li
                         key={service}
+                        tabIndex={0}
+                        role="option"
+                        onKeyDown={e => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            handleServiceClick(service, animal.name);
+                            e.preventDefault();
+                          }
+                        }}
                         onClick={() => handleServiceClick(service, animal.name)}
-                        className="cursor-pointer hover:text-fire hover:underline transition-all duration-300 ease-in-out"
+                        className="cursor-pointer hover:text-fire hover:underline focus:text-fire focus:underline focus:outline-none transition-all duration-300 ease-in-out"
                         aria-selected={selectedService === service}
                       >
                         {service}

@@ -95,8 +95,9 @@ button:not(:disabled) {
     @apply bg-tenn text-alabaster rounded-2xl px-5 min-w-[200px] h-[40px] transition-shadow duration-300 ease-in-out;
   }
 
-  .btn:hover {
-    box-shadow: var(--shadow-shark);
+  .btn:hover,
+  .btn:focus {
+    @apply shadow-shark outline-none
   }
 
   .btn:active {
@@ -139,6 +140,10 @@ button:not(:disabled) {
     @apply appearance-none relative w-[21px] h-[21px] rounded-full border-2 border-fire checked:bg-alabaster checked:border-fire focus:outline-none cursor-pointer transition-all duration-300 ease-in-out;
   }
 
+  .book-radio-btn:focus-visible {
+    @apply ring-2 ring-offset-2 ring-fire;
+  }
+
   .book-radio-btn:checked::before {
     content: '';
     position: absolute;
@@ -165,7 +170,7 @@ button:not(:disabled) {
 }
 
 .book-checkbox-btn+span {
-  fill: none;
+  @apply fill-none
 }
 
 .book-checkbox-btn:checked+span {

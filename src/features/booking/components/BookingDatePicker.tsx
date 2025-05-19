@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { addDays, subDays, isSameDay, format } from 'date-fns';
 import { uk } from 'date-fns/locale';
 import { useFormContext } from 'react-hook-form';
 
-const NUM_DAYS = 5;
+const BookingDatePicker = () => {
+  // Number of dates to display in picker
+  const NUM_DAYS = 5;
 
-const BookingDatePicker: React.FC = () => {
   const {
     register,
     watch,
@@ -50,7 +51,7 @@ const BookingDatePicker: React.FC = () => {
             onClick={handlePrev}
             className="absolute left-[-20px] top-1/2 -translate-y-1/2"
           >
-            <svg className="w-[13px] h-[26px] fill-fire ">
+            <svg className="w-[13px] h-[26px] fill-fire">
               <use href="/icons.svg#icon-arrow-left" />
             </svg>
           </button>
@@ -114,7 +115,7 @@ const BookingDatePicker: React.FC = () => {
           onClick={handleNext}
           className="absolute right-[-20px] top-1/2 -translate-y-1/2"
         >
-          <svg className="w-[13px] h-[26px] fill-fire transform rotate-180 ">
+          <svg className="w-[13px] h-[26px] fill-fire transform rotate-180">
             <use href="/icons.svg#icon-arrow-left" />
           </svg>
         </button>

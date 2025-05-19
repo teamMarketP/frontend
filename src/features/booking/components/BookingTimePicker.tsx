@@ -13,17 +13,16 @@ const BookingTimePicker = () => {
         Час виконання замовлення
       </h2>
       <div className="relative">
-        <fieldset className="flex gap-2 ">
+        <fieldset className="flex gap-2">
           <legend className="sr-only">Оберіть час</legend>
           {timeSlots.map((slot, index) => {
             return (
               <label
                 key={index}
-                className="h-10 flex items-center gap-2 leading-none text-sm px-[10px] w-[132px] border-2 border-fire rounded-2xl"
+                className="h-10 flex items-center gap-2 leading-none text-sm px-[10px] w-[132px] border-2 border-fire rounded-2xl hover:cursor-pointer"
               >
                 <input
                   type="checkbox"
-                  // name="time"
                   {...register('time')}
                   value={slot}
                   className="book-checkbox-btn sr-only"
