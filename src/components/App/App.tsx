@@ -2,11 +2,15 @@ import '@/components/App/App.css';
 import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import NotFoundPage from '@/pages/NotFound/NotFoundPage';
-import MainLayout from '@/components/Layout/MainLayout';
+import MainLayout from '@/shared/components/Layout/MainLayout';
 
 const HomePage = lazy(() => import('@/pages/Home/HomePage'));
-const SearchSpecialistsPage = lazy(() => import('@/features/searchSpecialists/pages/SearchSpecialistsPage'));
-const SpecialistProfilePage = lazy(() => import('@/features/specialist/pages/SpecialistProfilePage'));
+const SearchSpecialistsPage = lazy(
+  () => import('@/features/searchSpecialists/pages/SearchSpecialistsPage')
+);
+const SpecialistProfilePage = lazy(
+  () => import('@/features/specialist/pages/SpecialistProfilePage')
+);
 const BookingPage = lazy(() => import('@/features/booking/pages/BookingPage'));
 
 function App() {
