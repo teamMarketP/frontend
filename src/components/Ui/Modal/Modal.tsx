@@ -20,14 +20,24 @@ const Modal: FC<ModalProps> = ({
       if (e.key === 'Escape') onClose();
     };
 
+    const rootElement = document.getElementById('root')!;
+
     if (isOpen) {
       document.addEventListener('keydown', handleEsc);
       document.body.style.overflow = 'hidden';
+      if (rootElement) {
+        rootElement.setAttribute('inert', ''); // робить контент нефокусованим
+        rootElement.setAttribute('aria-hidden', 'true'); // для доступності
+      }
     }
 
     return () => {
       document.removeEventListener('keydown', handleEsc);
       document.body.style.overflow = '';
+      if (rootElement) {
+        rootElement.removeAttribute('inert');
+        rootElement.removeAttribute('aria-hidden');
+      }
     };
   }, [isOpen, onClose]);
 
@@ -41,7 +51,7 @@ const Modal: FC<ModalProps> = ({
           ? 'opacity-100 pointer-events-auto'
           : 'opacity-0 pointer-events-none'
       )}
-      onClick={onClose}
+      // onClick={onClose}
     >
       <div
         className={clsx(
@@ -54,7 +64,7 @@ const Modal: FC<ModalProps> = ({
         onClick={e => e.stopPropagation()}
       >
         <button
-          className="flex justify-center items-center absolute right-[29px] top-[26px] w-5 h-5 rounded-full transition-all duration-300 ease-in-out hover:shadow-[0_0_4px_1px_rgba(207,86,0,0.8)]"
+          className="flex justify-center items-center absolute right-[29px] top-[26px] w-5 h-5 rounded-full transition-all duration-300 ease-in-out hover:shadow-[0_0_4px_1px_rgba(207,86,0,0.8)] focus:shadow-[0_0_4px_1px_rgba(207,86,0,0.8)] focus:outline-none"
           onClick={onClose}
         >
           <svg className="w-[10px] h-[10px] fill-fiery-orange ">

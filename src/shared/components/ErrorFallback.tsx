@@ -1,4 +1,5 @@
 // #TODO Style component as per App design and adapt well to smaller/bigger screens screens.
+import Button from '@/components/Ui/Button/Button';
 import { useNavigate } from 'react-router-dom';
 
 interface ErrorFallbackProps {
@@ -11,8 +12,8 @@ const ErrorFallback = ({ error, resetErrorBoundary }: ErrorFallbackProps) => {
 
   return (
     <div className="flex flex-col items-center justify-center p-8 h-[60vh]">
-      <div className="w-full max-w-md bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-xl font-semibold text-rose-600 mb-4">
+      <div className="w-full max-w-[460px] bg-white p-6 rounded-2xl shadow-md">
+        <h2 className="text-xl font-semibold text-red-tenn mb-4">
           Щось пішло не так
         </h2>
 
@@ -30,19 +31,18 @@ const ErrorFallback = ({ error, resetErrorBoundary }: ErrorFallbackProps) => {
           </div>
         </details>
 
-        <div className="flex gap-4">
-          <button
+        <div className="flex gap-2 justify-between">
+          <Button
+            type="button"
+            label="Спробувати знову"
             onClick={resetErrorBoundary}
-            className="btn px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded"
-          >
-            Спробувати знову
-          </button>
-          <button
+          />
+          <Button
+            type="button"
+            label="На головну"
             onClick={() => navigate('/')}
-            className="px-4 py-2 border border-gray-300 hover:bg-gray-50 rounded"
-          >
-            Повернутися на головну
-          </button>
+            className="btn-google-disabled hover:bg-gray-50"
+          />
         </div>
       </div>
     </div>
