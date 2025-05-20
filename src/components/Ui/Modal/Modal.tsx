@@ -67,7 +67,7 @@ const Modal: FC<ModalProps> = ({
           className="flex justify-center items-center absolute right-[29px] top-[26px] w-5 h-5 rounded-full transition-all duration-300 ease-in-out hover:shadow-[0_0_4px_1px_rgba(207,86,0,0.8)] focus:shadow-[0_0_4px_1px_rgba(207,86,0,0.8)] focus:outline-none"
           onClick={onClose}
         >
-          <svg className="w-[10px] h-[10px] fill-fiery-orange ">
+          <svg className="w-[10px] h-[10px] fill-fiery-orange">
             <use href="/icons.svg#icon-close-btn" />
           </svg>
         </button>

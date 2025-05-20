@@ -11,7 +11,7 @@ import { useFormContext } from 'react-hook-form';
 const BookingForm = () => {
   const methods = useFormContext<BookingSchemaType>();
 
-  // TODO - delete before deploy
+  // TODO - delete before release
   // // ✅ DEBUG: лог помилок
   // const {
   //   formState: { errors },

@@ -22,7 +22,7 @@ export const ReviewCard = ({ review }: Props) => {
       <div className="text-fire">
         <p className="mb-[21px] font-semibold">
           Відгук на послугу:{' '}
-          <span className="font-medium text-shark ">{service}</span>
+          <span className="font-medium text-shark">{service}</span>
         </p>
         <p className="text-shark text-justify">{comment}</p>
       </div>

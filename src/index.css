@@ -176,3 +176,7 @@ button:not(:disabled) {
 .book-checkbox-btn:checked+span {
   @apply bg-tenn fill-alabaster border-tenn;
 }
+
+.leading-unset {
+  line-height: unset;
+}

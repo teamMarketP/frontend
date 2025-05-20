@@ -59,7 +59,7 @@ const BookingDatePicker = () => {
 
         <input type="hidden" {...register('date')} />
 
-        <div className="flex justify-center gap-4 relative">
+        <div className="flex justify-center gap-2 relative">
           {displayedDates.map((date, index) => {
             const isSelected = isSameDay(selectedDate, date);
             const isToday = isSameDay(date, today);
