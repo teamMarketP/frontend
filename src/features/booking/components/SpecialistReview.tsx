@@ -1,5 +1,5 @@
 import mockReviewsData from '@/data/bookReviewMock';
-import RatingStars from '@/shared/components/RatingStars';
+import RatingStars from '@/shared/components/UI/RatingStars';
 import { useFormContext } from 'react-hook-form';
 
 const SpecialistReview = () => {

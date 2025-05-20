@@ -1,4 +1,4 @@
-import RegisterForm from '@/components/Auth/RegisterForm';
+import RegisterForm from '@/features/auth/components/RegisterForm';
 import Modal from '@/components/Ui/Modal/Modal';
 import Button from '@/components/Ui/Button/Button';
 import { useState } from 'react';

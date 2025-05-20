@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { emailRegex, streetOrHouseRegex } from '@/constants/regex';
+import { emailRegex, streetOrHouseRegex } from '@/shared/constants/regex';
 import { timeSlots } from '@/shared/constants/bookingTime';
 import { dogWeightRanges } from '@/shared/constants/dogsWeight';
 

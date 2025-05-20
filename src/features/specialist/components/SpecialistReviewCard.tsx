@@ -1,6 +1,6 @@
 import { ReviewMock } from '../types';
 import { formatDate } from '@/shared/utils/formatDate';
-import RatingStars from '@/shared/components/RatingStars';
+import RatingStars from '@/shared/components/UI/RatingStars';
 
 interface Props {
   review: ReviewMock;

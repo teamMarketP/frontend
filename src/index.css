@@ -97,7 +97,7 @@ button:not(:disabled) {
 
   .btn:hover,
   .btn:focus {
-    @apply shadow-shark outline-none
+    @apply shadow-shark outline-none;
   }
 
   .btn:active {
