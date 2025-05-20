@@ -6,7 +6,12 @@ import MainLayout from '@/components/Layout/MainLayout';
 
 const HomePage = lazy(() => import('@/pages/Home/HomePage'));
 const CatalogPage = lazy(() => import('@/pages/Catalog/CatalogPage'));
-const SpecialistProfilePage = lazy(() => import('@/features/specialist/pages/SpecialistProfilePage'));
+const SpecialistProfilePage = lazy(
+  () => import('@/features/specialist/pages/SpecialistProfilePage')
+);
+const ReviewServicePage = lazy(
+  () => import('@/features/review/pages/ReviewServicePage')
+);
 
 function App() {
   return (
@@ -16,6 +21,10 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="/catalog" element={<CatalogPage />} />
           <Route path="/specialists/:id" element={<SpecialistProfilePage />} />
+          <Route
+            path="/review/specialists/:id"
+            element={<ReviewServicePage />}
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
