@@ -11,8 +11,7 @@
 
 @font-face {
   font-family: 'Open Sans';
-  src: url('/src/assets/fonts/Open_Sans/OpenSans-SemiBold.woff2')
-      format('woff2'),
+  src: url('/src/assets/fonts/Open_Sans/OpenSans-SemiBold.woff2') format('woff2'),
     url('/src/assets/fonts/Open_Sans/OpenSans-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
@@ -62,12 +61,14 @@
   --color-fiery-tenn: #ce5601;
   --color-red-tenn: #bf0000;
   --color-hot-cinnamon-500: #d9732b;
+  --color-chicago-600: #5b5959;
+  --color-disabled: rgba(217, 115, 43, 0.46);
   /* --color-wildSand: #f5f5f5; */
   /* --color-woodsmoke: #191919; */
   --color-shark: #272727;
-  /* --color-storm-dust: #656565; */
---shadow-box: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  --color-storm-dust: #656565;
 
+  --shadow-box: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
   --shadow-shark: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   --shadow-smoke: 0 1px 4px 4px rgba(0, 0, 0, 0.25);
   --shadow-inset-shark: inset 0 4px 4px 0 rgba(0, 0, 0, 0.25);
@@ -91,11 +92,12 @@ button:not(:disabled) {
 
 @layer components {
   .btn {
-    @apply bg-tenn text-alabaster rounded-2xl px-5 min-w-[200px] h-[40px]  transition-shadow duration-300 ease-in-out;
+    @apply bg-tenn text-alabaster rounded-2xl px-5 min-w-[200px] h-[40px] transition-shadow duration-300 ease-in-out;
   }
 
-  .btn:hover {
-    box-shadow: var(--shadow-shark);
+  .btn:hover,
+  .btn:focus {
+    @apply shadow-shark outline-none;
   }
 
   .btn:active {
@@ -111,7 +113,7 @@ button:not(:disabled) {
   }
 
   .btn-disabled {
-    @apply text-gray-400 bg-alabaster cursor-not-allowed border-2 border-gray-400;
+    @apply bg-disabled cursor-not-allowed;
 
     @variant hover {
       @apply shadow-none;
@@ -122,20 +124,55 @@ button:not(:disabled) {
     }
   }
 
+  .btn-google-disabled {
+    @apply text-gray-400 bg-alabaster border-2 border-gray-400;
+  }
+
   .btn-icon {
     @apply relative flex items-center justify-center pl-7;
   }
 
   .input-base {
-    @apply relative w-full border-2 border-fire rounded-2xl h-[40px] pl-5 pr-10 focus:outline-none caret-fire placeholder-gray-400 focus:placeholder-transparent focus:border-tenn;
+    @apply relative w-full border-2 border-tenn/40 rounded-2xl h-[40px] px-5 focus:outline-none caret-fire placeholder-gray-400 focus:border-tenn;
+  }
+
+  .book-radio-btn {
+    @apply appearance-none relative w-[21px] h-[21px] rounded-full border-2 border-fire checked:bg-alabaster checked:border-fire focus:outline-none cursor-pointer transition-all duration-300 ease-in-out;
+  }
+
+  .book-radio-btn:focus-visible {
+    @apply ring-2 ring-offset-2 ring-fire;
+  }
+
+  .book-radio-btn:checked::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: var(--color-tenn);
   }
 
   .no-scrollbar {
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE 10+ */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
   }
-  
+
   .no-scrollbar::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    display: none;
+    /* Chrome, Safari, Opera */
   }
+}
+
+.book-checkbox-btn+span {
+  @apply fill-none;
+}
+
+.book-checkbox-btn:checked+span {
+  @apply bg-tenn fill-alabaster border-tenn;
 }
