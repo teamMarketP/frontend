@@ -18,7 +18,7 @@ const BookingPrice = () => {
       <div className="flex gap-5">
         <div className="flex flex-col justify-between rounded-2xl xl:min-w-[200px] text-center bg-tenn p-[22px]">
           <p className="text-sm text-alabaster">Орієнтовна вартість</p>
-          <p className="text-xl text-cod-gray bg-alabaster rounded-2xl">
+          <p className="text-xl text-cod-gray bg-alabaster rounded-2xl py-[6px]">
             650 грн
           </p>
           <p className="text-sm text-alabaster">Ціна обговорюється</p>
@@ -41,7 +41,7 @@ const BookingPrice = () => {
             )}
           </div>
 
-          <p className="text-sm text-chicago-600 leading-unset">
+          <p className="text-sm text-chicago-600 leading-[19px] text-justify">
             Вартість вказана лише для попередньої оцінки бюджету вашого
             замовлення. В неї не включені матеріали та додаткові роботи. Точну
             вартість зможе сказати фахівець після обговорення деталей.

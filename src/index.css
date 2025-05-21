@@ -133,7 +133,7 @@ button:not(:disabled) {
   }
 
   .input-base {
-    @apply relative w-full border-2 border-fire rounded-2xl h-[40px] px-5 focus:outline-none caret-fire placeholder-gray-400 focus:placeholder-transparent focus:border-tenn;
+    @apply relative w-full border-2 border-tenn/40 rounded-2xl h-[40px] px-5 focus:outline-none caret-fire placeholder-gray-400 focus:border-tenn;
   }
 
   .book-radio-btn {
@@ -175,8 +175,4 @@ button:not(:disabled) {
 
 .book-checkbox-btn:checked+span {
   @apply bg-tenn fill-alabaster border-tenn;
-}
-
-.leading-unset {
-  line-height: unset;
 }
