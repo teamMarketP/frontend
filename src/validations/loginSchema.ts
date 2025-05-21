@@ -1,4 +1,4 @@
-import { emailRegex } from '@/constants/regex';
+import { emailRegex } from '@/shared/constants/regex';
 import { z } from 'zod';
 
 export const loginSchema = z.object({

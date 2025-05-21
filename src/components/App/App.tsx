@@ -2,11 +2,16 @@ import '@/components/App/App.css';
 import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import NotFoundPage from '@/pages/NotFound/NotFoundPage';
-import MainLayout from '@/components/Layout/MainLayout';
+import MainLayout from '@/shared/components/Layout/MainLayout';
 
 const HomePage = lazy(() => import('@/pages/Home/HomePage'));
-const CatalogPage = lazy(() => import('@/pages/Catalog/CatalogPage'));
-const SpecialistProfilePage = lazy(() => import('@/features/specialist/pages/SpecialistProfilePage'));
+const SearchSpecialistsPage = lazy(
+  () => import('@/features/searchSpecialists/pages/SearchSpecialistsPage')
+);
+const SpecialistProfilePage = lazy(
+  () => import('@/features/specialist/pages/SpecialistProfilePage')
+);
+const BookingPage = lazy(() => import('@/features/booking/pages/BookingPage'));
 
 function App() {
   return (
@@ -14,8 +19,9 @@ function App() {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="/catalog" element={<CatalogPage />} />
+          <Route path="/specialists" element={<SearchSpecialistsPage />} />
           <Route path="/specialists/:id" element={<SpecialistProfilePage />} />
+          <Route path="/specialists/:id/booking" element={<BookingPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
