@@ -18,10 +18,18 @@ const ReviewServicePage = () => {
   return (
     <FormProvider {...methods}>
       <section className="mx:auto xl:px-30 xl:pt-[69px] xl:pb-[73px]">
-        <BackButton className="mb-[34px]" />
-        <ReviewForm />
-        <SpecialistInfo />
-        <Button label="Відправити відгук" type="button" className="btn-lg" />
+        <BackButton className="xl:mb-[34px]" />
+        <div className="flex xl:gap-[57px]">
+          <ReviewForm />
+          <div className="flex flex-col xl:gap-5">
+            <SpecialistInfo />
+            <Button
+              label="Відправити відгук"
+              type="button"
+              className="btn-lg"
+            />
+          </div>
+        </div>
       </section>
     </FormProvider>
   );
