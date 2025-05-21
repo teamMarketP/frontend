@@ -5,7 +5,8 @@ import {
   reviewSchema,
   ReviewSchemaType,
 } from '@/features/review/validation/reviewSchema';
-import BackButton from '@/shared/utils/UI/BackButton';
+import BackButton from '@/shared/components/UI/BackButton';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProvider, useForm } from 'react-hook-form';
 
@@ -17,16 +18,16 @@ const ReviewServicePage = () => {
 
   return (
     <FormProvider {...methods}>
-      <section className="mx:auto xl:px-30 xl:pt-[69px] xl:pb-[73px]">
+      <section className="max-w-7xl m-auto xl:px-30 xl:pt-[69px] xl:pb-[73px]">
         <BackButton className="xl:mb-[34px]" />
         <div className="flex xl:gap-[57px]">
           <ReviewForm />
-          <div className="flex flex-col xl:gap-5">
+          <div className="flex flex-col justify-between">
             <SpecialistInfo />
             <Button
               label="Відправити відгук"
               type="button"
-              className="btn-lg"
+              className="btn-2lg"
             />
           </div>
         </div>

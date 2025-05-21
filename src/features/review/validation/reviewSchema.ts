@@ -1,4 +1,4 @@
-import { animalField, nameField, serviceField } from '@/validations/filds';
+import { animalField, nameField, serviceField } from '@/validations/fields';
 import { z } from 'zod';
 
 export const reviewSchema = z.object({

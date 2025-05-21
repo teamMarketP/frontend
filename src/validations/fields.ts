@@ -1,4 +1,4 @@
-import { emailRegex, nameRegex } from '@/constants/regex';
+import { emailRegex, nameRegex } from '@/shared/constants/regex';
 import { z } from 'zod';
 
 export const nameField = z
