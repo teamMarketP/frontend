@@ -5,7 +5,7 @@ import {
   numberRegex,
   specialCharRegex,
   upperCaseRegex,
-} from '@/constants/regex';
+} from '@/shared/constants/regex';
 import { z } from 'zod';
 
 export const registerSchema = z

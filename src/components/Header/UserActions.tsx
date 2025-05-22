@@ -1,5 +1,5 @@
-import LoginForm from '@/components/Auth/LoginForm';
-import RegisterForm from '@/components/Auth/RegisterForm';
+import LoginForm from '@/features/auth/components/LoginForm';
+import RegisterForm from '@/features/auth/components/RegisterForm';
 import Modal from '@/components/Ui/Modal/Modal';
 import { useState } from 'react';
 

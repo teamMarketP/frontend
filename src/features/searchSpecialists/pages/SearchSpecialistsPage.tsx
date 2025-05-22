@@ -49,7 +49,7 @@ const SearchSpecialistsPage = () => {
     setPage(newPage);
   };
   const renderSkeletons = () => (
-    <div className="grid grid-cols-2 gap-x-[40px] gap-y-[40px] mb-[58px]">
+    <div className="grid grid-cols-1 gap-[30px] mb-[30px] xl:grid-cols-2 xl:gap-x-[40px] xl:gap-y-[40px] xl:mb-[58px]">
       {Array.from({ length: skeletonCount }).map((_, i) => (
         <SpecialistCardSkeleton key={`skeleton-${i}`} />
       ))}
@@ -69,12 +69,12 @@ const SearchSpecialistsPage = () => {
   }
 
   return (
-    <div className="max-w-[1040px] mx-auto pt-[47px] pb-[58px]">
+    <div className="w-full xl:max-w-[1040px] mx-auto px-[15px] pt-[39px] pb-[30px] xl:px-0 xl:pt-[69px] xl:pb-[58px]">
       <BackButton />
       {!loading && !hasError && specialistsToShow.length > 0 && (
-        <h1 className="flex items-center gap-2 font-semibold text-xl text-fire mb-5">
+        <h1 className="flex items-center gap-2 font-semibold text-sm xl:text-xl text-fire mb-[39px] xl:mb-5 ">
           Ми знайшли фахівців для вашого запиту
-          <svg className="w-[17px] h-[15px] fill-fire">
+          <svg className="w-[15px] xl:w-[17px]  h-[15px] fill-fire">
             <use href="/icons.svg#icon-two-paws-print" />
           </svg>
         </h1>
