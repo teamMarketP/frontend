@@ -3,7 +3,6 @@ import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import NotFoundPage from '@/pages/NotFound/NotFoundPage';
 import MainLayout from '@/shared/components/Layout/MainLayout';
-import SearchSpecialistsPage from '@/features/searchSpecialists/pages/SearchSpecialistsPage';
 
 const HomePage = lazy(() => import('@/pages/Home/HomePage'));
 const SearchSpecialistsPage = lazy(
