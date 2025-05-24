@@ -41,15 +41,14 @@ const SpecialistCard = ({ specialist }: Props) => {
 
   return (
     <div
-      className="h-full
-    grid max-w-[345px] xl:max-w-[500px]
+      className="h-full w-full max-w-full grid 
     bg-alabaster rounded-2xl shadow-[0_1px_4px_4px_rgba(0,0,0,0.25)]
-    p-5 gap-x-[9px] gap-y-[23px] xl:gap-6
+    p-4 sm:p-5 gap-x-[9px] gap-y-[23px] xl:gap-6
     [grid-template-areas:'photo_text'_'bio_bio']
-    xl:[grid-template-areas:'photo text'_'photo text']
-    [grid-template-columns:138px_1fr]
-    xl:grid-cols-[236px_1fr]
-  "
+    xl:[grid-template-areas:'photo_text'_'photo_text']
+    [grid-template-columns:minmax(120px,138px)_minmax(0,1fr)]
+    xl:[grid-template-columns:236px_minmax(0,1fr)]
+    xl:max-w-[500px]"
     >
       {/* Фото */}
       <div className="[grid-area:photo] w-[138px] h-[174px] xl:w-[236px] xl:h-[360px] rounded-2xl overflow-hidden">
@@ -63,7 +62,11 @@ const SpecialistCard = ({ specialist }: Props) => {
           <img
             src={imageSrc}
             alt={`${name} ${family_name}`}
-            className="w-full h-full object-cover"
+            className={`w-full h-full object-cover ${
+              hasImageError
+                ? `border-2 border-fire rounded-2xl bg-alabaster`
+                : ''
+            }`}
             onError={e => {
               setHasImageError(true);
               e.currentTarget.onerror = null;
@@ -77,8 +80,8 @@ const SpecialistCard = ({ specialist }: Props) => {
       {/* Контент + десктопний опис */}
       <div className="[grid-area:text] flex flex-col gap-[18px] h-full xl:justify-between">
         {/* Ім’я + іконка */}
-        <div className="flex items-center justify-between gap-2 whitespace-nowrap overflow-hidden">
-          <h2 className="text-xl font-semibold text-fire truncate">
+        <div className="flex items-center gap-2 overflow-hidden">
+          <h2 className="text-xl font-semibold text-fire">
             {name} {shortFamilyName}
           </h2>
           {is_verified && (
@@ -124,7 +127,11 @@ const SpecialistCard = ({ specialist }: Props) => {
           label="Відкрити профіль"
           type="button"
           onClick={() => navigate(`/specialists/${id}`)}
-          className="w-full mt-auto h-[35px] xl:max-w-[200px] xl:h-[40px] whitespace-nowrap text-[15px] xl:text-base font-normal text-alabaster text-center rounded-xl bg-tenn hover:shadow-shark active:shadow-inset-shark"
+          className="w-full min-h-[35px] mt-auto xl:min-w-[200px] xl:h-[40px] whitespace-nowrap text-sm xl:text-base font-normal text-alabaster text-center rounded-lg xl:rounded-xl bg-tenn hover:shadow-shark active:shadow-inset-shark focus:outline-none
+focus:ring-2
+focus:ring-offset-2
+focus:ring-tenn overflow-hidden text-ellipsis
+"
           aria-label={`Відкрити профіль ${name} ${family_name}`}
         />
       </div>
@@ -134,82 +141,6 @@ const SpecialistCard = ({ specialist }: Props) => {
         <Bio text={bio ?? null} />
       </div>
     </div>
-
-    // <div className="grid max-w-[345px] xl:max-w-[500px] bg-alabaster rounded-2xl shadow-[0_1px_4px_4px_rgba(0,0,0,0.25)] p-[18px] gap-x-[9px] gap-y-[23px] xl:gap-6 [grid-template-areas:'photo_text'_'bio_bio'] xl:[grid-template-areas:'photo text'_'photo text'] grid-cols-[138px_1fr] xl:grid-cols-[236px_1fr] ">
-    //   {/* Фото */}
-    //   <div className="[grid-area:photo] rounded-2xl overflow-hidden">
-    //     <picture>
-    //       {!hasImageError && hasImageBase && (
-    //         <source
-    //           srcSet={`/imagesSpecialists/${imageBase}-2x.webp 2x, /imagesSpecialists/${imageBase}-1x.webp 1x`}
-    //           type="image/webp"
-    //         />
-    //       )}
-    //       <img
-    //         src={imageSrc}
-    //         alt={`${name} ${family_name}`}
-    //         className="w-[138px] h-[174px] xl:w-[236px] xl:h-[360px] object-cover"
-    //         onError={e => {
-    //           setHasImageError(true);
-    //           e.currentTarget.onerror = null;
-    //           e.currentTarget.src = '/placeholder.webp';
-    //         }}
-    //         loading="lazy"
-    //       />
-    //     </picture>
-    //   </div>
-
-    //   {/* Контент */}
-    //   <div className="[grid-area:text] h-[174px] flex flex-col gap-[18px]  min-w-0">
-    //     {/* Рядок: Ім’я + іконка праворуч (моб) */}
-    //     <div className="flex items-center  gap-[10px]">
-    //       <h2 className="text-xl font-semibold text-fire">
-    //         {name} {shortFamilyName}
-    //       </h2>
-
-    //       {is_verified && (
-    //         <svg
-    //           className="w-[17px] h-[17px] fill-fire shrink-0 xl:hidden"
-    //           aria-label="Перевірений фахівець"
-    //           role="img"
-    //         >
-    //           <use href="/icons.svg#icon-verified" />
-    //         </svg>
-    //       )}
-    //     </div>
-
-    //     {/* Бейдж для десктопу */}
-    //     {is_verified && (
-    //       <div className="hidden xl:flex items-center gap-[7px]">
-    //         <svg
-    //           className="w-[17px] h-[17px] fill-fire"
-    //           aria-label="Перевірений фахівець"
-    //           role="img"
-    //         >
-    //           <use href="/icons.svg#icon-verified" />
-    //         </svg>
-    //         <span className="text-sm font-normal text-cod-gray">
-    //           Перевірений <br /> фахівець
-    //         </span>
-    //       </div>
-    //     )}
-
-    //     <p className="text-sm text-cod-gray">
-    //       <span className="font-semibold">Досвід:</span>{' '}
-    //       <span className="font-normal">{renderExperience()}</span>
-    //     </p>
-    //     <Button
-    //       label="Відкрити профіль"
-    //       type="button"
-    //       onClick={() => navigate(`/specialists/${id}`)}
-    //       className="w-full w-max-[158px] h-[35px] xl:max-w-[200px] mt-auto xl:h-[40px] text-[15px] whitespace-nowrap xl:text-base font-normal text-alabaster text-center rounded-xl bg-tenn hover:shadow-shark active:shadow-inset-shark"
-    //       aria-label={`Відкрити профіль ${name} ${family_name}`}
-    //     />
-    //   </div>
-    //   <div className="[grid-area:bio] ">
-    //     <Bio text={bio ?? null} />
-    //   </div>
-    // </div>
   );
 };
 

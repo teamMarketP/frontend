@@ -47,10 +47,10 @@ const Pagination = ({ currentPage, totalPages, onChange }: Props) => {
 
   return (
     <div className="flex justify-center">
-      <div className="flex  gap-2">
+      <div className="flex items-center">
         <button
           type="button"
-          className={`w-7 h-7 flex items-center justify-center transition-opacity ${
+          className={`w-7 h-7 xl:mr-[30px] flex items-center justify-center transition-opacity ${
             currentPage === 1
               ? 'opacity-50 pointer-events-none cursor-not-allowed'
               : 'fill-fire'
@@ -63,40 +63,41 @@ const Pagination = ({ currentPage, totalPages, onChange }: Props) => {
             <use href="/icons.svg#icon-arrow-left" />
           </svg>
         </button>
-
-        {generatePageRange().map((page, i) =>
-          page === DOTS ? (
-            <span
-              key={`dots-${i}`}
-              className="w-7 h-7 flex items-center justify-center text-fire text-xl"
-              aria-hidden="true"
-              title="Проміжні сторінки"
-            >
-              {DOTS}
-            </span>
-          ) : (
-            <button
-              key={page}
-              type="button"
-              onClick={() => handleClick(page)}
-              aria-label={`Перейти на сторінку ${page}${
-                page === currentPage ? ' (поточна сторінка)' : ''
-              }`}
-              aria-current={page === currentPage ? 'page' : undefined}
-              className={`w-7 h-7 flex items-center justify-center text-fire rounded ${
-                page === currentPage
-                  ? 'font-bold text-2xl'
-                  : 'font-semibold text-xl'
-              }`}
-            >
-              {page}
-            </button>
-          )
-        )}
-
+        {/* Цифри та DOTS */}
+        <div className="flex xl:gap-[17px]">
+          {generatePageRange().map((page, i) =>
+            page === DOTS ? (
+              <span
+                key={`dots-${i}`}
+                className="w-[17px] h-[27px] flex items-center justify-center text-fire text-xl"
+                aria-hidden="true"
+                title="Проміжні сторінки"
+              >
+                {DOTS}
+              </span>
+            ) : (
+              <button
+                key={page}
+                type="button"
+                onClick={() => handleClick(page)}
+                aria-label={`Перейти на сторінку ${page}${
+                  page === currentPage ? ' (поточна сторінка)' : ''
+                }`}
+                aria-current={page === currentPage ? 'page' : undefined}
+                className={`w-[30px] h-[30px] flex items-center justify-center text-fire rounded-[4px] ${
+                  page === currentPage
+                    ? 'border border-fire font-bold text-[22px]'
+                    : 'font-semibold text-xl'
+                }`}
+              >
+                {page}
+              </button>
+            )
+          )}
+        </div>
         <button
           type="button"
-          className={`w-7 h-7 flex items-center justify-center  transition-opacity ${
+          className={`w-7 h-7 xl:ml-[30px] flex items-center justify-center  transition-opacity ${
             currentPage === totalPages
               ? 'opacity-50 pointer-events-none cursor-not-allowed'
               : 'fill-fire'
