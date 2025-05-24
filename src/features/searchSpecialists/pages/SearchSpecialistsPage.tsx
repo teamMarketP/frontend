@@ -72,11 +72,14 @@ const SearchSpecialistsPage = () => {
     <div className="w-full max-w-[345px] xl:max-w-[1040px] mx-auto px-[15px] pt-[39px] pb-[30px] xl:px-0 xl:pt-[69px] xl:pb-[58px]">
       <BackButton />
       {!loading && !hasError && specialistsToShow.length > 0 && (
-        <h1 className="flex items-center gap-2 font-semibold text-sm xl:text-xl text-fire mb-[39px] xl:mb-5 ">
-          Ми знайшли фахівців для вашого запиту
-          <svg className="w-[15px] xl:w-[17px]  h-[15px] fill-fire">
-            <use href="/icons.svg#icon-two-paws-print" />
-          </svg>
+        <h1 className="font-semibold text-sm xl:text-xl text-fire mb-[39px] xl:mb-5">
+          Ми знайшли фахівців для вашого{' '}
+          <span className="whitespace-nowrap inline-flex items-center gap-2">
+            запиту
+            <svg className="w-[15px] xl:w-[17px] h-[15px] fill-fire">
+              <use href="/icons.svg#icon-two-paws-print" />
+            </svg>
+          </span>
         </h1>
       )}
       <div ref={listRef}>{content}</div>

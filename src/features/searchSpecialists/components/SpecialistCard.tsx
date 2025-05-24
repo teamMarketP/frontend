@@ -46,12 +46,12 @@ const SpecialistCard = ({ specialist }: Props) => {
     p-4 sm:p-5 gap-x-[9px] gap-y-[23px] xl:gap-6
     [grid-template-areas:'photo_text'_'bio_bio']
     xl:[grid-template-areas:'photo_text'_'photo_text']
-    [grid-template-columns:minmax(120px,138px)_minmax(0,1fr)]
+    [grid-template-columns:minmax(80px,138px)_minmax(0,1fr)]
     xl:[grid-template-columns:236px_minmax(0,1fr)]
     xl:max-w-[500px]"
     >
       {/* Фото */}
-      <div className="[grid-area:photo] w-[138px] h-[174px] xl:w-[236px] xl:h-[360px] rounded-2xl overflow-hidden">
+      <div className="[grid-area:photo] max-w-[138px] h-[174px] xl:max-w-[236px] xl:h-[360px] rounded-2xl overflow-hidden">
         <picture>
           {!hasImageError && hasImageBase && (
             <source
@@ -80,7 +80,8 @@ const SpecialistCard = ({ specialist }: Props) => {
       {/* Контент + десктопний опис */}
       <div className="[grid-area:text] flex flex-col gap-[18px] h-full xl:justify-between">
         {/* Ім’я + іконка */}
-        <div className="flex items-center gap-2 overflow-hidden">
+        <div className="flex items-center gap-2">
+        <span className="inline-flex items-center gap-2 whitespace-nowrap flex-wrap">
           <h2 className="text-xl font-semibold text-fire">
             {name} {shortFamilyName}
           </h2>
@@ -93,6 +94,7 @@ const SpecialistCard = ({ specialist }: Props) => {
               <use href="/icons.svg#icon-verified" />
             </svg>
           )}
+          </span>
         </div>
 
         {/* Десктопний бейдж */}
@@ -127,11 +129,7 @@ const SpecialistCard = ({ specialist }: Props) => {
           label="Відкрити профіль"
           type="button"
           onClick={() => navigate(`/specialists/${id}`)}
-          className="w-full min-h-[35px] mt-auto xl:min-w-[200px] xl:h-[40px] whitespace-nowrap text-sm xl:text-base font-normal text-alabaster text-center rounded-lg xl:rounded-xl bg-tenn hover:shadow-shark active:shadow-inset-shark focus:outline-none
-focus:ring-2
-focus:ring-offset-2
-focus:ring-tenn overflow-hidden text-ellipsis
-"
+          className="w-full min-h-[35px] mt-auto xl:min-w-[200px] xl:h-[40px] whitespace-nowrap text-sm xl:text-base font-normal text-alabaster text-center rounded-lg xl:rounded-xl bg-tenn hover:shadow-shark active:shadow-inset-shark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-tenn overflow-hidden text-ellipsis"
           aria-label={`Відкрити профіль ${name} ${family_name}`}
         />
       </div>
