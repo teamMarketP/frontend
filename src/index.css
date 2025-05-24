@@ -93,7 +93,7 @@ button:not(:disabled) {
 
 @layer components {
   .btn {
-    @apply bg-tenn text-alabaster rounded-2xl px-5 min-w-[200px] h-[40px] transition-shadow duration-300 ease-in-out;
+    @apply bg-tenn text-alabaster max-w-[158px] h-[35px] rounded-2xl xl:px-5 xl:min-w-[200px] xl:h-[40px] transition-shadow duration-300 ease-in-out;
   }
 
   .btn:hover,

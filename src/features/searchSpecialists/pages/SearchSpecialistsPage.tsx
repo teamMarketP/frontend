@@ -69,7 +69,7 @@ const SearchSpecialistsPage = () => {
   }
 
   return (
-    <div className="w-full xl:max-w-[1040px] mx-auto px-[15px] pt-[39px] pb-[30px] xl:px-0 xl:pt-[69px] xl:pb-[58px]">
+    <div className="w-full max-w-[345px] xl:max-w-[1040px] mx-auto px-[15px] pt-[39px] pb-[30px] xl:px-0 xl:pt-[69px] xl:pb-[58px]">
       <BackButton />
       {!loading && !hasError && specialistsToShow.length > 0 && (
         <h1 className="flex items-center gap-2 font-semibold text-sm xl:text-xl text-fire mb-[39px] xl:mb-5 ">
